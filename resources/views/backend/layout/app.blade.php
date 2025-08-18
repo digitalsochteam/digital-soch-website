@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('backend.layout.head')
-@include('backend.layout.scripts')
+
+<body>
+
+    <x-header />
+
+    <main>
+        @yield('content')
+    </main>
+
+    @include('backend.layout.script')
+</body>
 
 </html>
