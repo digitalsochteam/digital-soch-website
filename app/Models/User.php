@@ -6,43 +6,93 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
+use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
+
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
+    protected $table = 'employeeDetails';
     /**
      * The attributes that are mass assignable.
      *
-     * @var list<string>
+     * @var array<int, string>
      */
+
     protected $fillable = [
-        'name',
-        'email',
+        'loginId',
+        'employeeName',
+        'employeeFatherName',
+        'contactNumber',
+        'altcontactNumber',
+        'emailId',
+        'altemailId',
+        'dateOfBirth',
+        'gender',
+        'address',
+        'panNumber',
+        'aadharNumber',
+        'pan_img_upload',
+        'aadhar_img_upload',
+        'profile_img_upload',
+        'empCode',
+        'profile_id',
+        'joiningDate',
+        'confirmationDate',
+        'branch',
+        'yearOfExp',
+        'uanNumber',
+        'bankAccountNumber',
+        'bankIfscCode',
+        'cheque_img_upload',
+        'certificates_img_upload',
+        'appointment_img_upload',
+        'oragnation_img_upload',
+        'status',
+        'passExpiryDate',
         'password',
+        'vpassword',
+        'resignDate',
+        'resignReason',
+        'remember_token',
+        'created_at',
+        'updated_at'
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var list<string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
+    protected $casts = [
+        'dateOfBirth' => 'date',
+        'joiningDate' => 'date',
+        'confirmationDate' => 'date',
+        'passExpiryDate' => 'date',
+        'yearOfExp' => 'integer',
+    ];
+
+
+    public function hasPermission(string $permission): bool
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        $profile = $this->profile;
+
+        if (!$profile)
+            return false;
+
+        $rolePermissions = $profile->roles->flatMap(function ($role) {
+            return $role->permissions;
+        });
+
+        $extraPermissions = $profile->permissions ?? collect();
+
+        return $rolePermissions
+            ->merge($extraPermissions)
+            ->pluck('name')
+            ->unique()
+            ->contains($permission);
     }
 }

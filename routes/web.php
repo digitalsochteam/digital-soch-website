@@ -1,8 +1,33 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\DashBoardController;
+use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AuthController;
 
-Route::get('/', [DashBoardController::class, 'index']);
-Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('/about', function () {
+    return view('dashboard.about');
+})->name('about');
+Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+
+
+// Backend Routes
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'postlogin'])->name('login.post');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::middleware(['auth'])->group(function () {
+    Route::prefix('backend')->group(function () {
+        Route::get('/', [DashboardController::class, 'dashboard'])->name('backend.dashboard');
+        Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard.index');
+
+
+        Route::prefix('productdetails')->name('product-details.')->group(function () {
+            Route::get('/', [ProductController::class, 'index'])->name('index');
+            Route::get('/create', [ProductController::class, 'create'])->name('create');
+            Route::post('/', [ProductController::class, 'store'])->name('store');
+
+
+        });
+    });
+});
