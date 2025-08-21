@@ -12,7 +12,7 @@
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
-
+                    <th>Packcage Category</th>
                     <th>Category</th>
                     <th>Subcategory</th>
                     <th>Product</th>
@@ -21,12 +21,14 @@
             <tbody>
                 @foreach ($details as $detail)
                     <tr>
+                        <td>{{ $detail->products->name }}</td>
                         <td>{{ $detail->category }}</td>
                         <td>{{ $detail->subcategory }}</td>
                         <td>{{ $detail->product }}</td>
                         <td>
-                            <a href="" class="btn btn-sm btn-info">Edit</a>
-                            <form action="" method="POST" class="d-inline">
+                            <a href="{{ route('product-details.edit', $detail->id) }}" class="btn btn-sm btn-info">Edit</a>
+                            <form action="{{ route('product-details.destroy', $detail->id) }}" method="POST"
+                                class="d-inline">
                                 @csrf @method('DELETE')
                                 <button class="btn btn-sm btn-danger"
                                     onclick="return confirm('Delete this detail?')">Delete</button>

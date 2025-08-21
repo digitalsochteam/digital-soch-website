@@ -1,14 +1,15 @@
 @extends('backend.layout.app')
 @section('content')
     <div class="container py-4">
-        <h4>Create Product Detail</h4>
-        <form action="{{ route('product-details.store') }}" method="POST" enctype="multipart/form-data">
+        <h4>Edit Product Detail</h4>
+        <form action="{{ route('product-details.update', parameters: $detail->id) }}" method="POST"
+            enctype="multipart/form-data">
             @csrf
-            @include('backend.product.form')
+            @method('PUT')
+            @include('backend.product.form', ['edit' => true])
         </form>
     </div>
 @endsection
-
 @section('scripts')
     <script>
         $(document).ready(function() {
@@ -24,7 +25,9 @@
                     ['fontname', ['fontname']],
                     ['fontsize', ['fontsize']],
                     ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['para', ['ul', 'ol',
+                        'paragraph'
+                    ]], // ✅ Important: "ul" and "ol" are for list buttons
                     ['height', ['height']],
                     ['insert', ['link', 'picture', 'video', 'table', 'hr']],
                     ['misc', ['fullscreen', 'codeview', 'undo', 'redo', 'help']]

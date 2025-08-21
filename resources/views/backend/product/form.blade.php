@@ -1,14 +1,10 @@
-@php
-    $gallery = $detail->gallery_images ?? [];
-@endphp
-
 <div class="mb-3">
-    <label for="pakage_destination_id" class="form-label">Select Package</label>
-    <select name="pakage_destination_id" class="form-select" required>
+    <label for="product_id" class="form-label">Select Package</label>
+    <select name="product_id" class="form-select" required>
         <option value="">-- Choose --</option>
         @foreach ($packages as $id => $title)
             <option value="{{ $id }}"
-                {{ old('pakage_destination_id', $detail->pakage_destination_id ?? '') == $id ? 'selected' : '' }}>
+                {{ old('product_id', $detail->product_id ?? '') == $id ? 'selected' : '' }}>
                 {{ $title }}
             </option>
         @endforeach
