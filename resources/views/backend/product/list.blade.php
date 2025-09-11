@@ -12,6 +12,7 @@
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
+                    <th>Position</th>
                     <th>Packcage Category</th>
                     <th>Category</th>
                     <th>Subcategory</th>
@@ -20,7 +21,11 @@
             </thead>
             <tbody>
                 @foreach ($details as $detail)
+                    @php
+                        Log::info($detail->products);
+                    @endphp
                     <tr>
+                        <td>{{ $detail->position }}</td>
                         <td>{{ $detail->products->name }}</td>
                         <td>{{ $detail->category }}</td>
                         <td>{{ $detail->subcategory }}</td>

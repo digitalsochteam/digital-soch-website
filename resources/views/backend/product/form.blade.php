@@ -1,6 +1,6 @@
 <div class="mb-3">
-    <label for="product_id" class="form-label">Select Package</label>
-    <select name="product_id" class="form-select" required>
+    <label for="product_id" class="form-label">Select Product</label>
+    <select name="product_id" id="product_id" class="form-select" required>
         <option value="">-- Choose --</option>
         @foreach ($packages as $id => $title)
             <option value="{{ $id }}"
@@ -11,22 +11,50 @@
     </select>
 </div>
 
+
+
+{{-- CATEGORY --}}
 <div class="mb-3">
-    <label>Category</label>
-    <input type="text" name="category" class="form-control" value="{{ old('category', $detail->category ?? '') }}"
-        required>
+    <label for="category" class="form-label">Category</label>
+    <select id="category" name="category" class="form-select" required>
+        <option value="">-- Choose Category --</option>
+        <option value="__new__">+ Add New Category</option>
+    </select>
+
+    {{-- Add new category input --}}
+    <div id="newCategoryWrapper" class="mt-2 d-none">
+        <input type="text" id="new_category" name="new_category" class="form-control"
+            placeholder="Enter new category">
+        <small id="category-warning" class="text-danger d-none">
+            This category already exists.
+        </small>
+    </div>
 </div>
 
+{{-- SUB-CATEGORY --}}
 <div class="mb-3">
-    <label>Sub Category</label>
-    <input type="text" name="subcategory" class="form-control"
-        value="{{ old('subcategory', $detail->subcategory ?? '') }}" required>
+    <label for="subcategory" class="form-label">Subcategory</label>
+    <select id="subcategory" name="subcategory" class="form-select" required>
+        <option value="">-- Choose Subcategory --</option>
+        <option value="__new__">+ Add New Subcategory</option>
+    </select>
+
+    {{-- Add new subcategory input --}}
+    <div id="newSubWrapper" class="mt-2 d-none">
+        <input type="text" id="new_subcategory" name="new_subcategory" class="form-control"
+            placeholder="Enter new subcategory">
+        <small id="subcategory-warning" class="text-danger d-none">
+            This subcategory already exists in the selected category.
+        </small>
+    </div>
 </div>
+
+
 
 <div class="mb-3">
     <label>Product</label>
-    <input type="text" name="product" class="form-control" value="{{ old('product', $detail->product ?? '') }}"
-        required>
+    <input type="text" name="product" id="product" class="form-control"
+        value="{{ old('product', $detail->product ?? '') }}" required>
 </div>
 
 <div class="mb-3">
@@ -41,3 +69,133 @@
 </div>
 
 <button type="submit" class="btn btn-success">Save</button>
+@php
+    $categoryTree = array_values(getCategoryList()); // helper data
+@endphp
+{{-- 
+<script>
+    const categoryTree = @json($categoryTree);
+    const currentCategory = @json(old('category', $detail->category ?? ''));
+    const currentSubcategory = @json(old('subcategory', $detail->subcategory ?? ''));
+</script> --}}
+
+<script>
+    // Data from backend
+    const categoryTree = @json($categoryTree);
+    const currentCategory = @json(old('category', $detail->category ?? ''));
+    const currentSubcategory = @json(old('subcategory', $detail->subcategory ?? ''));
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const categorySelect = document.getElementById('category');
+        const subcategorySelect = document.getElementById('subcategory');
+
+        const newCatWrap = document.getElementById('newCategoryWrapper');
+        const newCatInput = document.getElementById('new_category');
+        const catWarning = document.getElementById('category-warning');
+
+        const newSubWrap = document.getElementById('newSubWrapper');
+        const newSubInput = document.getElementById('new_subcategory');
+        const subWarning = document.getElementById('subcategory-warning');
+
+        /* ---------- 1. Fill Category Dropdown ---------- */
+        categoryTree.forEach(cat => {
+            const opt = document.createElement('option');
+            opt.value = cat.category;
+            opt.textContent = cat.category;
+            categorySelect.appendChild(opt);
+        });
+
+        /* ---------- 2. Prefill Category & Subcategory ---------- */
+        if (currentCategory) {
+            categorySelect.value = currentCategory;
+            // populate subcategories for this category
+            populateSubcategories(currentCategory, function() {
+                if (currentSubcategory) {
+                    subcategorySelect.value = currentSubcategory;
+                }
+            });
+        }
+
+        /* ---------- 3. When Category Changes ---------- */
+        categorySelect.addEventListener('change', function() {
+            const val = this.value;
+
+            // reset subcategory list
+            subcategorySelect.innerHTML =
+                `<option value="">-- Choose Subcategory --</option>
+             <option value="__new__">+ Add New Subcategory</option>`;
+
+            newCatWrap.classList.add('d-none');
+            newCatInput.value = '';
+            newCatInput.required = false;
+            catWarning.classList.add('d-none');
+
+            if (val === '__new__') {
+                newCatWrap.classList.remove('d-none');
+                newCatInput.required = true;
+                return;
+            }
+
+            populateSubcategories(val);
+        });
+
+        /* ---------- 4. When Subcategory Changes ---------- */
+        subcategorySelect.addEventListener('change', function() {
+            const val = this.value;
+
+            newSubWrap.classList.add('d-none');
+            newSubInput.value = '';
+            newSubInput.required = false;
+            subWarning.classList.add('d-none');
+
+            if (val === '__new__') {
+                newSubWrap.classList.remove('d-none');
+                newSubInput.required = true;
+            }
+        });
+
+        /* ---------- 5. Duplicate Checks ---------- */
+        newCatInput.addEventListener('input', function() {
+            const val = this.value.trim().toLowerCase();
+            const exists = categoryTree.some(c => c.category.toLowerCase() === val);
+            catWarning.classList.toggle('d-none', !exists);
+        });
+
+        newSubInput.addEventListener('input', function() {
+            const currentCat = categorySelect.value;
+            const val = this.value.trim().toLowerCase();
+            const selectedCat = categoryTree.find(c => c.category === currentCat);
+            const exists = selectedCat?.subcategories.some(
+                sc => sc.subcategory.toLowerCase() === val
+            );
+            subWarning.classList.toggle('d-none', !exists);
+        });
+
+        /* ---------- 6. Helper: Populate Subcategories ---------- */
+        function populateSubcategories(categoryName, callback) {
+            subcategorySelect.innerHTML =
+                `<option value="">-- Choose Subcategory --</option>
+             <option value="__new__">+ Add New Subcategory</option>`;
+
+            const selectedCat = categoryTree.find(c => c.category === categoryName);
+            if (selectedCat) {
+                selectedCat.subcategories.forEach(sc => {
+                    const opt = document.createElement('option');
+                    opt.value = sc.subcategory;
+                    opt.textContent = sc.subcategory;
+                    subcategorySelect.appendChild(opt);
+                });
+            }
+            if (typeof callback === 'function') callback();
+        }
+
+    });
+
+
+    document.getElementById('product_id').addEventListener('change', function() {
+        let selectedText = this.options[this.selectedIndex].text;
+        document.getElementById('product').value = selectedText !== "-- Choose --" ? selectedText : "";
+    });
+</script>

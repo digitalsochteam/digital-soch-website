@@ -4,13 +4,13 @@
 
 <body>
 
-    <x-header />
+    @include('frontend.layout.header')
 
     <main>
         @yield('content')
     </main>
 
-    <x-footer />
+    @include('frontend.layout.footer')
     @include('frontend.layout.script')
 </body>
 

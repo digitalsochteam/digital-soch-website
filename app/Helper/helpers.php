@@ -66,4 +66,3 @@ function getProductById($id)
         'image' => asset('storage/' . $product->image), // Assuming image is stored in public storage
     ];
 }
-;

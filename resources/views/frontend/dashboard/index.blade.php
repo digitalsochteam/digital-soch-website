@@ -1,4 +1,4 @@
-@extends('backend.layout.app')
+@extends('frontend.layout.app')
 @section(section: 'content')
     <section id="tz-hero-slider" class="tz-hero-slider-sec">
         <div class="tz-hero-slider-area swiper-container">
@@ -65,16 +65,16 @@
                                         <img src="{{ asset('assets/img/hero/hs1.png') }}" alt="">
                                     </div>
                                     <!-- <div class="tz-hs-user d-flex align-items-center justify-content-center ul-li">
-                                                                                                                                                                                                     <ul>
-                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst1.jpg" alt=""></li>
-                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst2.jpg" alt=""></li>
-                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst3.jpg" alt=""></li>
-                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst4.jpg" alt=""></li>
-                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst5.jpg" alt=""></li>
-                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst6.jpg" alt=""></li>
-                                                                                                                                                                                                        <li><span>+</span></li>
-                                                                                                                                                                                                     </ul>
-                                                                                                                                                                                                  </div> -->
+                                                                                                                                                                                                         <ul>
+                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst1.jpg" alt=""></li>
+                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst2.jpg" alt=""></li>
+                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst3.jpg" alt=""></li>
+                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst4.jpg" alt=""></li>
+                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst5.jpg" alt=""></li>
+                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst6.jpg" alt=""></li>
+                                                                                                                                                                                                            <li><span>+</span></li>
+                                                                                                                                                                                                         </ul>
+                                                                                                                                                                                                      </div> -->
                                 </div>
                             </div>
                         </div>
@@ -142,16 +142,16 @@
                                         <img src="{{ asset('assets/img/hero/hs1.png') }}" alt="">
                                     </div>
                                     <!-- <div class="tz-hs-user d-flex align-items-center justify-content-center ul-li">
-                                                                                                                                                                                                     <ul>
-                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst1.jpg" alt=""></li>
-                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst2.jpg" alt=""></li>
-                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst3.jpg" alt=""></li>
-                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst4.jpg" alt=""></li>
-                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst5.jpg" alt=""></li>
-                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst6.jpg" alt=""></li>
-                                                                                                                                                                                                        <li><span>+</span></li>
-                                                                                                                                                                                                     </ul>
-                                                                                                                                                                                                  </div> -->
+                                                                                                                                                                                                         <ul>
+                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst1.jpg" alt=""></li>
+                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst2.jpg" alt=""></li>
+                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst3.jpg" alt=""></li>
+                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst4.jpg" alt=""></li>
+                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst5.jpg" alt=""></li>
+                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst6.jpg" alt=""></li>
+                                                                                                                                                                                                            <li><span>+</span></li>
+                                                                                                                                                                                                         </ul>
+                                                                                                                                                                                                      </div> -->
                                 </div>
                             </div>
                         </div>
@@ -219,16 +219,16 @@
                                         <img src="{{ asset('assets/img/hero/hs1.png') }}" alt="">
                                     </div>
                                     <!-- <div class="tz-hs-user d-flex align-items-center justify-content-center ul-li">
-                                                                                                                                                                                                     <ul>
-                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst1.jpg" alt=""></li>
-                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst2.jpg" alt=""></li>
-                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst3.jpg" alt=""></li>
-                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst4.jpg" alt=""></li>
-                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst5.jpg" alt=""></li>
-                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst6.jpg" alt=""></li>
-                                                                                                                                                                                                        <li><span>+</span></li>
-                                                                                                                                                                                                     </ul>
-                                                                                                                                                                                                  </div> -->
+                                                                                                                                                                                                         <ul>
+                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst1.jpg" alt=""></li>
+                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst2.jpg" alt=""></li>
+                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst3.jpg" alt=""></li>
+                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst4.jpg" alt=""></li>
+                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst5.jpg" alt=""></li>
+                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst6.jpg" alt=""></li>
+                                                                                                                                                                                                            <li><span>+</span></li>
+                                                                                                                                                                                                         </ul>
+                                                                                                                                                                                                      </div> -->
                                 </div>
                             </div>
                         </div>
@@ -247,9 +247,9 @@
         </div>
     </section>
     <!-- End of Hero Slider section
-                                                                                                                                     ============================================= -->
+                                                                                                                                         ============================================= -->
     <!-- Start of Feature section
-                                                                                                                                     ============================================= -->
+                                                                                                                                         ============================================= -->
     <section id="tz-feature" class="tz-feature-sec pt-115 pb-115">
         <div class="tz-section-title headline text-center">
             <div class="subtitle tz-sub-tilte tz-sub-anim  text-uppercase">
@@ -330,9 +330,9 @@
         </div>
     </section>
     <!-- End of Feature section
-                                                                                                                 ============================================= -->
+                                                                                                                     ============================================= -->
     <!-- Start of About section
-                                                                                                                 ============================================= -->
+                                                                                                                     ============================================= -->
     <section id="tz-about" class="tz-about-section pt-120 pb-120">
         <div class="container">
             <div class="tz-about-content d-flex justify-content-between">
@@ -367,14 +367,14 @@
                             to cater each and every aspect of your online presence</p>
                     </div>
                     <!-- <div class="tz-ab-ft-wrap  d-flex align-items-center">
-                                                                                                                             <div class="item-icon d-flex align-items-center justify-content-center">
-                                                                                                                                <img src="assets/img/icon/ic5.svg" alt="">
-                                                                                                                             </div>
-                                                                                                                             <div class="item-text headline pera-content">
-                                                                                                                                <h3>Best Technical Solution</h3>
-                                                                                                                                <p>Nanotechnology immersion along the information high will close the loop on focusing solely</p>
-                                                                                                                             </div>
-                                                                                                                          </div> -->
+                                                                                                                                 <div class="item-icon d-flex align-items-center justify-content-center">
+                                                                                                                                    <img src="assets/img/icon/ic5.svg" alt="">
+                                                                                                                                 </div>
+                                                                                                                                 <div class="item-text headline pera-content">
+                                                                                                                                    <h3>Best Technical Solution</h3>
+                                                                                                                                    <p>Nanotechnology immersion along the information high will close the loop on focusing solely</p>
+                                                                                                                                 </div>
+                                                                                                                              </div> -->
                     <div class="tz-btn-1 mt-40">
                         <a href="#."><span>Learn More</span></a>
                     </div>
@@ -383,9 +383,9 @@
         </div>
     </section>
     <!-- End of About section
-                                                                                                     ============================================= -->
+                                                                                                         ============================================= -->
     <!-- Start of Service section
-                                                                                                     ============================================= -->
+                                                                                                         ============================================= -->
     <section id="tz-service" class="tz-service-sec pt-115 pb-115">
         <div class="container">
             <div class="tz-section-title headline text-center">
@@ -497,10 +497,10 @@
         </div>
     </section>
     <!-- End of Service section
-                                                                                                 ============================================= -->
+                                                                                                     ============================================= -->
 
     <!-- Start of Cta section
-                                                                                                 ============================================= -->
+                                                                                                     ============================================= -->
     <section id="tz-cta" class="tz-cta-sec">
         <div class="tz-cta-content  position-relative pt-120 pb-120 ">
             <span class="tz-cta-shape1 position-absolute"><img src="{{ asset('assets/img/shape/c-shape1.png') }}"
@@ -536,10 +536,10 @@
         </div>
     </section>
     <!-- End of Cta section
-                                                                                 ============================================= -->
+                                                                                     ============================================= -->
 
     <!-- Start of Testimonial section
-                                                                                 ============================================= -->
+                                                                                     ============================================= -->
     <section id="tz-testimonial" class="tz-testimonial-sec pt-115 position-relative">
         <span class="tz-testi-shape position-absolute"><img src="assets/img/shape/bottom-shape.svg"></span>
         <span class="tz-testi-bg zoom_view position-absolute"><img src="assets/img/bg/tst-bg.jpg"></span>
@@ -820,10 +820,10 @@
         </div>
     </section>
     <!-- End of Testimonial section
-                                                                     ============================================= -->
+                                                                         ============================================= -->
 
     <!-- Start of Sponsor section
-                                                                     ============================================= -->
+                                                                         ============================================= -->
     <section id="tz-sponsor" class="tz-sponsor-sec pb-105">
         <div class="tz-sponsor-content marquee-right">
             <div class="tz-sponsor-item">
@@ -864,5 +864,5 @@
         </div>
     </section>
     <!-- End of Sponsor section
-                                         ============================================= -->
+                                             ============================================= -->
 @endsection

@@ -43,6 +43,14 @@ class ProductController extends Controller
             'position' => 'required|numeric',
         ]);
 
+        // Replace "__new__" with user-entered text
+        if ($data['category'] === '__new__' && $request->filled('new_category')) {
+            $data['category'] = $request->new_category;
+        }
+        if ($data['subcategory'] === '__new__' && $request->filled('new_subcategory')) {
+            $data['subcategory'] = $request->new_subcategory;
+        }
+
         ProductDetails::create($data);
 
         return redirect()->route('product-details.index')->with('success', 'Detail created.');
