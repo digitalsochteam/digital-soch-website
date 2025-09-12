@@ -1,7 +1,7 @@
 @extends('backend.layout.app')
 @section('content')
     <div class="container py-4">
-        <h4>Edit Product Detail</h4>
+        <h4 style="font-size: 24px; font-weight: 700; margin-bottom: 20px;">Edit Product Detail</h4>
         <form action="{{ route('product-details.update', parameters: $detail->id) }}" method="POST"
             enctype="multipart/form-data">
             @csrf

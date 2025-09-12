@@ -15,6 +15,14 @@ class ProductDetails extends Model
         'product',
         'product_details',
         'position',
+        'product_subheading',
+        'product_detail',
+        'product_image',
+        'faqs'
+    ];
+
+    protected $casts = [
+        'faqs' => 'array',
     ];
 
     public function products()

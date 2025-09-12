@@ -2,7 +2,7 @@
     <meta charset="UTF-8">
     <title>Digital Marketing Company in Mumbai(Call:72089 09232)-Digital Marketing Company in Andheri - Digital Soch
         Private Limited</title>
-    <link rel="shortcut icon" href="{{ asset('assets/img/logo/fv-1.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('assets/img/logo/ds.jpg') }}" type="image/x-icon">
     <!-- Mobile Specific Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">

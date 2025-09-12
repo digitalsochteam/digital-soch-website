@@ -31,7 +31,8 @@
 
                             @foreach (getCategoryList() as $category)
                                 <li class="dropdown">
-                                    <a href="{{ url('/category/' . urlencode($category['category'])) }}">
+                                    {{-- <a href="{{ url('/category/' . urlencode($category['category'])) }}"> --}}
+                                    <a href="#">
                                         {{ $category['category'] }}
                                     </a>
 
@@ -53,16 +54,19 @@
                                                     <li class="{{ count($validProducts) > 0 ? 'dropdown' : '' }}">
 
                                                         <a
-                                                            href="{{ url('/subcategory/' . urlencode($subcategory['subcategory'])) }}">
+                                                            href="{{ count($validProducts) > 0 ? '#' : url('/subcategory/' . urlencode($subcategory['subcategory'])) }}">
                                                             {{ $subcategory['subcategory'] }}
                                                         </a>
 
                                                         @if (count($validProducts) > 0)
                                                             <ul class="dropdown-menu clearfix">
                                                                 @foreach ($subcategory['products'] as $product)
+                                                                    @php
+                                                                        $productSlug = str_replace(' ', '_', $product);
+                                                                    @endphp
                                                                     <li>
                                                                         <a
-                                                                            href="{{ route('product.show', $category['category']) }}">
+                                                                            href="{{ route('product.show', $productSlug) }}">
                                                                             {{ $product }}
                                                                         </a>
                                                                     </li>

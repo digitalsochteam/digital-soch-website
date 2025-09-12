@@ -44,7 +44,7 @@ function getCategoryList()
     }, $tree);
 
 
-    Log::info('Category List', $tree); // Log the data for debugging
+    // Log::info(message: 'Category List', $tree); // Log the data for debugging
 
     return array_values($tree); // ✅ return as array
 }
@@ -65,4 +65,24 @@ function getProductById($id)
         'subcategory' => $product->subcategory,
         'image' => asset('storage/' . $product->image), // Assuming image is stored in public storage
     ];
+}
+
+function getRandomProductWithUniqueSubcategory($count = 3)
+{
+    $allProducts = ProductDetails::inRandomOrder()->get();
+
+    $selectedProducts = [];
+    $usedSubcategories = [];
+
+    foreach ($allProducts as $product) {
+        if (!in_array($product->subcategory, $usedSubcategories)) {
+            $selectedProducts[] = $product;
+            $usedSubcategories[] = $product->subcategory;
+        }
+        if (count($selectedProducts) >= $count) {
+            break;
+        }
+    }
+
+    return $selectedProducts;
 }

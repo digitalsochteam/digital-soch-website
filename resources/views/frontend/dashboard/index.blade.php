@@ -65,16 +65,16 @@
                                         <img src="{{ asset('assets/img/hero/hs1.png') }}" alt="">
                                     </div>
                                     <!-- <div class="tz-hs-user d-flex align-items-center justify-content-center ul-li">
-                                                                                                                                                                                                         <ul>
-                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst1.jpg" alt=""></li>
-                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst2.jpg" alt=""></li>
-                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst3.jpg" alt=""></li>
-                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst4.jpg" alt=""></li>
-                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst5.jpg" alt=""></li>
-                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst6.jpg" alt=""></li>
-                                                                                                                                                                                                            <li><span>+</span></li>
-                                                                                                                                                                                                         </ul>
-                                                                                                                                                                                                      </div> -->
+                                                                                                                                                                                                                                                                                                                 <ul>
+                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst1.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst2.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst3.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst4.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst5.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst6.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                    <li><span>+</span></li>
+                                                                                                                                                                                                                                                                                                                 </ul>
+                                                                                                                                                                                                                                                                                                              </div> -->
                                 </div>
                             </div>
                         </div>
@@ -142,16 +142,16 @@
                                         <img src="{{ asset('assets/img/hero/hs1.png') }}" alt="">
                                     </div>
                                     <!-- <div class="tz-hs-user d-flex align-items-center justify-content-center ul-li">
-                                                                                                                                                                                                         <ul>
-                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst1.jpg" alt=""></li>
-                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst2.jpg" alt=""></li>
-                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst3.jpg" alt=""></li>
-                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst4.jpg" alt=""></li>
-                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst5.jpg" alt=""></li>
-                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst6.jpg" alt=""></li>
-                                                                                                                                                                                                            <li><span>+</span></li>
-                                                                                                                                                                                                         </ul>
-                                                                                                                                                                                                      </div> -->
+                                                                                                                                                                                                                                                                                                                 <ul>
+                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst1.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst2.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst3.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst4.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst5.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst6.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                    <li><span>+</span></li>
+                                                                                                                                                                                                                                                                                                                 </ul>
+                                                                                                                                                                                                                                                                                                              </div> -->
                                 </div>
                             </div>
                         </div>
@@ -219,16 +219,16 @@
                                         <img src="{{ asset('assets/img/hero/hs1.png') }}" alt="">
                                     </div>
                                     <!-- <div class="tz-hs-user d-flex align-items-center justify-content-center ul-li">
-                                                                                                                                                                                                         <ul>
-                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst1.jpg" alt=""></li>
-                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst2.jpg" alt=""></li>
-                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst3.jpg" alt=""></li>
-                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst4.jpg" alt=""></li>
-                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst5.jpg" alt=""></li>
-                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst6.jpg" alt=""></li>
-                                                                                                                                                                                                            <li><span>+</span></li>
-                                                                                                                                                                                                         </ul>
-                                                                                                                                                                                                      </div> -->
+                                                                                                                                                                                                                                                                                                                 <ul>
+                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst1.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst2.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst3.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst4.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst5.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst6.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                    <li><span>+</span></li>
+                                                                                                                                                                                                                                                                                                                 </ul>
+                                                                                                                                                                                                                                                                                                              </div> -->
                                 </div>
                             </div>
                         </div>
@@ -247,9 +247,9 @@
         </div>
     </section>
     <!-- End of Hero Slider section
-                                                                                                                                         ============================================= -->
+                                                                                                                                                                                                                                                 ============================================= -->
     <!-- Start of Feature section
-                                                                                                                                         ============================================= -->
+                                                                                                                                                                                                                                                 ============================================= -->
     <section id="tz-feature" class="tz-feature-sec pt-115 pb-115">
         <div class="tz-section-title headline text-center">
             <div class="subtitle tz-sub-tilte tz-sub-anim  text-uppercase">
@@ -330,9 +330,9 @@
         </div>
     </section>
     <!-- End of Feature section
-                                                                                                                     ============================================= -->
+                                                                                                                                                                                                                             ============================================= -->
     <!-- Start of About section
-                                                                                                                     ============================================= -->
+                                                                                                                                                                                                                             ============================================= -->
     <section id="tz-about" class="tz-about-section pt-120 pb-120">
         <div class="container">
             <div class="tz-about-content d-flex justify-content-between">
@@ -367,14 +367,14 @@
                             to cater each and every aspect of your online presence</p>
                     </div>
                     <!-- <div class="tz-ab-ft-wrap  d-flex align-items-center">
-                                                                                                                                 <div class="item-icon d-flex align-items-center justify-content-center">
-                                                                                                                                    <img src="assets/img/icon/ic5.svg" alt="">
-                                                                                                                                 </div>
-                                                                                                                                 <div class="item-text headline pera-content">
-                                                                                                                                    <h3>Best Technical Solution</h3>
-                                                                                                                                    <p>Nanotechnology immersion along the information high will close the loop on focusing solely</p>
-                                                                                                                                 </div>
-                                                                                                                              </div> -->
+                                                                                                                                                                                                                                         <div class="item-icon d-flex align-items-center justify-content-center">
+                                                                                                                                                                                                                                            <img src="assets/img/icon/ic5.svg" alt="">
+                                                                                                                                                                                                                                         </div>
+                                                                                                                                                                                                                                         <div class="item-text headline pera-content">
+                                                                                                                                                                                                                                            <h3>Best Technical Solution</h3>
+                                                                                                                                                                                                                                            <p>Nanotechnology immersion along the information high will close the loop on focusing solely</p>
+                                                                                                                                                                                                                                         </div>
+                                                                                                                                                                                                                                      </div> -->
                     <div class="tz-btn-1 mt-40">
                         <a href="#."><span>Learn More</span></a>
                     </div>
@@ -383,124 +383,68 @@
         </div>
     </section>
     <!-- End of About section
-                                                                                                         ============================================= -->
+                                                                                                                                                                                                                 ============================================= -->
     <!-- Start of Service section
-                                                                                                         ============================================= -->
+                                                                                                                                                                                                          ============================================= -->
     <section id="tz-service" class="tz-service-sec pt-115 pb-115">
         <div class="container">
             <div class="tz-section-title headline text-center">
                 <div class="subtitle tz-sub-tilte tz-sub-anim text-uppercase" style="color:white;">
                     Our Services
                 </div>
-                <h2 class="sec_title  tz-itm-title tz-itm-anim">Our Unique Services</h2>
-                <p>Our team is dedicated to delivering exceptional IT solutions tailored to meet the unique needs of each
-                    client.</p>
+                <h2 class="sec_title tz-itm-title tz-itm-anim">Our Unique Services</h2>
+                <p>
+                    Our team is dedicated to delivering exceptional IT solutions tailored to meet the unique needs of each
+                    client.
+                </p>
             </div>
+
             <div class="tz-service-content mt-60">
-                <div class="tz-ser1-item top_view_2 d-flex align-items-center">
-                    <div class="item-serial">
-                        01.
-                    </div>
-                    <div class="item-img-text headline pera-content d-flex align-items-center">
-                        <div class="item-img position-relative">
-                            <div class="inner-icon d-flex justify-content-center align-items-center">
-                                <img src="{{ asset('assets/img/icon/ic6.svg') }}" alt="">
-                            </div>
-                            <div class="inner-img">
-                                <img src="{{ asset('assets/img/service/ser1.jpg') }}" alt="">
-                            </div>
+                @foreach (getRandomProductWithUniqueSubcategory(count: 4) as $i => $product)
+                    <div class="tz-ser1-item top_view_2 d-flex align-items-center">
+                        <div class="item-serial">
+                            {{ sprintf('%02d.', $i + 1) }}
                         </div>
-                        <div class="item-text headline pera-content">
-                            <h3 class="ser_title"><a href="#">ERP Development Services</a></h3>
-                            <p>As a reliable ERP application development company in Mumbai, DIGITAL SOCH offers the best
-                                quality enterprise resourcing planning (ERP) software and application development bespoke to
-                                your businesses at reasonable prices.</p>
-                            <div class="tz-btn-1">
-                                <a href="service-single.html"><span>Read More</span></a>
+
+                        <div class="item-img-text headline pera-content d-flex align-items-center">
+                            <div class="item-img position-relative">
+                                <div class="inner-img">
+                                    <img src="{{ Storage::url($product->product_image) }}" />
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tz-ser1-item top_view_2 d-flex align-items-center">
-                    <div class="item-serial">
-                        02.
-                    </div>
-                    <div class="item-img-text headline pera-content d-flex align-items-center">
-                        <div class="item-img position-relative">
-                            <div class="inner-icon d-flex justify-content-center align-items-center">
-                                <img src="{{ asset('assets/img/icon/ic7.svg') }}" alt="">
-                            </div>
-                            <div class="inner-img">
-                                <img src="{{ asset('assets/img/service/ser2.jpg') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="item-text headline pera-content">
-                            <h3 class="ser_title"><a href="#">Domain Registration Services</a></h3>
-                            <p>Domain name is an identification of the business and is used for various networking contexts
-                                or for addressing purposes. A domain name is essential because the internet addressing
-                                system doesn’t work effectively without it. Every website has its unique IP address; as well
-                                as a domain name, which makes it easier to recognize a site over internet.</p>
-                            <div class="tz-btn-1">
-                                <a href="service-single.html"><span>Read More</span></a>
+
+                            <div class="item-text headline pera-content">
+                                <h3 class="ser_title">
+                                    <a href="{{ route('product.show', str_replace(' ', '_', $product->product)) }}">
+                                        {{ $product->product }}
+                                    </a>
+                                </h3>
+
+                                <p>{{ $product->product_subheading }}</p>
+                                <div class="tz-btn-1">
+                                    <a href="{{ route('product.show', str_replace(' ', '_', $product->product)) }}">
+                                        <span>Read More</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="tz-ser1-item top_view_2 d-flex align-items-center">
-                    <div class="item-serial">
-                        03.
-                    </div>
-                    <div class="item-img-text headline pera-content d-flex align-items-center">
-                        <div class="item-img position-relative">
-                            <div class="inner-icon d-flex justify-content-center align-items-center">
-                                <img src="{{ asset('assets/img/icon/ic8.svg') }}" alt="">
-                            </div>
-                            <div class="inner-img">
-                                <img src="{{ asset('assets/img/service/ser3.jpg') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="item-text headline pera-content">
-                            <h3 class="ser_title"><a href="#">Web Hosting</a></h3>
-                            <p>Your website defines your business and also how authentic your firm is; however, many of you
-                                think that domain registration is enough for the web presence, but it is not true.</p>
-                            <div class="tz-btn-1">
-                                <a href="service-single.html"><span>Read More</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tz-ser1-item top_view_2 d-flex align-items-center">
-                    <div class="item-serial">
-                        04.
-                    </div>
-                    <div class="item-img-text headline pera-content d-flex align-items-center">
-                        <div class="item-img position-relative">
-                            <div class="inner-icon d-flex justify-content-center align-items-center">
-                                <img src="{{ asset('assets/img/icon/ic8.svg') }}">
-                            </div>
-                            <div class="inner-img">
-                                <img src="{{ asset('assets/img/service/ser3.jpg') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="item-text headline pera-content">
-                            <h3 class="ser_title"><a href="#">Mobile Application</a></h3>
-                            <p>Counted as the best mobile app development company in Mumbai, we offer the best quality
-                                Mobile app development services in Mumbai, Maharashtra as per the needs and demands of your
-                                business.</p>
-                            <div class="tz-btn-1">
-                                <a href="service-single.html"><span>Read More</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
+
+
+
+
+
+
+
     <!-- End of Service section
-                                                                                                     ============================================= -->
+                                                                                                                                                                                                             ============================================= -->
 
     <!-- Start of Cta section
-                                                                                                     ============================================= -->
+                                                                                                                                                                                                             ============================================= -->
     <section id="tz-cta" class="tz-cta-sec">
         <div class="tz-cta-content  position-relative pt-120 pb-120 ">
             <span class="tz-cta-shape1 position-absolute"><img src="{{ asset('assets/img/shape/c-shape1.png') }}"
@@ -536,10 +480,10 @@
         </div>
     </section>
     <!-- End of Cta section
-                                                                                     ============================================= -->
+                                                                                                                                                                                             ============================================= -->
 
     <!-- Start of Testimonial section
-                                                                                     ============================================= -->
+                                                                                                                                                                                             ============================================= -->
     <section id="tz-testimonial" class="tz-testimonial-sec pt-115 position-relative">
         <span class="tz-testi-shape position-absolute"><img src="assets/img/shape/bottom-shape.svg"></span>
         <span class="tz-testi-bg zoom_view position-absolute"><img src="assets/img/bg/tst-bg.jpg"></span>
@@ -820,10 +764,10 @@
         </div>
     </section>
     <!-- End of Testimonial section
-                                                                         ============================================= -->
+                                                                                                                                                                                 ============================================= -->
 
     <!-- Start of Sponsor section
-                                                                         ============================================= -->
+                                                                                                                                                                                 ============================================= -->
     <section id="tz-sponsor" class="tz-sponsor-sec pb-105">
         <div class="tz-sponsor-content marquee-right">
             <div class="tz-sponsor-item">
@@ -864,5 +808,5 @@
         </div>
     </section>
     <!-- End of Sponsor section
-                                             ============================================= -->
+                                                                                                                                                     ============================================= -->
 @endsection

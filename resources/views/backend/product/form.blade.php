@@ -58,9 +58,29 @@
 </div>
 
 <div class="mb-3">
+    <label for="product_subheading" class="form-label">Product Subheading</label>
+    <textarea name="product_subheading" id="product_subheading" class="form-control" rows="4" {{-- adjust rows for default height --}}
+        required>{{ old('product_subheading', $detail->product_subheading ?? '') }}</textarea>
+</div>
+
+
+<div class="mb-3">
+    <label for="product_detail" class="form-label">Product Detail</label>
+    <textarea name="product_detail" id="product_detail" class="form-control" rows="5" {{-- adjust rows for default height --}} required>{{ old('product_detail', $detail->product_detail ?? '') }}</textarea>
+</div>
+
+<div class="mb-3">
     <label>Position</label>
     <input type="number" name="position" class="form-control" step="0.01"
         value="{{ old('position', $detail->position ?? 0) }}">
+</div>
+
+<div class="mb-3">
+    <label>Main Image {{ isset($edit) ? '(optional)' : '' }}</label>
+    <input type="file" name="product_image" class="form-control">
+    @isset($detail->product_image)
+        <img src="{{ asset('storage/' . $detail->product_image) }}" width="120" class="mt-2">
+    @endisset
 </div>
 
 <div class="mb-3">
@@ -68,16 +88,47 @@
     <textarea id="product_details" name="product_details" class="form-control summernote" rows="4">{{ old('product_details', $detail->product_details ?? '') }}</textarea>
 </div>
 
+<div id="faq-container">
+    @php
+        // $detail will be null on create
+        $faqs =
+            isset($detail) && $detail->faqs
+                ? (is_array($detail->faqs)
+                    ? $detail->faqs
+                    : json_decode($detail->faqs, true))
+                : [];
+
+    @endphp
+    @forelse ($faqs as $i =>$faq)
+        <div class="faq-item mb-4 border p-3 rounded">
+            <input type="text" name="faqs[{{ $i }}][question]" class="form-control mb-2"
+                value="{{ $faq['question'] ?? '' }}" placeholder="Question">
+            <textarea name="faqs[{{ $i }}][answer]" class="form-control mb-2" placeholder="Answer">{{ $faq['answer'] ?? '' }}</textarea>
+            <div class="d-flex gap-2">
+                <button type="button" class="btn btn-success btn-sm add-faq">Add FAQ</button>
+                @if ($i > 0)
+                    <button type="button" class="btn btn-danger btn-sm remove-faq">Remove</button>
+                @endif
+            </div>
+        </div>
+    @empty
+        {{-- If no FAQ exists, render a single empty row --}}
+        <div class="faq-item mb-4 border p-3 rounded">
+            <input type="text" name="faqs[0][question]" class="form-control mb-2" placeholder="Question">
+            <textarea name="faqs[0][answer]" class="form-control mb-2" placeholder="Answer"></textarea>
+            <div class="d-flex gap-2">
+                <button type="button" class="btn btn-success btn-sm add-faq">Add FAQ</button>
+            </div>
+        </div>
+    @endforelse
+</div>
+
 <button type="submit" class="btn btn-success">Save</button>
+
 @php
     $categoryTree = array_values(getCategoryList()); // helper data
 @endphp
-{{-- 
-<script>
-    const categoryTree = @json($categoryTree);
-    const currentCategory = @json(old('category', $detail->category ?? ''));
-    const currentSubcategory = @json(old('subcategory', $detail->subcategory ?? ''));
-</script> --}}
+
 
 <script>
     // Data from backend
@@ -197,5 +248,34 @@
     document.getElementById('product_id').addEventListener('change', function() {
         let selectedText = this.options[this.selectedIndex].text;
         document.getElementById('product').value = selectedText !== "-- Choose --" ? selectedText : "";
+    });
+
+    let index = 1;
+    const container = document.getElementById('faq-container');
+
+    // Event delegation: handle clicks on Add / Remove inside faq-container
+    container.addEventListener('click', (e) => {
+        // Add new FAQ
+        if (e.target.classList.contains('add-faq')) {
+            const item = document.createElement('div');
+            item.classList.add('faq-item', 'mb-4', 'border', 'p-3', 'rounded');
+
+            item.innerHTML = `
+            <input type="text" name="faqs[${index}][question]" class="form-control mb-2" placeholder="Question">
+            <textarea name="faqs[${index}][answer]" class="form-control mb-2" placeholder="Answer"></textarea>
+            <div class="d-flex gap-2">
+                <button type="button" class="btn btn-success btn-sm add-faq">Add FAQ</button>
+                <button type="button" class="btn btn-danger btn-sm remove-faq">Remove</button>
+            </div>
+        `;
+
+            container.appendChild(item);
+            index++;
+        }
+
+        // Remove FAQ
+        if (e.target.classList.contains('remove-faq')) {
+            e.target.closest('.faq-item').remove();
+        }
     });
 </script>

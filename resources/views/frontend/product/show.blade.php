@@ -1,0 +1,132 @@
+@extends('frontend.layout.app')
+
+@section('content')
+    <!-- Breadcrumb Section -->
+    <section id="tz-breadcrumb" class="tz-breadcrumb-sec position-relative"
+        data-background="{{ asset('assets/img/bg/bread-bg.jpg') }}">
+        <div class="container">
+            <div class="tz-breadcrumb-content headline text-center ul-li">
+                <h2 class="bread_heading">{{ $product->product }}</h2>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li>{{ $product->product }}</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Start of Service Details section
+                                                                                                                                                                                                                                         ============================================= -->
+    <section id="tz-ser-details" class="tz-ser-details-sec pt-120 pb-120">
+        <div class="container">
+            <div class="tz-ser-details-content">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="tz-ser-details-text-wrap headline pera-content">
+                            @if (!empty($product->product_image))
+                                <div class="ser-details-thumb">
+                                    <img src="{{ Storage::url($product->product_image) }}"
+                                        alt="{{ $product->product ?? 'Product' }} image"
+                                        style="max-width:100%; height:auto;" />
+                                </div>
+                            @endif
+                            <div class="ser-details-text">
+                                <h3>{{ $product->product }}</h3>
+                                <p>
+                                    {{ $product->product_subheading }}
+                                </p>
+                                <p>
+                                    {{ $product->product_detail }}
+                                </p>
+                                @php
+                                    $faqs = is_array($product->faqs)
+                                        ? $product->faqs
+                                        : json_decode($product->faqs, true) ?? [];
+
+                                @endphp
+                                @if (!empty($faqs) || count($faqs) > 0)
+                                    <div class="tz-faq-accordion mt-60">
+                                        <div class="accordion" id="accordionExample_{{ $product->id }}">
+                                            @foreach ($faqs as $index => $faq)
+                                                @php
+                                                    $headingId = 'heading' . $index;
+                                                    $collapseId = 'collapse' . $index;
+                                                @endphp
+
+                                                <div class="accordion-item wow fadeInUp"
+                                                    data-wow-delay="{{ 300 + $index * 100 }}ms" data-wow-duration="1000ms">
+                                                    <h2 class="accordion-header" id="{{ $headingId }}">
+                                                        <button
+                                                            class="accordion-button {{ $index === 0 ? '' : 'collapsed' }}"
+                                                            type="button" data-bs-toggle="collapse"
+                                                            data-bs-target="#{{ $collapseId }}"
+                                                            aria-expanded="{{ $index === 0 ? 'true' : 'false' }}"
+                                                            aria-controls="{{ $collapseId }}">
+                                                            <span>{{ $faq['question'] ?? '' }}</span>
+                                                        </button>
+                                                    </h2>
+
+                                                    <div id="{{ $collapseId }}"
+                                                        class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}"
+                                                        aria-labelledby="{{ $headingId }}"
+                                                        data-bs-parent="#accordionExample_{{ $product->id }}">
+                                                        <div class="accordion-body">
+                                                            <div class="bi-faq-text">
+                                                                {{ $faq['answer'] ?? '' }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                @endif
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-4">
+                        <div class="tz-ser-sidebar">
+                            @if ($otherProducts->isNotEmpty())
+                                <div class="tz-sidebar-widget headline">
+                                    <div class="category-widget ul-li-block">
+                                        <h3 class="widget-title">Other Products</h3>
+                                        <ul>
+                                            @foreach ($otherProducts as $otherProduct)
+                                                <li>
+                                                    <a
+                                                        href="{{ route('product.show', str_replace(' ', '_', $otherProduct)) }}">
+                                                        <span>{{ $otherProduct }}</span>
+                                                        <i class="fa-solid fa-arrow-right"></i>
+                                                    </a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                </div>
+                            @endif
+                            <div class="tz-sidebar-widget headline"
+                                data-background="{{ asset('assets/img/bg/ctw-bg.jpg') }}">
+                                <div class="cta-widget text-center ul-li-block">
+                                    <div class="inner-text">
+                                        <div class="brand-logo">
+                                            <img src="{{ asset('assets/img/logo/logo.png') }}" alt="" />
+                                        </div>
+                                        <h4>Need Help? We Are Here To Help You</h4>
+                                        <div class="tz-btn-1">
+                                            <a href="#"><span>Get A Quote</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of Service Details section
+                                                                                                                                                                                                                                         ============================================= -->
+@endsection

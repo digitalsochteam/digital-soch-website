@@ -21,9 +21,6 @@
             </thead>
             <tbody>
                 @foreach ($details as $detail)
-                    @php
-                        Log::info($detail->products);
-                    @endphp
                     <tr>
                         <td>{{ $detail->position }}</td>
                         <td>{{ $detail->products->name }}</td>
