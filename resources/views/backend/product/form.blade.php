@@ -11,8 +11,6 @@
     </select>
 </div>
 
-
-
 {{-- CATEGORY --}}
 <div class="mb-3">
     <label for="category" class="form-label">Category</label>
@@ -123,7 +121,11 @@
     @endforelse
 </div>
 
-<button type="submit" class="btn btn-success">Save</button>
+<button type="submit" class="btn btn-primary">
+    {{ isset($detail) ? 'Update Product' : 'Create Product' }}
+</button>
+<a href="{{ route('testimonial-details.index') }}" class="btn btn-secondary ms-2">Cancel</a>
+
 
 @php
     $categoryTree = array_values(getCategoryList()); // helper data

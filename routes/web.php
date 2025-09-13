@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\ProductController;
@@ -22,7 +23,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth'])->group(function () {
     Route::prefix('backend')->group(function () {
-        Route::get('/', [DashboardController::class, 'dashboard'])->name('backend.dashboard');
+        Route::get('/', action: [DashboardController::class, 'dashboard'])->name('backend.dashboard');
         Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard.index');
 
         Route::prefix('productdetails')->name('product-details.')->group(function () {
@@ -32,6 +33,15 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/{detail}/edit', [ProductController::class, 'edit'])->name('edit');
             Route::put('/{detail}', [ProductController::class, 'update'])->name('update');
             Route::delete('/{detail}', [ProductController::class, 'destroy'])->name('destroy');
+        });
+
+        Route::prefix('testimonialdetails')->name('testimonial-details.')->group(function () {
+            Route::get('/', [TestimonialController::class, 'index'])->name('index');
+            Route::get('/create', [TestimonialController::class, 'create'])->name('create');
+            Route::post('/', [TestimonialController::class, 'store'])->name('store');
+            Route::get('/{detail}/edit', [TestimonialController::class, 'edit'])->name('edit');
+            Route::put('/{detail}', [TestimonialController::class, 'update'])->name('update');
+            Route::delete('/{detail}', [TestimonialController::class, 'destroy'])->name('destroy');
         });
     });
 });
