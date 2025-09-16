@@ -1,20 +1,23 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Backend\DashboardController as BackendDashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
 
-Route::get('/', function () {
-    return view('frontend.dashboard.index');
-});
+Route::get('/', [DashboardController::class, 'index'])->name('frontend.dashboard.index');
 
 Route::get('/about', function () {
     return view('frontend.dashboard.about');
 })->name('about');
 
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+
+Route::get('/blogs', [BlogController::class, 'getallblogs'])->name('blog.seeallblogs');
+Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
 
 // Backend Routes
 Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -23,8 +26,8 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth'])->group(function () {
     Route::prefix('backend')->group(function () {
-        Route::get('/', action: [DashboardController::class, 'dashboard'])->name('backend.dashboard');
-        Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard.index');
+        Route::get('/', action: [BackendDashboardController::class, 'dashboard'])->name('backend.dashboard');
+        Route::get('/dashboard', [BackendDashboardController::class, 'dashboard'])->name('dashboard.index');
 
         Route::prefix('productdetails')->name('product-details.')->group(function () {
             Route::get('/', [ProductController::class, 'index'])->name('index');
@@ -42,6 +45,15 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/{detail}/edit', [TestimonialController::class, 'edit'])->name('edit');
             Route::put('/{detail}', [TestimonialController::class, 'update'])->name('update');
             Route::delete('/{detail}', [TestimonialController::class, 'destroy'])->name('destroy');
+        });
+
+        Route::prefix('blogdetails')->name('blog-details.')->group(function () {
+            Route::get('/', [BlogController::class, 'index'])->name('index');
+            Route::get('/create', [BlogController::class, 'create'])->name('create');
+            Route::post('/', [BlogController::class, 'store'])->name('store');
+            Route::get('/{detail}/edit', [BlogController::class, 'edit'])->name('edit');
+            Route::put('/{detail}', [BlogController::class, 'update'])->name('update');
+            Route::delete('/{detail}', [BlogController::class, 'destroy'])->name('destroy');
         });
     });
 });

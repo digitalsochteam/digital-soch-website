@@ -27,11 +27,19 @@
                 <span>Add Product</span>
             </a>
 
-            <!-- Orders -->
+            <!-- Testimonial -->
             <a href="{{ route('testimonial-details.index') }}"
                 class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-gray-700 hover:text-white transition-colors">
-                <i class="fas fa-box mr-3"></i>
+                <i class="fas fa-star mr-3"></i>
                 <span>Add Testimonial</span>
+            </a>
+
+
+            <!-- Blog -->
+            <a href="{{ route('blog-details.index') }}"
+                class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-gray-700 hover:text-white transition-colors">
+                <i class="fas fa-blog mr-3"></i>
+                <span>Add Blog</span>
             </a>
 
         </div>

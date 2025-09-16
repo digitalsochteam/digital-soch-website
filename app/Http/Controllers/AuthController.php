@@ -61,6 +61,6 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('dashboard.index')->with('success', 'Login successful!');
+        return redirect()->route('backend.dashboard')->with('success', 'Login successful!');
     }
 }

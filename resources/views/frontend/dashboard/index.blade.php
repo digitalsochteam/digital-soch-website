@@ -65,16 +65,16 @@
                                         <img src="{{ asset('assets/img/hero/hs1.png') }}" alt="">
                                     </div>
                                     <!-- <div class="tz-hs-user d-flex align-items-center justify-content-center ul-li">
-                                                                                                                                                                                                                                                                                                                 <ul>
-                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst1.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst2.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst3.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst4.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst5.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst6.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                    <li><span>+</span></li>
-                                                                                                                                                                                                                                                                                                                 </ul>
-                                                                                                                                                                                                                                                                                                              </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         <ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst1.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst2.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst3.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst4.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst5.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst6.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <li><span>+</span></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </div> -->
                                 </div>
                             </div>
                         </div>
@@ -142,16 +142,16 @@
                                         <img src="{{ asset('assets/img/hero/hs1.png') }}" alt="">
                                     </div>
                                     <!-- <div class="tz-hs-user d-flex align-items-center justify-content-center ul-li">
-                                                                                                                                                                                                                                                                                                                 <ul>
-                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst1.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst2.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst3.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst4.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst5.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst6.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                    <li><span>+</span></li>
-                                                                                                                                                                                                                                                                                                                 </ul>
-                                                                                                                                                                                                                                                                                                              </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         <ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst1.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst2.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst3.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst4.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst5.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst6.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <li><span>+</span></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </div> -->
                                 </div>
                             </div>
                         </div>
@@ -219,16 +219,16 @@
                                         <img src="{{ asset('assets/img/hero/hs1.png') }}" alt="">
                                     </div>
                                     <!-- <div class="tz-hs-user d-flex align-items-center justify-content-center ul-li">
-                                                                                                                                                                                                                                                                                                                 <ul>
-                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst1.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst2.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst3.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst4.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst5.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst6.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                    <li><span>+</span></li>
-                                                                                                                                                                                                                                                                                                                 </ul>
-                                                                                                                                                                                                                                                                                                              </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         <ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst1.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst2.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst3.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst4.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst5.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <li><img src="assets/img/testimonial/tst6.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <li><span>+</span></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </div> -->
                                 </div>
                             </div>
                         </div>
@@ -247,9 +247,9 @@
         </div>
     </section>
     <!-- End of Hero Slider section
-                                                                                                                                                                                                                                                 ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                         ============================================= -->
     <!-- Start of Feature section
-                                                                                                                                                                                                                                                 ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                         ============================================= -->
     <section id="tz-feature" class="tz-feature-sec pt-115 pb-115">
         <div class="tz-section-title headline text-center">
             <div class="subtitle tz-sub-tilte tz-sub-anim  text-uppercase">
@@ -330,9 +330,9 @@
         </div>
     </section>
     <!-- End of Feature section
-                                                                                                                                                                                                                             ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                     ============================================= -->
     <!-- Start of About section
-                                                                                                                                                                                                                             ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                     ============================================= -->
     <section id="tz-about" class="tz-about-section pt-120 pb-120">
         <div class="container">
             <div class="tz-about-content d-flex justify-content-between">
@@ -367,14 +367,14 @@
                             to cater each and every aspect of your online presence</p>
                     </div>
                     <!-- <div class="tz-ab-ft-wrap  d-flex align-items-center">
-                                                                                                                                                                                                                                         <div class="item-icon d-flex align-items-center justify-content-center">
-                                                                                                                                                                                                                                            <img src="assets/img/icon/ic5.svg" alt="">
-                                                                                                                                                                                                                                         </div>
-                                                                                                                                                                                                                                         <div class="item-text headline pera-content">
-                                                                                                                                                                                                                                            <h3>Best Technical Solution</h3>
-                                                                                                                                                                                                                                            <p>Nanotechnology immersion along the information high will close the loop on focusing solely</p>
-                                                                                                                                                                                                                                         </div>
-                                                                                                                                                                                                                                      </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                 <div class="item-icon d-flex align-items-center justify-content-center">
+                                                                                                                                                                                                                                                                                                                                                                                                                    <img src="assets/img/icon/ic5.svg" alt="">
+                                                                                                                                                                                                                                                                                                                                                                                                                 </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                 <div class="item-text headline pera-content">
+                                                                                                                                                                                                                                                                                                                                                                                                                    <h3>Best Technical Solution</h3>
+                                                                                                                                                                                                                                                                                                                                                                                                                    <p>Nanotechnology immersion along the information high will close the loop on focusing solely</p>
+                                                                                                                                                                                                                                                                                                                                                                                                                 </div>
+                                                                                                                                                                                                                                                                                                                                                                                                              </div> -->
                     <div class="tz-btn-1 mt-40">
                         <a href="#."><span>Learn More</span></a>
                     </div>
@@ -383,9 +383,9 @@
         </div>
     </section>
     <!-- End of About section
-                                                                                                                                                                                                                 ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                         ============================================= -->
     <!-- Start of Service section
-                                                                                                                                                                                                          ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                  ============================================= -->
     <section id="tz-service" class="tz-service-sec pt-115 pb-115">
         <div class="container">
             <div class="tz-section-title headline text-center">
@@ -400,7 +400,7 @@
             </div>
 
             <div class="tz-service-content mt-60">
-                @foreach (getRandomProductWithUniqueSubcategory(count: 4) as $i => $product)
+                @foreach ($selectedProducts as $i => $product)
                     <div class="tz-ser1-item top_view_2 d-flex align-items-center">
                         <div class="item-serial">
                             {{ sprintf('%02d.', $i + 1) }}
@@ -441,10 +441,10 @@
 
 
     <!-- End of Service section
-                                                                                                                                                                                                             ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                     ============================================= -->
 
     <!-- Start of Cta section
-                                                                                                                                                                                                             ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                     ============================================= -->
     <section id="tz-cta" class="tz-cta-sec">
         <div class="tz-cta-content  position-relative pt-120 pb-120 ">
             <span class="tz-cta-shape1 position-absolute"><img src="{{ asset('assets/img/shape/c-shape1.png') }}"
@@ -480,10 +480,10 @@
         </div>
     </section>
     <!-- End of Cta section
-                                                                                                                                                                                             ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                     ============================================= -->
 
     <!-- Start of Testimonial section
-                                                                                                                                                                                             ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                     ============================================= -->
     <section id="tz-testimonial" class="tz-testimonial-sec pt-115 position-relative">
         <span class="tz-testi-shape position-absolute"><img src="assets/img/shape/bottom-shape.svg"></span>
         <span class="tz-testi-bg zoom_view position-absolute"><img src="assets/img/bg/tst-bg.jpg"></span>
@@ -499,259 +499,54 @@
             <div class="tz-testi-content position-relative">
                 <div class="tz-testi-slide swiper-container">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="tz-testi-item">
-                                <div class="inner-item-wrap">
-                                    <div class="item-icon-text d-flex">
-                                        <div class="item-icon d-flex justify-content-center align-items-center">
-                                            <i class="fa-solid fa-quote-right"></i>
-                                        </div>
-                                        <div class="item-text">
-                                            “Digital Soch is very knowledgeable in the digital marketing Services. I would
-                                            like to recommend Digital Soch to my friends and business networks.”
-                                        </div>
-                                    </div>
-                                    <div class="item-author d-flex align-items-center justify-content-between">
-                                        <div class="author-img-text d-flex align-items-center">
-                                            <div class="item-img">
-                                                <img src="{{ asset('assets/img/testimonial/tst1.jpg') }}" alt="">
+                        @forelse ($testimonials as $t)
+                            <div class="swiper-slide">
+                                <div class="tz-testi-item">
+                                    <div class="inner-item-wrap">
+                                        <div class="item-icon-text d-flex">
+                                            <div class="item-icon d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-quote-right"></i>
                                             </div>
-                                            <div class="item-text headline">
-                                                <h3>Ms. Swati</h3>
-                                                <span>Mktg Manager, Safal Institute</span>
+                                            <div class="item-text">
+                                                “{{ $t->review }}”
                                             </div>
                                         </div>
-                                        <div class="author-rate ul-li">
-                                            <ul>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="tz-testi-item">
-                                <div class="inner-item-wrap">
-                                    <div class="item-icon-text d-flex">
-                                        <div class="item-icon d-flex justify-content-center align-items-center">
-                                            <i class="fa-solid fa-quote-right"></i>
-                                        </div>
-                                        <div class="item-text">
-                                            “Digital Soch were great to work with on our new website. Any time I had a
-                                            question or adjustment to the site team was quick to respond...”
-                                        </div>
-                                    </div>
-                                    <div class="item-author d-flex align-items-center justify-content-between">
-                                        <div class="author-img-text d-flex align-items-center">
-                                            <div class="item-img">
-                                                <img src="{{ asset('assets/img/testimonial/tst2.jpg') }}" alt="">
+                                        <div class="item-author d-flex align-items-center justify-content-between">
+                                            <div class="author-img-text d-flex align-items-center">
+                                                <div class="item-img">
+                                                    <img src="{{ $t->image ? asset('storage/' . $t->image) : asset('assets/img/testimonial/default.jpg') }}"
+                                                        alt="{{ $t->name }}">
+                                                </div>
+                                                <div class="item-text headline">
+                                                    <h3>{{ $t->name }}</h3>
+                                                    <span>{{ $t->designation }}</span>
+                                                </div>
                                             </div>
-                                            <div class="item-text headline">
-                                                <h3>Mr. Victor Sable</h3>
-                                                <span>CEO, Incorporated Pride</span>
+                                            <div class="author-rate ul-li">
+                                                <ul>
+                                                    @for ($i = 1; $i <= $t->star; $i++)
+                                                        <li><i class="fa-solid fa-star"></i></li>
+                                                    @endfor
+                                                </ul>
                                             </div>
-                                        </div>
-                                        <div class="author-rate ul-li">
-                                            <ul>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                            </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="tz-testi-item">
-                                <div class="inner-item-wrap">
-                                    <div class="item-icon-text d-flex">
-                                        <div class="item-icon d-flex justify-content-center align-items-center">
-                                            <i class="fa-solid fa-quote-right"></i>
-                                        </div>
-                                        <div class="item-text">
-                                            “A reputed company needs a reputed digital marketing firm to increase their
-                                            Brand Value and We’re quite satisfied with Digital Soch involvement in our SEO
-                                            process.”
-                                        </div>
-                                    </div>
-                                    <div class="item-author d-flex align-items-center justify-content-between">
-                                        <div class="author-img-text d-flex align-items-center">
-                                            <div class="item-img">
-                                                <img src="{{ asset('assets/img/testimonial/tst3.jpg') }}" alt="">
-                                            </div>
-                                            <div class="item-text headline">
-                                                <h3>Mr. Rahul Pathak</h3>
-                                                <span>MD, KRP Infrastructure</span>
-                                            </div>
-                                        </div>
-                                        <div class="author-rate ul-li">
-                                            <ul>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                            </ul>
-                                        </div>
+                        @empty
+                            <div class="swiper-slide">
+                                <div class="tz-testi-item">
+                                    <div class="inner-item-wrap text-center p-4">
+                                        <p class="mb-0 text-muted">
+                                            No testimonials available at the moment.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="tz-testi-item">
-                                <div class="inner-item-wrap">
-                                    <div class="item-icon-text d-flex">
-                                        <div class="item-icon d-flex justify-content-center align-items-center">
-                                            <i class="fa-solid fa-quote-right"></i>
-                                        </div>
-                                        <div class="item-text">
-                                            “We would like to express our appreciation for the SEO services rendered to us.
-                                            We would like to continue the same with Digital Soch. Thanks”
-                                        </div>
-                                    </div>
-                                    <div class="item-author d-flex align-items-center justify-content-between">
-                                        <div class="author-img-text d-flex align-items-center">
-                                            <div class="item-img">
-                                                <img src="{{ asset('assets/img/testimonial/tst3.jpg') }}" alt="">
-                                            </div>
-                                            <div class="item-text headline">
-                                                <h3>Capt. Sandeep Sharma</h3>
-                                                <span>RSM Ships Pvt. Ltd.</span>
-                                            </div>
-                                        </div>
-                                        <div class="author-rate ul-li">
-                                            <ul>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="tz-testi-item">
-                                <div class="inner-item-wrap">
-                                    <div class="item-icon-text d-flex">
-                                        <div class="item-icon d-flex justify-content-center align-items-center">
-                                            <i class="fa-solid fa-quote-right"></i>
-                                        </div>
-                                        <div class="item-text">
-                                            “DIGITAL SOCH has a great team of developers! They complied with every one of my
-                                            (specific) requests and were patient, helpful and cooperative.”
-                                        </div>
-                                    </div>
-                                    <div class="item-author d-flex align-items-center justify-content-between">
-                                        <div class="author-img-text d-flex align-items-center">
-                                            <div class="item-img">
-                                                <img src="{{ asset('assets/img/testimonial/tst3.jpg') }}" alt="">
-                                            </div>
-                                            <div class="item-text headline">
-                                                <h3>Mr. Rakesh Joshi</h3>
-                                                <span>Owner, Turning Point Gems</span>
-                                            </div>
-                                        </div>
-                                        <div class="author-rate ul-li">
-                                            <ul>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="tz-testi-item">
-                                <div class="inner-item-wrap">
-                                    <div class="item-icon-text d-flex">
-                                        <div class="item-icon d-flex justify-content-center align-items-center">
-                                            <i class="fa-solid fa-quote-right"></i>
-                                        </div>
-                                        <div class="item-text">
-                                            “I had a very pleasant experience and would hire them again. My site is now easy
-                                            for me to manage and mobile-friendly. Super stoked and am a happy customer!!”
-                                        </div>
-                                    </div>
-                                    <div class="item-author d-flex align-items-center justify-content-between">
-                                        <div class="author-img-text d-flex align-items-center">
-                                            <div class="item-img">
-                                                <img src="{{ asset('assets/img/testimonial/tst3.jpg') }}" alt="">
-                                            </div>
-                                            <div class="item-text headline">
-                                                <h3>Mr. Kulin Sampat</h3>
-                                                <span>Trustee, Shyam Kunj Banquet Hall</span>
-                                            </div>
-                                        </div>
-                                        <div class="author-rate ul-li">
-                                            <ul>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="tz-testi-item">
-                                <div class="inner-item-wrap">
-                                    <div class="item-icon-text d-flex">
-                                        <div class="item-icon d-flex justify-content-center align-items-center">
-                                            <i class="fa-solid fa-quote-right"></i>
-                                        </div>
-                                        <div class="item-text">
-                                            “DIGITAL SOCH, never hesitated to go an extra mile to assist even when the
-                                            request was beyond the scope of the project. Will favourably consider their
-                                            service in future.”
-                                        </div>
-                                    </div>
-                                    <div class="item-author d-flex align-items-center justify-content-between">
-                                        <div class="author-img-text d-flex align-items-center">
-                                            <div class="item-img">
-                                                <img src="{{ asset('assets/img/testimonial/tst3.jpg') }}" alt="">
-                                            </div>
-                                            <div class="item-text headline">
-                                                <h3>Mr. Paresh Gor</h3>
-                                                <span>Owner, Maxcom</span>
-                                            </div>
-                                        </div>
-                                        <div class="author-rate ul-li">
-                                            <ul>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforelse
                     </div>
                 </div>
+
                 <div class="tz-testi-nav">
                     <div class="tz-tst-next arrow-nav d-flex justify-content-center align-items-center">
                         <i class="fa-solid fa-arrow-left"></i>
@@ -761,13 +556,14 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
     <!-- End of Testimonial section
-                                                                                                                                                                                 ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                         ============================================= -->
 
     <!-- Start of Sponsor section
-                                                                                                                                                                                 ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                         ============================================= -->
     <section id="tz-sponsor" class="tz-sponsor-sec pb-105">
         <div class="tz-sponsor-content marquee-right">
             <div class="tz-sponsor-item">
@@ -807,6 +603,79 @@
             </div>
         </div>
     </section>
-    <!-- End of Sponsor section
-                                                                                                                                                     ============================================= -->
+    <!-- End of Sponsor section============================================= -->
+
+    <!-- Start of Blog section
+                                                                                                                                                                                                                                                                                                                                                         ============================================= -->
+    <section id="tz-blog3" class="tz-blog3-sec pt-115 pb-80 position-relative">
+        <span class="tz-blog3-shape1 slide_view_1 position-absolute">
+            <img src="{{ asset('assets/img/shape/box-1.svg') }}" alt="">
+        </span>
+        <span class="tz-blog3-shape2 slide_view_2 position-absolute">
+            <img src="{{ asset('assets/img/shape/tri-1.svg') }}" alt="">
+        </span>
+        <span class="tz-blog3-shape3 top_view position-absolute">
+            <img src="{{ asset('assets/img/shape/circle8.svg') }}" alt="">
+        </span>
+
+        <div class="container">
+            <div class="tz-section-title headline text-center pera-content">
+                <div class="subtitle tz-sub-tilte tz-sub-anim text-uppercase">
+                    recent blog post
+                </div>
+                <h2 class="sec_title tz-itm-title tz-itm-anim">Read our latest blog</h2>
+                <p>Our team is dedicated to delivering exceptional IT solutions tailored to meet the unique needs of each
+                    client.</p>
+            </div>
+
+            <div class="tz-blog3-content mt-65">
+                <div class="row justify-content-center">
+                    @forelse ($blogs as $blog)
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="tz-blog3-item">
+                                <div class="item-img">
+                                    <img src="{{ $blog->image ? asset('storage/' . $blog->image) : asset('assets/img/blog/blg1.jpg') }}"
+                                        alt="{{ $blog->title }}">
+                                </div>
+                                <div class="item-text headline">
+                                    <div class="item-meta">
+                                        <a href="{{ route('blog.show', str_replace(' ', '_', $blog->id)) }}">
+                                            <i class="fa-regular fa-calendar"></i>
+                                            {{ $blog->created_at?->format('d M, Y') }}
+                                        </a>
+                                    </div>
+                                    <h3 class="blog_title">
+                                        <a href="{{ route('blog.show', str_replace(' ', '_', $blog->id)) }}">
+                                            {{ $blog->title }}
+                                        </a>
+                                    </h3>
+                                    <a class="read_more"
+                                        href="{{ route('blog.show', str_replace(' ', '_', $blog->id)) }}">
+                                        Read Details
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    @empty
+                        <div class="col-12 text-center">
+                            <p>No blog posts available right now. Please check back soon.</p>
+                        </div>
+                    @endforelse
+                </div>
+
+                {{-- ✅ “See All” button --}}
+                @if ($blogs->count() > 0)
+                    <div class="tz-btn-1" style="text-align: center">
+                        <a style="background-color: #f5f5f5; color: #252525; ;" href="{{ route('blog.seeallblogs') }}">
+                            <span>Read More</span>
+                        </a>
+                    </div>
+                @endif
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- End of Blog section
 @endsection
