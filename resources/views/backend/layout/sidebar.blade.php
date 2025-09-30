@@ -42,6 +42,18 @@
                 <span>Add Blog</span>
             </a>
 
+            <a href="{{ route('package-details.index') }}"
+                class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-gray-700 hover:text-white transition-colors">
+                <i class="fas fa-blog mr-3"></i>
+                <span>Add Package</span>
+            </a>
+
+            <a href="{{ route('package-subscription-details.index') }}"
+                class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-gray-700 hover:text-white transition-colors">
+                <i class="fas fa-blog mr-3"></i>
+                <span>Add Package Subscription</span>
+            </a>
+
         </div>
     </nav>
 

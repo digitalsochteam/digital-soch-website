@@ -7,6 +7,9 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Backend\DashboardController as BackendDashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProductPackageController;
+use App\Http\Controllers\ProductPackageSubscriptionController;
+
 
 Route::get('/', [DashboardController::class, 'index'])->name('frontend.dashboard.index');
 
@@ -72,6 +75,24 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/{detail}/edit', [BlogController::class, 'edit'])->name('edit');
             Route::put('/{detail}', [BlogController::class, 'update'])->name('update');
             Route::delete('/{detail}', [BlogController::class, 'destroy'])->name('destroy');
+        });
+
+        Route::prefix('packagedetails')->name('package-details.')->group(function () {
+            Route::get('/', [ProductPackageController::class, 'index'])->name('index');
+            Route::get('/create', [ProductPackageController::class, 'create'])->name('create');
+            Route::post('/', [ProductPackageController::class, 'store'])->name('store');
+            Route::get('/{detail}/edit', [ProductPackageController::class, 'edit'])->name('edit');
+            Route::put('/{detail}', [ProductPackageController::class, 'update'])->name('update');
+            Route::delete('/{detail}', [ProductPackageController::class, 'destroy'])->name('destroy');
+        });
+
+        Route::prefix('packagesubscriptiondetails')->name('package-subscription-details.')->group(function () {
+            Route::get('/', [ProductPackageSubscriptionController::class, 'index'])->name('index');
+            Route::get('/create', [ProductPackageSubscriptionController::class, 'create'])->name('create');
+            Route::post('/', [ProductPackageSubscriptionController::class, 'store'])->name('store');
+            Route::get('/{detail}/edit', [ProductPackageSubscriptionController::class, 'edit'])->name('edit');
+            Route::put('/{detail}', [ProductPackageSubscriptionController::class, 'update'])->name('update');
+            Route::delete('/{detail}', [ProductPackageSubscriptionController::class, 'destroy'])->name('destroy');
         });
     });
 });
