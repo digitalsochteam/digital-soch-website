@@ -14,6 +14,24 @@ Route::get('/about', function () {
     return view('frontend.dashboard.about');
 })->name('about');
 
+Route::get('/contact', function () {
+    return view('frontend.dashboard.contact');
+})->name('contact');
+
+Route::get('/cancellation-refund-policy', function () {
+    return view('frontend.dashboard.cancellation_refund_policy');
+})->name('cancellationrefundpolicy');
+
+Route::get('/terms-and-conditions', function () {
+    return view('frontend.dashboard.termsandcondition');
+})->name('termsandcondition');
+
+Route::get('/privacy-policy', function () {
+    return view('frontend.dashboard.privacypolicy');
+})->name('privacypolicy');
+
+
+
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
 
 Route::get('/blogs', [BlogController::class, 'getallblogs'])->name('blog.seeallblogs');

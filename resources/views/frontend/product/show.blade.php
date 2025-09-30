@@ -8,7 +8,7 @@
             <div class="tz-breadcrumb-content headline text-center ul-li">
                 <h2 class="bread_heading">{{ $product->product }}</h2>
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="{{ url('/') }}">Home</a></li>
                     <li>{{ $product->product }}</li>
                 </ul>
             </div>
@@ -16,7 +16,7 @@
     </section>
 
     <!-- Start of Service Details section
-                                                                                                                                                                                                                                         ============================================= -->
+                                                                                                                                                                                                                                             ============================================= -->
     <section id="tz-ser-details" class="tz-ser-details-sec pt-120 pb-120">
         <div class="container">
             <div class="tz-ser-details-content">
@@ -128,5 +128,5 @@
         </div>
     </section>
     <!-- End of Service Details section
-                                                                                                                                                                                                                                         ============================================= -->
+                                                                                                                                                                                                                                             ============================================= -->
 @endsection

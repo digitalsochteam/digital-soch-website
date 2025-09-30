@@ -6,14 +6,14 @@
             <div class="tz-breadcrumb-content headline text-center ul-li">
                 <h2 class="bread_heading">About Us</h2>
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="{{ url('/') }}">Home</a></li>
                     <li>About us</li>
                 </ul>
             </div>
         </div>
     </section>
     <!-- End of Breadcrumb section
-                                                                                                                                         ============================================= -->
+                                                                                                                                             ============================================= -->
     <div class="tz-ab3-bottom-marque">
         <div class="tz-ab3-btm-1 marquee-left">
             @php
@@ -36,25 +36,25 @@
         </div>
     </div>
     <!-- Start of About section
-                                                         ============================================= -->
+                                                             ============================================= -->
     <section id="tz-about5" class="tz-about5-sec pt-120 pb-120">
         <div class="container">
             <div class="tz-about5-content d-flex">
                 <!-- <div class="tz-about5-img-wrap position-relative">
-                                                                  <div class="item-img img-zoom">
-                                                                  <img src="assets/img/about/ab7.jpg" alt="">
-                                                                  </div>
-                                                                  <div class="item-exp right_view d-flex align-items-center justify-content-center text-uppercase headline pera-content">
-                                                                  <div class="item-inner text-center">
-                                                                  <h4><span class="counter">25</span></h4>
-                                                                  <p>Years Of
-                                                                  Experience</p>
-                                                                  </div>
-                                                                  </div>
-                                                                  <div class="item-play left_view">
-                                                                  <a class="video_box" href="#"><i class="fa-solid fa-play"></i></a>
-                                                                  </div>
-                                                                  </div> -->
+                                                                      <div class="item-img img-zoom">
+                                                                      <img src="assets/img/about/ab7.jpg" alt="">
+                                                                      </div>
+                                                                      <div class="item-exp right_view d-flex align-items-center justify-content-center text-uppercase headline pera-content">
+                                                                      <div class="item-inner text-center">
+                                                                      <h4><span class="counter">25</span></h4>
+                                                                      <p>Years Of
+                                                                      Experience</p>
+                                                                      </div>
+                                                                      </div>
+                                                                      <div class="item-play left_view">
+                                                                      <a class="video_box" href="#"><i class="fa-solid fa-play"></i></a>
+                                                                      </div>
+                                                                      </div> -->
                 <div class>
                     <div class="tz-section-title headline pera-content">
                         <div class="subtitle tz-sub-tilte tz-sub-anim text-uppercase">
@@ -100,16 +100,16 @@
                         </p>
                     </div>
                     <!-- <div class="tz-about5-bottom d-flex align-items-center ul-li">
-                                                                     <div class="tz-btn-1">
-                                                                     <a href="#"><span>Get Started</span></a>
-                                                                     </div>
-                                                                     </div> -->
+                                                                         <div class="tz-btn-1">
+                                                                         <a href="#"><span>Get Started</span></a>
+                                                                         </div>
+                                                                         </div> -->
                 </div>
             </div>
         </div>
     </section>
     <!-- End of About section
-                                                         ============================================= -->
+                                                             ============================================= -->
     <section id="tz-ser2" class="tz-ser2-sec position-relative pt-115 pb-90">
         <span class="tz-ser2-shape1 position-absolute"><img src="{{ asset('assets/img/shape/s-shape.png') }}" alt /></span>
         <span class="tz-ser2-shape2 position-absolute"><img src="{{ asset('assets/img/shape/s-shape.png') }}" alt /></span>
@@ -179,8 +179,8 @@
                                     with of best quality.
                                 </p>
                                 <!-- <a class="read_more" href="#."
-                                                                >Read More <i class="fa-solid fa-arrow-right-long"></i
-                                                              ></a> -->
+                                                                    >Read More <i class="fa-solid fa-arrow-right-long"></i
+                                                                  ></a> -->
                             </div>
                         </div>
                     </div>
@@ -208,8 +208,8 @@
                                     corporation.
                                 </p>
                                 <!-- <a class="read_more" href="#."
-                                                                >Read More <i class="fa-solid fa-arrow-right-long"></i
-                                                              ></a> -->
+                                                                    >Read More <i class="fa-solid fa-arrow-right-long"></i
+                                                                  ></a> -->
                             </div>
                         </div>
                     </div>
@@ -236,8 +236,8 @@
                                     of customers globally
                                 </p>
                                 <!-- <a class="read_more" href="#."
-                                                                >Read More <i class="fa-solid fa-arrow-right-long"></i
-                                                              ></a> -->
+                                                                    >Read More <i class="fa-solid fa-arrow-right-long"></i
+                                                                  ></a> -->
                             </div>
                         </div>
                     </div>
@@ -246,7 +246,7 @@
         </div>
     </section>
     <!-- Start of About Counter section
-                                                     ============================================= -->
+                                                         ============================================= -->
     <section id="tz-abp-counter" class="tz-abp-counter-sec pt-120 pb-100">
         <div class="tz-abp-counter-content">
             <div class="container">
@@ -302,9 +302,9 @@
 
     </section>
     <!-- End of About Counter section
-                                     ============================================= -->
+                                         ============================================= -->
     <!-- Start of About section
-                             ============================================= -->
+                                 ============================================= -->
     <section id="tz-about-2" class="tz-about-section-2 pb-120">
         <div class="container">
             <div class="tz-ab2-content position-relative">
@@ -328,15 +328,15 @@
                     <img src="{{ asset('assets/img/bg/ab-bg2.jpg') }}" alt />
                 </div>
                 <!-- <div class="ab_video_play_btn text-center">
-                                      <a
-                                         class="d-flex justify-content-center align-items-center video_box"
-                                         href="https://www.youtube.com/watch?v=3eDQgM73CQM">
-                                         <i class="fas fa-play"></i>
-                                         <span class="video_btn_border border_wrap-1"></span>
-                                         <span class="video_btn_border border_wrap-2"></span>
-                                         <span class="video_btn_border border_wrap-3"></span>
-                                      </a>
-                                   </div> -->
+                                          <a
+                                             class="d-flex justify-content-center align-items-center video_box"
+                                             href="https://www.youtube.com/watch?v=3eDQgM73CQM">
+                                             <i class="fas fa-play"></i>
+                                             <span class="video_btn_border border_wrap-1"></span>
+                                             <span class="video_btn_border border_wrap-2"></span>
+                                             <span class="video_btn_border border_wrap-3"></span>
+                                          </a>
+                                       </div> -->
                 <div class="tz-section-title headline">
                     <div class="subtitle tz-sub-tilte tz-sub-anim text-uppercase" style="color: white;">
                         About Us
@@ -355,9 +355,9 @@
         </div>
     </section>
     <!-- End of About section
-             ============================================= -->
+                 ============================================= -->
     <!-- Start of About why choose section
-                     ============================================= -->
+                         ============================================= -->
     <section id="tz-abwh" class="tz-abwh-sec pt-120 pb-120 position-relative">
         <span class="tz-abwh-shape position-absolute"><img src="{{ asset('assets/img/shape/circle.png') }}" alt /></span>
         <div class="container">
@@ -433,5 +433,5 @@
         </div>
     </section>
     <!-- End of About Counter section
-                     ============================================= -->
+                         ============================================= -->
 @endsection

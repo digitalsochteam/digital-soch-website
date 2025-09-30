@@ -81,7 +81,8 @@
                             <div class="brand-logo">
                                 <a href="#"><img src="{{ asset('assets/img/logo/logo.png') }}" alt=""></a>
                             </div>
-                            <p style="margin-top: 20px;">DIGITAL SOCH is equipped with a team of trained professionals
+                            <p style="margin-top: 20px;" class="text-white">DIGITAL SOCH is equipped with a team of
+                                trained professionals
                                 and
                                 latest technology for digital marketing and website designing services in Mumbai. We
                                 have a
@@ -138,8 +139,15 @@
 
             </div>
             <div class="tz-footer-copyright d-flex justify-content-between pera-content ul-li">
-                <p>Copyright @ 2025 Digital Soch Pvt. Ltd.. All Rights Received.</p>
-
+                <p>Copyright @ Digital Soch Pvt. Ltd. All Rights Received.</p>
+                <div class="tz-footer-menu">
+                    <ul>
+                        <li><a href="{{ route(name: 'cancellationrefundpolicy') }}">Cancellation & Refund Policy</a>
+                        </li>
+                        <li><a href="{{ route(name: 'termsandcondition') }}">Terms And Conditions</a></li>
+                        <li><a href="{{ route(name: 'privacypolicy') }}">Privacy Policy</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </footer>

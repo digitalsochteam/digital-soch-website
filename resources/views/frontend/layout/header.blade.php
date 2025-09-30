@@ -83,7 +83,7 @@
                             @endforeach
 
 
-                            <li><a href="{{ url('/contact') }}">Contacts</a></li>
+                            <li><a href="{{ route('contact') }}">Contacts</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -98,7 +98,7 @@
                         </div>
                         </div> -->
                     <div class="header-cta-btn btn-spin">
-                        <a href="contact.html"><span>Contact Now</span> <i class="fa-solid fa-plus"></i></a>
+                        <a href="{{ route('contact') }}"><span>Contact Now</span> <i class="fa-solid fa-plus"></i></a>
                     </div>
                     <button class="tz-mobile-btn-trigger mobile-menu-btn mobile_menu_button open_mobile_menu">
                         <span></span>
@@ -181,7 +181,7 @@
                     @endforeach
 
 
-                    <li><a href="{{ url('/contact') }}">Contacts</a></li>
+                    <li><a href="{{ route('contact') }}">Contacts</a></li>
                 </ul>
             </nav>
             <div class="ptx-mobile-header-social text-center">
