@@ -29,4 +29,6 @@ class ProductPackageSubscription extends Model
     {
         return $this->belongsTo(ProductPackage::class, 'product_package_id');
     }
+
+
 }

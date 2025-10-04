@@ -1,6 +1,6 @@
 <div class="mb-3">
-    <label for="product_id" class="form-label">Select Package</label>
-    <select name="product_id" id="product_id" class="form-select" required>
+    <label for="product_package_id" class="form-label">Select Package</label>
+    <select name="product_package_id" id="product_package_id" class="form-select" required>
         <option value="">-- Choose --</option>
         @foreach ($packages as $id => $title)
             <option value="{{ $id }}"
@@ -63,7 +63,6 @@
                 }
             }
         @endphp
-
         @forelse ($heads as $i => $head)
             <div class="row g-3 key-value-item mb-2">
                 <div class="col-md-5">

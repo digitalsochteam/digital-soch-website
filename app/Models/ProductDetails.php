@@ -18,7 +18,8 @@ class ProductDetails extends Model
         'product_subheading',
         'product_detail',
         'product_image',
-        'faqs'
+        'faqs',
+        'slug'
     ];
 
     protected $casts = [

@@ -1,42 +1,38 @@
 @extends('frontend.layout.app')
 
 @section('content')
+
+
     <!-- Breadcrumb Section -->
     <section id="tz-breadcrumb" class="tz-breadcrumb-sec position-relative"
         data-background="{{ asset('assets/img/bg/bread-bg.jpg') }}">
         <div class="container">
             <div class="tz-breadcrumb-content headline text-center ul-li">
-                <h2 class="bread_heading">{{ $product->product }}</h2>
+                <h2 class="bread_heading">{{ $product->product ?? $product->subcategory }}</h2>
                 <ul>
                     <li><a href="{{ url('/') }}">Home</a></li>
-                    <li>{{ $product->product }}</li>
+                    <li>{{ $product->product ?? $product->subcategory }}</li>
                 </ul>
             </div>
         </div>
     </section>
 
     <!-- Start of Service Details section
-                                                                                                                                                                                                                                             ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                         ============================================= -->
     <section id="tz-ser-details" class="tz-ser-details-sec pt-120 pb-120">
         <div class="container">
             <div class="tz-ser-details-content">
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="tz-ser-details-text-wrap headline pera-content">
-                            @if (!empty($product->product_image))
-                                <div class="ser-details-thumb">
-                                    <img src="{{ Storage::url($product->product_image) }}"
-                                        alt="{{ $product->product ?? 'Product' }} image"
-                                        style="max-width:100%; height:auto;" />
-                                </div>
-                            @endif
+
                             <div class="ser-details-text">
-                                <h3>{{ $product->product }}</h3>
-                                <p>
+                                <h3>{{ $product->product ?? $product->subcategory }}</h3>
+                                <p style="font-weight: 600; ">
                                     {{ $product->product_subheading }}
                                 </p>
                                 <p>
-                                    {{ $product->product_detail }}
+                                    {!! $product->product_detail !!}
                                 </p>
                                 @php
                                     $faqs = is_array($product->faqs)
@@ -83,6 +79,17 @@
                                 @endif
 
                             </div>
+                            @if (!empty($product->product_image))
+                                <div class="ser-details-thumb">
+                                    <img src="{{ Storage::url($product->product_image) }}"
+                                        alt="{{ $product->product ?? 'Product' }} image"
+                                        style="max-width:100%; height:auto;" />
+                                </div>
+                            @endif
+                            <div style="background-color: #ffffff; ">
+                                {!! $product->product_details !!}
+                            </div>
+
                         </div>
                     </div>
 
@@ -95,10 +102,12 @@
                                         <h3 class="widget-title">Other Products</h3>
                                         <ul>
                                             @foreach ($otherProducts as $otherProduct)
+                                                @php
+                                                    $productSlug = $otherProduct['slug'];
+                                                @endphp
                                                 <li>
-                                                    <a
-                                                        href="{{ route('product.show', str_replace(' ', '_', $otherProduct)) }}">
-                                                        <span>{{ $otherProduct }}</span>
+                                                    <a href="{{ route('product.show', $productSlug) }}">
+                                                        <span>{{ $otherProduct['name'] }}</span>
                                                         <i class="fa-solid fa-arrow-right"></i>
                                                     </a>
                                                 </li>
@@ -128,5 +137,5 @@
         </div>
     </section>
     <!-- End of Service Details section
-                                                                                                                                                                                                                                             ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                         ============================================= -->
 @endsection

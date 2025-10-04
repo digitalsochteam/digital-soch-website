@@ -12,6 +12,8 @@ class AuthController extends Controller
 {
     public function login()
     {
+
+        Log::info('Login page accessed');
         // Logic for handling login
         return view('backend.auth.login');
     }

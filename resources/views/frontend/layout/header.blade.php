@@ -21,7 +21,7 @@
         <div class="container">
             <div class="tz-main-navigation-area d-flex justify-content-between align-items-center">
                 <div class="brand-logo">
-                    <a href="#"><img src="{{ asset('assets/img/logo/logo.png') }}" alt=""></a>
+                    <a href="{{ url('/') }}"><img src="{{ asset('assets/img/logo/logo.png') }}" alt=""></a>
                 </div>
                 <div class="main-navigation-cta d-flex align-items-center ">
                     <nav class="main-navigation clearfix ul-li">
@@ -49,25 +49,41 @@
                                                                 return !empty($p); // removes null, "", 0, false
                                                             },
                                                         );
+
+                                                        Log::info('Valid Products:', $validProducts);
+                                                        $isOnlyProduct = false;
+                                                        if ($validProducts && count($validProducts) > 0) {
+                                                            if ($validProducts[0]['name'] == null) {
+                                                                $isOnlyProduct = true;
+                                                            } else {
+                                                                $isOnlyProduct = false;
+                                                            }
+
+                                                            Log::info('Is Only Product:', [
+                                                                'isOnlyProduct' => $isOnlyProduct,
+                                                            ]);
+                                                        }
+
                                                     @endphp
 
-                                                    <li class="{{ count($validProducts) > 0 ? 'dropdown' : '' }}">
+                                                    <li
+                                                        class="{{ count($validProducts) > 0 && $isOnlyProduct === false ? 'dropdown' : '' }}">
 
                                                         <a
-                                                            href="{{ count($validProducts) > 0 ? '#' : url('/subcategory/' . urlencode($subcategory['subcategory'])) }}">
+                                                            href="{{ count($validProducts) > 0 && $isOnlyProduct === false ? '#' : route('product.show', $validProducts[0]['slug']) }}">
                                                             {{ $subcategory['subcategory'] }}
                                                         </a>
 
-                                                        @if (count($validProducts) > 0)
+                                                        @if (count($validProducts) > 0 && $isOnlyProduct === false)
                                                             <ul class="dropdown-menu clearfix">
                                                                 @foreach ($subcategory['products'] as $product)
                                                                     @php
-                                                                        $productSlug = str_replace(' ', '_', $product);
+                                                                        $productSlug = $product['slug'];
                                                                     @endphp
                                                                     <li>
                                                                         <a
                                                                             href="{{ route('product.show', $productSlug) }}">
-                                                                            {{ $product }}
+                                                                            {{ $product['name'] }}
                                                                         </a>
                                                                     </li>
                                                                 @endforeach
@@ -82,6 +98,26 @@
                                 </li>
                             @endforeach
 
+                            <li class="dropdown">
+                                <a href="#">
+                                    Packages
+                                </a>
+
+                                @if (getPackages()->count() > 0)
+                                    <ul class="dropdown-menu clearfix">
+                                        @foreach (getPackages() as $package)
+                                            @php
+                                                $productSlug = strtolower(str_replace(' ', '-', $package->slug));
+                                            @endphp
+                                            <li>
+                                                <a href="{{ route('package.show', $productSlug) }}">
+                                                    {{ $package->title }}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+                            </li>
 
                             <li><a href="{{ route('contact') }}">Contacts</a></li>
                         </ul>
@@ -164,8 +200,8 @@
                                                     <ul class="dropdown-menu clearfix">
                                                         @foreach ($subcategory['products'] as $product)
                                                             <li>
-                                                                <a href="{{ url('/product/' . urlencode($product)) }}">
-                                                                    {{ $product }}
+                                                                <a href="#">
+                                                                    {{ $product['name'] }}
                                                                 </a>
                                                             </li>
                                                         @endforeach

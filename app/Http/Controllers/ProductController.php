@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\Models\ProductDetails;
 use App\Models\MainProduct;
 use Illuminate\Support\Facades\Storage;
+use App\Models\ProductPackage;
+use App\Models\Blog;
 
 class ProductController extends Controller
 {
@@ -24,22 +26,58 @@ class ProductController extends Controller
         $packages = MainProduct::pluck('name', 'id');
         return view('backend.product.create', compact('packages'));
     }
-    public function show($id)
+    public function show($slug)
     {
-
-        // Fetch product by ID
-        $id = str_replace('_', ' ', $id);
-        $product = ProductDetails::where('product', $id)->first();
-        $otherProducts = ProductDetails::where('subcategory', $product->subcategory)
-            ->where('product', '!=', $product->product)
-            ->pluck('product')
-            ->unique();
+        Log::info('Entering show method with slug: ' . $slug);
+        $product = ProductDetails::where('slug', $slug)->first();
 
 
-        Log::info('Other Products:', ['product' => $product]);
+        if ($product) {
+            $otherProducts = ProductDetails::where('subcategory', $product->subcategory)
+                ->where('product', '!=', $product->product)
+                ->get(['product', 'slug'])
+                ->unique('product')
+                ->map(function ($item) {
+                    return [
+                        'name' => $item->product,
+                        'slug' => $item->slug
+                    ];
+                });
 
-        // Pass product to view
-        return view('frontend.product.show', compact('product', 'otherProducts'));
+            Log::info('Other Products', ['otherProducts' => $otherProducts]);
+
+            return view('frontend.product.show', compact('product', 'otherProducts'));
+        }
+        // $product = ProductDetails::where('slug', $slug)->first();
+
+        // Log::info('Product Slug', ['slug' => $slug, 'product' => $product]);
+
+        // if ($product) {
+        //     $otherProducts = ProductDetails::where('subcategory', $product->subcategory)
+        //         ->where('product', '!=', $product->product)
+        //         ->pluck('product')
+        //         ->unique();
+        //     return view('frontend.product.show', compact('product', 'otherProducts'));
+        // }
+
+        // $package = ProductPackage::where('slug', $slug)->first();
+
+        // Log::info('Package Slug', ['slug' => $slug, 'package' => $package]);
+
+        // if ($package) {
+        //     return view('frontend.package.show', compact('package'));
+        // }
+
+        // if ($slug === 'blogs') {
+        //     $blogs = Blog::get();
+        //     return view('frontend.blog.blogs', compact('blogs'));
+        // }
+
+        // if ($slug === 'login') {
+        //     return view('backend.auth.login');
+        // }
+
+
     }
 
     public function store(Request $request)
@@ -48,8 +86,8 @@ class ProductController extends Controller
         $data = $request->validate([
             'product_id' => 'required|exists:products,id',
             'category' => 'required|string|max:255',
-            'subcategory' => 'required|string|max:255',
-            'product' => 'required|string|max:255',
+            'subcategory' => 'nullable|string|max:255',
+            'product' => 'nullable|string|max:255',
             'product_details' => 'nullable|string',
             'position' => 'required|numeric',
             'product_image' => 'required|image|max:2048',
@@ -58,6 +96,7 @@ class ProductController extends Controller
             'faqs' => 'nullable|array',              // <-- array from dynamic form
             'faqs.*.question' => 'nullable|string',             // optional but recommended
             'faqs.*.answer' => 'nullable|string',
+            "slug" => "required|string|unique:product_details,slug",
         ]);
 
         // ✅ Store image
@@ -74,10 +113,17 @@ class ProductController extends Controller
             $data['subcategory'] = $request->new_subcategory;
         }
 
-        // ✅ Convert FAQ array to JSON for storage
-        //     (assuming your `product_details` table has a `faqs` column of type JSON or TEXT)
+        // ✅ Convert FAQs to JSON if present and not empty
         if (!empty($data['faqs'])) {
-            $data['faqs'] = json_encode($data['faqs']);
+            // Filter out empty FAQ entries
+            $validFaqs = array_filter($data['faqs'], function ($faq) {
+                return !empty($faq['question']) || !empty($faq['answer']);
+            });
+
+            // If we have valid FAQs, encode them; otherwise set to null
+            $data['faqs'] = !empty($validFaqs) ? json_encode(array_values($validFaqs)) : null;
+        } else {
+            $data['faqs'] = null;
         }
 
         // ✅ Save everything
@@ -101,17 +147,20 @@ class ProductController extends Controller
         $data = $request->validate([
             'product_id' => 'required|exists:products,id',
             'category' => 'required|string|max:255',
-            'subcategory' => 'required|string|max:255',
-            'product' => 'required|string|max:255',
+            'subcategory' => 'nullable|string|max:255',
+            'product' => 'nullable|string|max:255',
             'product_details' => 'nullable|string',
             'position' => 'required|numeric',
             'product_image' => 'nullable|image|max:2048',
-            'product_subheading' => 'nullable|string|max:255',
-            'product_detail' => 'nullable|string|max:255',
+            'product_subheading' => 'nullable|string',
+            'product_detail' => 'nullable|string',
             'faqs' => 'nullable|array',      // accepts an array of Q&As
             'faqs.*.question' => 'nullable|string',
             'faqs.*.answer' => 'nullable|string',
+            "slug" => "required|string|unique:product_details,slug," . $detail->id,
         ]);
+
+        Log::info('Validated Data', ['data' => $data]);
 
         // ✅ Replace "__new__" placeholders if you use them on the edit form
         if ($data['category'] === '__new__' && $request->filled('new_category')) {
@@ -131,10 +180,16 @@ class ProductController extends Controller
         }
 
         // ✅ Convert FAQs to JSON if present
+        // ✅ Convert FAQs to JSON if present and not empty
         if (!empty($data['faqs'])) {
-            $data['faqs'] = json_encode($data['faqs']);
+            // Filter out empty FAQ entries
+            $validFaqs = array_filter($data['faqs'], function ($faq) {
+                return !empty($faq['question']) || !empty($faq['answer']);
+            });
+
+            // If we have valid FAQs, encode them; otherwise set to null
+            $data['faqs'] = !empty($validFaqs) ? json_encode(array_values($validFaqs)) : null;
         } else {
-            // If no FAQs were submitted, set to null (or keep existing if you prefer)
             $data['faqs'] = null;
         }
 

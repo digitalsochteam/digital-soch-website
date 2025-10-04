@@ -7,21 +7,42 @@ use App\Models\ProductPackageSubscription;
 use App\Models\ProductPackage;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use App\Models\ProductDetails;
 
 class ProductPackageSubscriptionController extends Controller
 {
     public function index()
     {
-
         $details = ProductPackageSubscription::get();
         return view('backend.package-subscription.list', compact('details'));
     }
 
     public function create()
     {
-
         $packages = ProductPackage::pluck('slug', 'id');
         return view('backend.package-subscription.create', compact('packages', ));
+    }
+
+    public function show($slug)
+    {
+        $package = ProductPackage::where('slug', $slug)->first();
+        return view('frontend.package.show', compact('package'));
+        // $product = ProductDetails::where('slug', $slug)->first();
+
+        // if ($product) {
+        //     $otherProducts = ProductDetails::where('subcategory', $product->subcategory)
+        //         ->where('product', '!=', $product->product)
+        //         ->pluck('product')
+        //         ->unique();
+        //     return view('frontend.product.show', compact('product', 'otherProducts'));
+        // }
+
+
+        // $package = ProductPackage::where('slug', $slug)->first();
+
+        // if ($package) {
+        //     return view('frontend.package.show', compact('package'));
+        // }
     }
 
 
@@ -37,9 +58,6 @@ class ProductPackageSubscriptionController extends Controller
             'head.*.key' => 'nullable|string',
             'head.*.value' => 'nullable|string',
         ]);
-
-        // Handle file upload
-        $imagePath = null;
 
         if ($request->hasFile('image')) {
             $data['image'] =
@@ -65,10 +83,12 @@ class ProductPackageSubscriptionController extends Controller
         $packages = ProductPackage::pluck('slug', 'id');
         return view('backend.package-subscription.edit', compact('detail', 'packages'));
     }
-
-    public function update(Request $request, ProductPackageSubscription $subscription)
+    public function update(Request $request, ProductPackageSubscription $detail)
     {
-        $request->validate([
+        Log::info('Route parameter subscription ID: ', ['id' => $detail->id]);
+
+
+        $data = $request->validate([
             'product_package_id' => 'required|exists:productpackages,id',
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
@@ -79,31 +99,24 @@ class ProductPackageSubscriptionController extends Controller
             'head.*.value' => 'nullable|string',
         ]);
 
-        // Handle file upload (replace if new one uploaded)
-        $imagePath = $subscription->image;
+        // ✅ Handle image replacement
         if ($request->hasFile('image')) {
-            if ($imagePath) {
-                Storage::disk('public')->delete($imagePath);
+            if ($detail->image) {
+                Storage::disk('public')->delete($detail->image);
             }
-            $imagePath = $request->file('image')->store('subscription_images', 'public');
+            $data['image'] = $request->file('image')->store('subscription_images', 'public');
         }
 
-        // ✅ Convert FAQs to JSON if present
-        if (!empty($request['head'])) {
-            $request['head'] = json_encode($request['head']);
-        } else {
-            // If no FAQs were submitted, set to null (or keep existing if you prefer)
-            $request['head'] = null;
+        Log::info('Before normalization: ', $data);
+
+        if (!empty($data['head'])) {
+            $data['head'] = json_encode($data['head']);
         }
 
-        $subscription->update([
-            'product_package_id' => $request->product_id,
-            'title' => $request->title,
-            'description' => $request->description,
-            'image' => $imagePath,
-            'ispopular' => $request->ispopular,
-            'head' => json_encode($request->head),
-        ]);
+        Log::info('Validated data (normalized): ', $data);
+
+        // ✅ Update
+        $detail->update($data);
 
         return redirect()->route('package-subscription-details.index')
             ->with('success', 'Subscription updated successfully.');

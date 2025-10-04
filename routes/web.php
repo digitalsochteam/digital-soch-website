@@ -9,15 +9,16 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductPackageController;
 use App\Http\Controllers\ProductPackageSubscriptionController;
+use App\Http\Controllers\RouteController;
 
 
 Route::get('/', [DashboardController::class, 'index'])->name('frontend.dashboard.index');
 
-Route::get('/about', function () {
+Route::get('/about-our-agency', function () {
     return view('frontend.dashboard.about');
 })->name('about');
 
-Route::get('/contact', function () {
+Route::get('/contact-information', function () {
     return view('frontend.dashboard.contact');
 })->name('contact');
 
@@ -34,8 +35,11 @@ Route::get('/privacy-policy', function () {
 })->name('privacypolicy');
 
 
-
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+Route::get('/package/{id}', [ProductPackageSubscriptionController::class, 'show'])->name('package.show');
+
+// Route::get('/{id}', [RouteController::class, 'findByRoute'])->name('find.route');
+
 
 Route::get('/blogs', [BlogController::class, 'getallblogs'])->name('blog.seeallblogs');
 Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');

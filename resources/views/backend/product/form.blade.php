@@ -47,24 +47,28 @@
     </div>
 </div>
 
-
+<div class="mb-3">
+    <label>Slug For SEO</label>
+    <input type="text" name="slug" id="slug" class="form-control"
+        value="{{ old('slug', $detail->slug ?? '') }}" required>
+</div>
 
 <div class="mb-3">
     <label>Product</label>
     <input type="text" name="product" id="product" class="form-control"
-        value="{{ old('product', $detail->product ?? '') }}" required>
+        value="{{ old('product', $detail->product ?? '') }}">
 </div>
 
 <div class="mb-3">
     <label for="product_subheading" class="form-label">Product Subheading</label>
-    <textarea name="product_subheading" id="product_subheading" class="form-control" rows="4" {{-- adjust rows for default height --}}
+    <textarea name="product_subheading" id="product_subheading" class="form-control" rows="8" {{-- adjust rows for default height --}}
         required>{{ old('product_subheading', $detail->product_subheading ?? '') }}</textarea>
 </div>
 
 
 <div class="mb-3">
     <label for="product_detail" class="form-label">Product Detail</label>
-    <textarea name="product_detail" id="product_detail" class="form-control" rows="5" {{-- adjust rows for default height --}} required>{{ old('product_detail', $detail->product_detail ?? '') }}</textarea>
+    <textarea name="product_detail" id="product_detail" class="form-control" rows="8" {{-- adjust rows for default height --}} required>{{ old('product_detail', $detail->product_detail ?? '') }}</textarea>
 </div>
 
 <div class="mb-3">
