@@ -28,7 +28,7 @@ class ProductController extends Controller
     }
     public function show($slug)
     {
-        Log::info('Entering show method with slug: ' . $slug);
+        // Log::info('Entering show method with slug: ' . $slug);
         $product = ProductDetails::where('slug', $slug)->first();
 
 
@@ -44,7 +44,7 @@ class ProductController extends Controller
                     ];
                 });
 
-            Log::info('Other Products', ['otherProducts' => $otherProducts]);
+            // Log::info('Other Products', ['otherProducts' => $otherProducts]);
 
             return view('frontend.product.show', compact('product', 'otherProducts'));
         }
@@ -160,7 +160,7 @@ class ProductController extends Controller
             "slug" => "required|string|unique:product_details,slug," . $detail->id,
         ]);
 
-        Log::info('Validated Data', ['data' => $data]);
+        // Log::info('Validated Data', ['data' => $data]);
 
         // ✅ Replace "__new__" placeholders if you use them on the edit form
         if ($data['category'] === '__new__' && $request->filled('new_category')) {

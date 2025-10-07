@@ -30,6 +30,13 @@
 </div>
 
 <div class="mb-3">
+    <label for="color">Choose Color:</label>
+    <input type="color" name="color" id="color" class="form-control form-control-color"
+        value="{{ old('color', $detail->color ?? '') }}">
+</div>
+
+
+<div class="mb-3">
     <label for="image" class="form-label">Image {{ isset($detail) ? '(optional)' : '' }}</label>
     <input type="file" name="image" id="image" class="form-control">
     @isset($detail->image)
@@ -67,11 +74,11 @@
             <div class="row g-3 key-value-item mb-2">
                 <div class="col-md-5">
                     <input type="text" name="head[{{ $i }}][key]" class="form-control"
-                        value="{{ $head['key'] ?? '' }}" placeholder="Enter Key (e.g. Adwords)" required>
+                        value="{{ $head['key'] ?? '' }}" placeholder="Enter Key (e.g. Adwords)">
                 </div>
                 <div class="col-md-5">
                     <input type="text" name="head[{{ $i }}][value]" class="form-control"
-                        value="{{ $head['value'] ?? '' }}" placeholder="Enter Value (e.g. 25000)" required>
+                        value="{{ $head['value'] ?? '' }}" placeholder="Enter Value (e.g. 25000)">
                 </div>
                 <div class="col-md-2 d-flex">
                     <button type="button" class="btn btn-danger remove-item w-100">Remove</button>
@@ -81,11 +88,11 @@
             <div class="row g-3 key-value-item mb-2">
                 <div class="col-md-5">
                     <input type="text" name="head[0][key]" class="form-control"
-                        placeholder="Enter Key (e.g. Adwords)" required>
+                        placeholder="Enter Key (e.g. Adwords)">
                 </div>
                 <div class="col-md-5">
                     <input type="text" name="head[0][value]" class="form-control"
-                        placeholder="Enter Value (e.g. 25000)" required>
+                        placeholder="Enter Value (e.g. 25000)">
                 </div>
                 <div class="col-md-2 d-flex">
                     <button type="button" class="btn btn-danger remove-item w-100">Remove</button>

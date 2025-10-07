@@ -98,7 +98,7 @@ function getCategoryList()
         return $cat;
     }, $tree);
 
-    Log::info('Category List', $tree);
+    // Log::info('Category List', $tree);
 
     return array_values($tree);
 }

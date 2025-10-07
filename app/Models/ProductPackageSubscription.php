@@ -18,6 +18,7 @@ class ProductPackageSubscription extends Model
         'image',
         'ispopular',
         'head',
+        'color',
     ];
 
     protected $casts = [

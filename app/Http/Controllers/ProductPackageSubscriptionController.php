@@ -26,7 +26,10 @@ class ProductPackageSubscriptionController extends Controller
     public function show($slug)
     {
         $package = ProductPackage::where('slug', $slug)->first();
-        return view('frontend.package.show', compact('package'));
+        Log::info('Package Details', ['package' => $package]);
+        $subscriptions = ProductPackageSubscription::where('product_package_id', $package->id)->get();
+        Log::info('Package Subscriptions', ['subscriptions' => $subscriptions]);
+        return view('frontend.package.show', compact('package', 'subscriptions'));
         // $product = ProductDetails::where('slug', $slug)->first();
 
         // if ($product) {
@@ -57,6 +60,7 @@ class ProductPackageSubscriptionController extends Controller
             'head' => 'nullable|array',
             'head.*.key' => 'nullable|string',
             'head.*.value' => 'nullable|string',
+            'color' => 'required|string|max:20',
         ]);
 
         if ($request->hasFile('image')) {
@@ -66,7 +70,18 @@ class ProductPackageSubscriptionController extends Controller
 
 
         if (!empty($data['head'])) {
-            $data['head'] = json_encode($data['head']);
+            // $data['head'] = json_encode($data['head']);
+
+
+            // Filter out empty FAQ entries
+            $validHead = array_filter($data['head'], function ($head) {
+                return !empty($head['key']) || !empty($head['value']);
+            });
+
+            // If we have valid FAQs, encode them; otherwise set to null
+            $data['faqs'] = !empty($validHead) ? json_encode(array_values($validHead)) : null;
+        } else {
+            $data['head'] = null;
         }
 
 
@@ -97,6 +112,7 @@ class ProductPackageSubscriptionController extends Controller
             'head' => 'nullable|array',
             'head.*.key' => 'nullable|string',
             'head.*.value' => 'nullable|string',
+            'color' => 'nullable|string|max:20',
         ]);
 
         // ✅ Handle image replacement

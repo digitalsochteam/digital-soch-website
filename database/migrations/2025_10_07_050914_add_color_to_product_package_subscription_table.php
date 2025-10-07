@@ -10,8 +10,8 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::table('product_details', function (Blueprint $table) {
-            $table->string('slug');
+        Schema::table('product_package_subscription', function (Blueprint $table) {
+            $table->string('color', 20);
         });
     }
 
@@ -20,8 +20,8 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::table('product_details', function (Blueprint $table) {
-            $table->dropColumn('slug');
+        Schema::table('product_package_subscription', function (Blueprint $table) {
+            $table->dropColumn('color');
         });
     }
 };
