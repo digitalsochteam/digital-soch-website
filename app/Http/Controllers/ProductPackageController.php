@@ -53,7 +53,7 @@ class ProductPackageController extends Controller
     public function update(Request $request, ProductPackage $detail)
     {
         $request->validate([
-            'slug' => 'required|unique:productpackages,slug,' . $detail->id,
+            'slug' => 'nullable|unique:productpackages,slug,' . $detail->id,
             'title' => 'required',
             'description' => 'nullable',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',

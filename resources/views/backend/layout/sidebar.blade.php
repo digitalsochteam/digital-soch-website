@@ -44,14 +44,20 @@
 
             <a href="{{ route('package-details.index') }}"
                 class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-gray-700 hover:text-white transition-colors">
-                <i class="fas fa-blog mr-3"></i>
+                <i class="fas fa-box mr-3"></i>
                 <span>Add Package</span>
             </a>
 
             <a href="{{ route('package-subscription-details.index') }}"
                 class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-gray-700 hover:text-white transition-colors">
-                <i class="fas fa-blog mr-3"></i>
+                <i class="fas fa-cubes mr-3"></i>
                 <span>Add Package Subscription</span>
+            </a>
+
+            <a href="{{ route('company-logo-details.index') }}"
+                class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-gray-700 hover:text-white transition-colors">
+                <i class="fas fa-building mr-3"></i>
+                <span>Add Company Logo</span>
             </a>
 
         </div>

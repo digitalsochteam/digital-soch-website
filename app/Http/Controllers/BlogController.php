@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Log;
 
 class BlogController extends Controller
 {
@@ -52,7 +53,10 @@ class BlogController extends Controller
             'description' => 'required|string',
             'tags' => 'nullable|string',   // comma separated string
             'image' => 'nullable|image',
+            "slug" => "nullable|string|unique:blogs,slug",
         ]);
+
+        Log::info('slug: ' . $data['slug']);
 
         // ✅ Handle tags (convert comma-separated to array)
         $data['tags'] = $data['tags']
@@ -74,6 +78,7 @@ class BlogController extends Controller
 
     public function edit(Blog $detail)
     {
+        Log::info('Editing blog with ID: ' . $detail);
         return view('backend.blog.edit', compact('detail'));
     }
 
@@ -85,7 +90,10 @@ class BlogController extends Controller
             'description' => 'required|string',
             'tags' => 'nullable|string', // comma separated string
             'image' => 'nullable|image',
+            'slug' => 'nullable|string|unique:blogs,slug,' . $detail->id,
         ]);
+
+
 
         // ✅ Convert tags to array (same as store)
         $data['tags'] = $data['tags']
@@ -98,9 +106,13 @@ class BlogController extends Controller
             if ($detail->image) {
                 Storage::disk('public')->delete($detail->image);
             }
-            $data['product_image'] =
+            $data['image'] =
                 $request->file('image')->store('blog_images', 'public');
         }
+
+        // Log data for debugging
+        Log::info('Updating blog with data: ', $data);
+
 
         // ✅ Update the blog entry
         $detail->update($data);

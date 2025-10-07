@@ -8,6 +8,12 @@
 </div>
 
 <div class="mb-3">
+    <label>Slug For SEO</label>
+    <input type="text" name="slug" id="slug" class="form-control"
+        value="{{ old('slug', $detail->slug ?? '') }}" required>
+</div>
+
+<div class="mb-3">
     <label for="description" class="form-label">Description <span class="text-danger">*</span></label>
     <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description"
         rows="5" required>{{ old('description', $detail->description ?? '') }}</textarea>

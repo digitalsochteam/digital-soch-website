@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CompanyLogoController;
 use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
@@ -97,6 +98,15 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/{detail}/edit', [ProductPackageSubscriptionController::class, 'edit'])->name('edit');
             Route::put('/{detail}', [ProductPackageSubscriptionController::class, 'update'])->name('update');
             Route::delete('/{detail}', [ProductPackageSubscriptionController::class, 'destroy'])->name('destroy');
+        });
+
+        Route::prefix('companylogodetails')->name('company-logo-details.')->group(function () {
+            Route::get('/', [CompanyLogoController::class, 'index'])->name('index');
+            Route::get('/create', [CompanyLogoController::class, 'create'])->name('create');
+            Route::post('/', [CompanyLogoController::class, 'store'])->name('store');
+            Route::get('/{detail}/edit', [CompanyLogoController::class, 'edit'])->name('edit');
+            Route::put('/{detail}', [CompanyLogoController::class, 'update'])->name('update');
+            Route::delete('/{detail}', [CompanyLogoController::class, 'destroy'])->name('destroy');
         });
     });
 });

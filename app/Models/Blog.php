@@ -15,6 +15,7 @@ class Blog extends Model
         'title',
         'description',
         'tags',
+        "slug"
     ];
 
     /**

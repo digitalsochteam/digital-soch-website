@@ -48,7 +48,7 @@ class TestimonialController extends Controller
 
     public function edit(Testimonial $detail)
     {
-        // Log::info('Testimonial Edit:', ['testimonial' => $detail]);
+        // Log::info('Testimonial Edit:', ['testimonial' => $detail])
         return view('backend.testimonial.edit', compact('detail'));
     }
 
