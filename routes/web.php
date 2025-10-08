@@ -10,7 +10,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductPackageController;
 use App\Http\Controllers\ProductPackageSubscriptionController;
-use App\Http\Controllers\RouteController;
+use App\Http\Controllers\PortfolioWebsiteController;
 
 
 Route::get('/', [DashboardController::class, 'index'])->name('frontend.dashboard.index');
@@ -43,7 +43,7 @@ Route::get('/package/{id}', [ProductPackageSubscriptionController::class, 'show'
 
 
 Route::get('/blogs', [BlogController::class, 'getallblogs'])->name('blog.seeallblogs');
-Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
+Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
 // Backend Routes
 Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -107,6 +107,15 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/{detail}/edit', [CompanyLogoController::class, 'edit'])->name('edit');
             Route::put('/{detail}', [CompanyLogoController::class, 'update'])->name('update');
             Route::delete('/{detail}', [CompanyLogoController::class, 'destroy'])->name('destroy');
+        });
+
+        Route::prefix('portfoliowebsitedetails')->name('portfolio-website-details.')->group(function () {
+            Route::get('/', [PortfolioWebsiteController::class, 'index'])->name('index');
+            Route::get('/create', [PortfolioWebsiteController::class, 'create'])->name('create');
+            Route::post('/', [PortfolioWebsiteController::class, 'store'])->name('store');
+            Route::get('/{detail}/edit', [PortfolioWebsiteController::class, 'edit'])->name('edit');
+            Route::put('/{detail}', [PortfolioWebsiteController::class, 'update'])->name('update');
+            // Route::delete('/{detail}', [CompanyLogoController::class, 'destroy'])->name('destroy');
         });
     });
 });

@@ -9,14 +9,16 @@
                 <div class="subtitle tz-sub-tilte tz-sub-anim text-uppercase" style="color: #ffffff">
                     blog posts
                 </div>
-                <h2 class="sec_title tz-itm-title tz-itm-anim" style="color: #ffffff">Read our Blogs</h2>
+                <h2 class="sec_title tz-itm-title tz-itm-anim" style="color: #ffffff">Read Our Blogs</h2>
                 <p style="color: #ffffff">Our team is dedicated to delivering exceptional IT solutions tailored to meet the
                     unique needs of each
                     client.</p>
             </div>
         </div>
     </section>
-    <section id="tz-blog-grid" class="tz-blog-grid-sec pt-80" style="background-color: #195d8d">
+    <section id="tz-blog-grid" class="tz-blog-grid-sec pt-80"
+        style="background-image: url('{{ asset('assets/img/bg/cn.jpg') }}');">
+
         <div class="container">
             <div class="tz-blog3-content">
                 <div class="row justify-content-center">
@@ -29,17 +31,17 @@
                                 </div>
                                 <div class="item-text headline">
                                     <div class="item-meta">
-                                        <a href="{{ route('blog.show', str_replace(' ', '_', $blog->id)) }}">
+                                        <a href="{{ route('blog.show', $blog->slug) }}">
                                             <i class="fa-regular fa-calendar"></i>
                                             {{ $blog->created_at?->format('d M, Y') }}
                                         </a>
                                     </div>
                                     <h3 class="blog_title">
-                                        <a href="{{ route('blog.show', str_replace(' ', '_', $blog->id)) }}">
+                                        <a href="{{ route('blog.show', $blog->slug) }}">
                                             {{ $blog->title }}
                                         </a>
                                     </h3>
-                                    <a class="read_more" href="{{ route('blog.show', str_replace(' ', '_', $blog->id)) }}">
+                                    <a class="read_more" href="{{ route('blog.show', $blog->slug) }}">
                                         Read Details
                                     </a>
                                 </div>

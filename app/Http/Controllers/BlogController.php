@@ -27,16 +27,21 @@ class BlogController extends Controller
         return view('backend.blog.create', compact('testimonials'));
     }
 
-    public function show($id)
+    public function show($slug)
     {
-        // Convert slug-like URL to the real title
-        $title = str_replace('_', ' ', $id);
+
+        Log::info('Entering show method with slug: ' . $slug);
+
 
         // Fetch the blog by its title
-        $blog = Blog::where('id', $title)->firstOrFail();
+        $blog = Blog::where('slug', $slug)->first();
+
+        if (!$blog) {
+            abort(404, 'Blog not found');
+        }
 
         // Exclude the current blog using its numeric ID
-        $recentPosts = Blog::where('id', '!=', $blog->id)
+        $recentPosts = Blog::where('slug', '!=', $blog->slug)
             ->latest()
             ->take(3)
             ->get();

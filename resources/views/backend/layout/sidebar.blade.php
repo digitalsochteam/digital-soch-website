@@ -60,6 +60,13 @@
                 <span>Add Company Logo</span>
             </a>
 
+
+            <a href="{{ route('portfolio-website-details.index') }}"
+                class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-gray-700 hover:text-white transition-colors">
+                <i class="fas fa-globe mr-3"></i>
+                <span>Add Portfolio Website</span>
+            </a>
+
         </div>
     </nav>
 

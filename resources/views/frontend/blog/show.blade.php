@@ -16,7 +16,7 @@
     </section>
 
     <!-- Start of Service Details section
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
     <section id="tz-blog-details" class="tz-blog-details-sec pt-110 pb-100">
         <div class="container">
             <div class="row">
@@ -116,7 +116,7 @@
 
                                                 </div>
                                                 <h3>
-                                                    <a href="{{ route('blog.show', str_replace(' ', '_', $post->id)) }}">
+                                                    <a href="{{ route('blog.show', $post->slug) }}">
                                                         {{ Str::limit($post->title, 60) }}
                                                     </a>
                                                 </h3>
@@ -137,5 +137,5 @@
         </div>
     </section>
     <!-- End of Service Details section
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
 @endsection
