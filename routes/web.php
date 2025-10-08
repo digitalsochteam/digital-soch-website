@@ -5,13 +5,13 @@ use App\Http\Controllers\CompanyLogoController;
 use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\Backend\DashboardController as BackendDashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductPackageController;
 use App\Http\Controllers\ProductPackageSubscriptionController;
 use App\Http\Controllers\PortfolioWebsiteController;
 use App\Http\Controllers\PortfolioVideoController;
+use App\Http\Controllers\BackDashboardController;
 
 
 Route::get('/', [DashboardController::class, 'index'])->name('frontend.dashboard.index');
@@ -57,8 +57,8 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth'])->group(function () {
     Route::prefix('backend')->group(function () {
-        Route::get('/', action: [BackendDashboardController::class, 'dashboard'])->name('backend.dashboard');
-        Route::get('/dashboard', [BackendDashboardController::class, 'dashboard'])->name('dashboard.index');
+        Route::get('/', action: [BackDashboardController::class, 'dashboard'])->name('backend.dashboard');
+        Route::get('/dashboard', [BackDashboardController::class, 'dashboard'])->name('dashboard.index');
 
         Route::prefix('productdetails')->name('product-details.')->group(function () {
             Route::get('/', [ProductController::class, 'index'])->name('index');
