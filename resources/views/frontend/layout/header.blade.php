@@ -208,7 +208,7 @@
 
                         @foreach (getCategoryList() as $category)
                             <li class="dropdown">
-                                <a href="{{ url('/category/' . urlencode($category['category'])) }}">
+                                <a href="#">
                                     {{ $category['category'] }}
                                 </a>
 
@@ -225,20 +225,40 @@
                                                             return !empty($p); // removes null, "", 0, false
                                                         },
                                                     );
+
+                                                    Log::info('Valid Products:', $validProducts);
+                                                    $isOnlyProduct = false;
+                                                    if ($validProducts && count($validProducts) > 0) {
+                                                        if ($validProducts[0]['name'] == null) {
+                                                            $isOnlyProduct = true;
+                                                        } else {
+                                                            $isOnlyProduct = false;
+                                                        }
+
+                                                        Log::info('Is Only Product:', [
+                                                            'isOnlyProduct' => $isOnlyProduct,
+                                                        ]);
+                                                    }
+
                                                 @endphp
 
-                                                <li class="{{ count($validProducts) > 0 ? 'dropdown' : '' }}">
+                                                <li
+                                                    class="{{ count($validProducts) > 0 && $isOnlyProduct === false ? 'dropdown' : '' }}">
 
                                                     <a
-                                                        href="{{ url('/subcategory/' . urlencode($subcategory['subcategory'])) }}">
+                                                        href="{{ count($validProducts) > 0 && $isOnlyProduct === false ? '#' : route('product.show', $validProducts[0]['slug']) }}">
                                                         {{ $subcategory['subcategory'] }}
                                                     </a>
 
-                                                    @if (count($validProducts) > 0)
+                                                    @if (count($validProducts) > 0 && $isOnlyProduct === false)
                                                         <ul class="dropdown-menu clearfix">
                                                             @foreach ($subcategory['products'] as $product)
+                                                                @php
+                                                                    $productSlug = $product['slug'];
+                                                                @endphp
                                                                 <li>
-                                                                    <a href="#">
+                                                                    <a
+                                                                        href="{{ route('product.show', $productSlug) }}">
                                                                         {{ $product['name'] }}
                                                                     </a>
                                                                 </li>
@@ -253,7 +273,37 @@
 
                             </li>
                         @endforeach
+                        <li class="dropdown"><a href="#">Portfolio</a>
+                            <ul class="dropdown-menu clearfix">
+                                <li><a href="{{ route('website.seeallwebsites') }}">Websites
+                                    </a>
+                                </li>
+                                <li><a href="{{ route('logo.seealllogos') }}">Logos
+                                    </a></li>
+                                <li><a href="{{ route('video.seeallvideos') }}">Videos
+                                    </a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#">
+                                Packages
+                            </a>
 
+                            @if (getPackages()->count() > 0)
+                                <ul class="dropdown-menu clearfix">
+                                    @foreach (getPackages() as $package)
+                                        @php
+                                            $productSlug = strtolower(str_replace(' ', '-', $package->slug));
+                                        @endphp
+                                        <li>
+                                            <a href="{{ route('package.show', $productSlug) }}">
+                                                {{ $package->title }}
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                        </li>
 
                         <li><a href="{{ route('contact') }}">Contacts</a></li>
                     </ul>
