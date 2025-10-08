@@ -4,9 +4,9 @@
     <div class="container py-4">
         <!-- Page header -->
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <h4 class="mb-0">Website</h4>
-            <a href="{{ route('portfolio-website-details.create') }}" class="btn btn-primary">
-                <i class="bi bi-plus-lg"></i> Add New Website
+            <h4 class="mb-0">Videls</h4>
+            <a href="{{ route('portfolio-video-details.create') }}" class="btn btn-primary">
+                <i class="bi bi-plus-lg"></i> Add New Video
             </a>
         </div>
 
@@ -25,41 +25,37 @@
                     <table class="table table-bordered table-hover mb-0 align-middle">
                         <thead class="table-light">
                             <tr>
-                                <th>Name</th>
-                                <th>Link</th>
-                                <th>Image</th>
+                                <th>Company</th>
+                                <th>Video Link</th>
+                                <th>Thumbnail</th>
                                 <th style="width:150px;">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse ($details as $detail)
                                 <tr>
-                                    <td>{{ $detail->website_name }}</td>
-                                    <td>{{ $detail->website_link }}</td>
+                                    <td>{{ $detail->company_name }}</td>
+                                    <td>{{ $detail->video_link }}</td>
                                     <td>
-                                        @if ($detail->iamge)
-                                            <img src="{{ asset('storage/' . $detail->iamge) }}" alt="photo"
+                                        @if ($detail->thumbnail)
+                                            <img src="{{ asset('storage/' . $detail->thumbnail) }}" alt="photo"
                                                 class="img-thumbnail" style="width:60px;height:60px;">
                                         @else
                                             <span class="text-muted">No Image</span>
                                         @endif
                                     </td>
-                                    {{-- <a href="{{ route('testimonial-details.edit', $detail->id) }}" --}}
 
-
-
-                                    {{-- <form action="{{ route('testimonial-details.destroy', $detail->id) }}" --}}
                                     <td>
-                                        <a href="{{ route('portfolio-website-details.edit', $detail->id) }}"
+                                        <a href="{{ route('portfolio-video-details.edit', $detail->id) }}"
                                             class="btn btn-sm btn-info">
                                             Edit
                                         </a>
-                                        <form action="{{ route('portfolio-website-details.destroy', $detail->id) }}"
+                                        <form action="{{ route('portfolio-video-details.destroy', $detail->id) }}"
                                             method="POST" class="d-inline">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-danger"
-                                                onclick="return confirm('Delete this testimonial?')">
+                                                onclick="return confirm('Delete this video?')">
                                                 Delete
                                             </button>
                                         </form>
@@ -68,7 +64,7 @@
                             @empty
                                 <tr>
                                     <td colspan="5" class="text-center text-muted">
-                                        No website found.
+                                        No Video found.
                                     </td>
                                 </tr>
                             @endforelse

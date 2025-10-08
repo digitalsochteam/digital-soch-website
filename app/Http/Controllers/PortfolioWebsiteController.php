@@ -91,4 +91,11 @@ class PortfolioWebsiteController extends Controller
             ->route('portfolio-website-details.index')
             ->with('success', 'Detail updated.');
     }
+
+    public function destroy(PortfolioWebsite $detail)
+    {
+
+        $detail->delete();
+        return back()->with('success', 'Detail deleted.');
+    }
 }

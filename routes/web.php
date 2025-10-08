@@ -11,6 +11,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductPackageController;
 use App\Http\Controllers\ProductPackageSubscriptionController;
 use App\Http\Controllers\PortfolioWebsiteController;
+use App\Http\Controllers\PortfolioVideoController;
 
 
 Route::get('/', [DashboardController::class, 'index'])->name('frontend.dashboard.index');
@@ -47,6 +48,7 @@ Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
 Route::get('/websites', [PortfolioWebsiteController::class, 'getallwebsites'])->name('website.seeallwebsites');
 Route::get('/logos', [CompanyLogoController::class, 'getalllogos'])->name('logo.seealllogos');
+Route::get('/videos', [PortfolioVideoController::class, 'getallvideos'])->name('video.seeallvideos');
 
 // Backend Routes
 Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -118,7 +120,18 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/', [PortfolioWebsiteController::class, 'store'])->name('store');
             Route::get('/{detail}/edit', [PortfolioWebsiteController::class, 'edit'])->name('edit');
             Route::put('/{detail}', [PortfolioWebsiteController::class, 'update'])->name('update');
-            // Route::delete('/{detail}', [CompanyLogoController::class, 'destroy'])->name('destroy');
+            Route::delete('/{detail}', [PortfolioWebsiteController::class, 'destroy'])->name('destroy');
         });
+
+        Route::prefix('portfoliovideodetails')->name('portfolio-video-details.')->group(function () {
+            Route::get('/', [PortfolioVideoController::class, 'index'])->name('index');
+            Route::get('/create', [PortfolioVideoController::class, 'create'])->name('create');
+            Route::post('/', [PortfolioVideoController::class, 'store'])->name('store');
+            Route::get('/{detail}/edit', [PortfolioVideoController::class, 'edit'])->name('edit');
+            Route::put('/{detail}', [PortfolioVideoController::class, 'update'])->name('update');
+            Route::delete('/{detail}', [PortfolioVideoController::class, 'destroy'])->name('destroy');
+        });
+
+
     });
 });

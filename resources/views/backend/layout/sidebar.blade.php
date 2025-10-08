@@ -57,7 +57,7 @@
             <a href="{{ route('company-logo-details.index') }}"
                 class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-gray-700 hover:text-white transition-colors">
                 <i class="fas fa-building mr-3"></i>
-                <span>Add Company Logo</span>
+                <span>Add Portfolio Logo</span>
             </a>
 
 
@@ -65,6 +65,12 @@
                 class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-gray-700 hover:text-white transition-colors">
                 <i class="fas fa-globe mr-3"></i>
                 <span>Add Portfolio Website</span>
+            </a>
+
+            <a href="{{ route('portfolio-video-details.index') }}"
+                class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-gray-700 hover:text-white transition-colors">
+                <i class="fas fa-globe mr-3"></i>
+                <span>Add Portfolio Videos</span>
             </a>
 
         </div>

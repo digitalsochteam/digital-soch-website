@@ -1,3 +1,23 @@
+<style>
+    .float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        right: 40px;
+        background-color: #25d366;
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 2px 2px 3px #999;
+        z-index: 100;
+    }
+
+    .my-float {
+        margin-top: 16px;
+    }
+</style>
 <header id="tz-header" class="tz-header-section header_style_one txa_sticky_header">
     <div class="tz-header-top">
         <div class="container">
@@ -102,9 +122,9 @@
                                     <li><a href="{{ route('website.seeallwebsites') }}">Websites
                                         </a>
                                     </li>
-                                    <li><a href="{{ route('logo.seealllogos') }} ">Logos
+                                    <li><a href="{{ route('logo.seealllogos') }}">Logos
                                         </a></li>
-                                    <li><a href="#">Videos
+                                    <li><a href="{{ route('video.seeallvideos') }}">Videos
                                         </a></li>
                                 </ul>
                             </li>
@@ -157,89 +177,95 @@
             </div>
         </div>
     </div>
+
 </header>
 
-<!-- Mobile Menu -->
-<div class="mobile_menu lenis lenis-smooth position-relative">
-    <div class="mobile_menu_wrap">
-        <div class="mobile_menu_overlay open_mobile_menu"></div>
-        <div class="mobile_menu_content">
-            <div class="mobile_menu_close open_mobile_menu">
-                <i class="fas fa-times"></i>
-            </div>
-            <div class="m-brand-logo">
-                <a href="#"><img src="{{ asset('assets/img/logo/logo.png') }}" alt=""></a>
-            </div>
-            <div class="mobile-search-bar position-relative">
-                <form action="#">
-                    <input type="text" name="search" placeholder="Keywords">
-                    <button><i class="fas fa-search"></i></button>
-                </form>
-            </div>
-            <nav class="mobile-main-navigation  clearfix ul-li">
-                <ul id="m-main-nav" class="nav navbar-nav clearfix">
-                    <li><a href="{{ url('/') }}">Home</a></li>
-                    <li><a href="{{ url('/about') }}">About Us</a></li>
+< <a href="https://api.whatsapp.com/send?phone=917208909232" class="float" target="_blank">
+    <i class="fa-brands fa-whatsapp my-float"></i>
+    </a>
 
-                    @foreach (getCategoryList() as $category)
-                        <li class="dropdown">
-                            <a href="{{ url('/category/' . urlencode($category['category'])) }}">
-                                {{ $category['category'] }}
-                            </a>
+    <!-- Mobile Menu -->
+    <div class="mobile_menu lenis lenis-smooth position-relative">
+        <div class="mobile_menu_wrap">
+            <div class="mobile_menu_overlay open_mobile_menu"></div>
+            <div class="mobile_menu_content">
+                <div class="mobile_menu_close open_mobile_menu">
+                    <i class="fas fa-times"></i>
+                </div>
+                <div class="m-brand-logo">
+                    <a href="#"><img src="{{ asset('assets/img/logo/logo.png') }}" alt=""></a>
+                </div>
+                <div class="mobile-search-bar position-relative">
+                    <form action="#">
+                        <input type="text" name="search" placeholder="Keywords">
+                        <button><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+                <nav class="mobile-main-navigation  clearfix ul-li">
+                    <ul id="m-main-nav" class="nav navbar-nav clearfix">
+                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{ url('/about') }}">About Us</a></li>
 
-                            {{-- Only show subcategories menu if exists and not empty --}}
-                            @if (!empty($category['subcategories']))
-                                <ul class="dropdown-menu clearfix">
-                                    @foreach ($category['subcategories'] as $subcategory)
-                                        {{-- Show subcategory only if it has products --}}
-                                        @if (count($subcategory['products']) > 0)
-                                            @php
-                                                $validProducts = array_filter($subcategory['products'] ?? [], function (
-                                                    $p,
-                                                ) {
-                                                    return !empty($p); // removes null, "", 0, false
-                                                });
-                                            @endphp
+                        @foreach (getCategoryList() as $category)
+                            <li class="dropdown">
+                                <a href="{{ url('/category/' . urlencode($category['category'])) }}">
+                                    {{ $category['category'] }}
+                                </a>
 
-                                            <li class="{{ count($validProducts) > 0 ? 'dropdown' : '' }}">
+                                {{-- Only show subcategories menu if exists and not empty --}}
+                                @if (!empty($category['subcategories']))
+                                    <ul class="dropdown-menu clearfix">
+                                        @foreach ($category['subcategories'] as $subcategory)
+                                            {{-- Show subcategory only if it has products --}}
+                                            @if (count($subcategory['products']) > 0)
+                                                @php
+                                                    $validProducts = array_filter(
+                                                        $subcategory['products'] ?? [],
+                                                        function ($p) {
+                                                            return !empty($p); // removes null, "", 0, false
+                                                        },
+                                                    );
+                                                @endphp
 
-                                                <a
-                                                    href="{{ url('/subcategory/' . urlencode($subcategory['subcategory'])) }}">
-                                                    {{ $subcategory['subcategory'] }}
-                                                </a>
+                                                <li class="{{ count($validProducts) > 0 ? 'dropdown' : '' }}">
 
-                                                @if (count($validProducts) > 0)
-                                                    <ul class="dropdown-menu clearfix">
-                                                        @foreach ($subcategory['products'] as $product)
-                                                            <li>
-                                                                <a href="#">
-                                                                    {{ $product['name'] }}
-                                                                </a>
-                                                            </li>
-                                                        @endforeach
-                                                    </ul>
-                                                @endif
-                                            </li>
-                                        @endif
-                                    @endforeach
-                                </ul>
-                            @endif
+                                                    <a
+                                                        href="{{ url('/subcategory/' . urlencode($subcategory['subcategory'])) }}">
+                                                        {{ $subcategory['subcategory'] }}
+                                                    </a>
 
-                        </li>
-                    @endforeach
+                                                    @if (count($validProducts) > 0)
+                                                        <ul class="dropdown-menu clearfix">
+                                                            @foreach ($subcategory['products'] as $product)
+                                                                <li>
+                                                                    <a href="#">
+                                                                        {{ $product['name'] }}
+                                                                    </a>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    @endif
+                                                </li>
+                                            @endif
+                                        @endforeach
+                                    </ul>
+                                @endif
+
+                            </li>
+                        @endforeach
 
 
-                    <li><a href="{{ route('contact') }}">Contacts</a></li>
-                </ul>
-            </nav>
-            <div class="ptx-mobile-header-social text-center">
-                <a href="#"> <i class="fab fa-instagram"></i></a>
-                <a href="#"> <i class="fab fa-linkedin-in"></i></a>
-                <a href="#"> <i class="fab fa-facebook"></i></a>
-                <a href="#"> <i class="fab fa-youtube"></i></a>
+                        <li><a href="{{ route('contact') }}">Contacts</a></li>
+                    </ul>
+                </nav>
+                <div class="ptx-mobile-header-social text-center">
+                    <a href="#"> <i class="fab fa-instagram"></i></a>
+                    <a href="#"> <i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"> <i class="fab fa-facebook"></i></a>
+                    <a href="#"> <i class="fab fa-youtube"></i></a>
+                </div>
             </div>
         </div>
+        <!-- /Mobile-Menu -->
+        <!-- mobile menu code here -->
     </div>
-    <!-- /Mobile-Menu -->
-    <!-- mobile menu code here -->
-</div>
