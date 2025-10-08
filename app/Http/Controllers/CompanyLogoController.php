@@ -20,6 +20,11 @@ class CompanyLogoController extends Controller
         return view('backend.company.create', compact('comapny'));
     }
 
+    public function getalllogos()
+    {
+        $logos = CompanyLogo::get();
+        return view('frontend.logo.logos', compact('logos'));
+    }
     public function store(Request $request)
     {
         // ✅ Validate input, including faqs as an array of question/answer pairs

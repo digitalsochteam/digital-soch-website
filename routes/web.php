@@ -45,6 +45,9 @@ Route::get('/package/{id}', [ProductPackageSubscriptionController::class, 'show'
 Route::get('/blogs', [BlogController::class, 'getallblogs'])->name('blog.seeallblogs');
 Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
+Route::get('/websites', [PortfolioWebsiteController::class, 'getallwebsites'])->name('website.seeallwebsites');
+Route::get('/logos', [CompanyLogoController::class, 'getalllogos'])->name('logo.seealllogos');
+
 // Backend Routes
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'postlogin'])->name('login.post');

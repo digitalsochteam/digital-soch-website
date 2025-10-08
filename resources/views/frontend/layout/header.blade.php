@@ -99,10 +99,10 @@
                             @endforeach
                             <li class="dropdown"><a href="#">Portfolio</a>
                                 <ul class="dropdown-menu clearfix">
-                                    <li><a href="#">Websites
+                                    <li><a href="{{ route('website.seeallwebsites') }}">Websites
                                         </a>
                                     </li>
-                                    <li><a href="#">Logos
+                                    <li><a href="{{ route('logo.seealllogos') }} ">Logos
                                         </a></li>
                                     <li><a href="#">Videos
                                         </a></li>

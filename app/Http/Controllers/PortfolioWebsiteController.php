@@ -20,6 +20,12 @@ class PortfolioWebsiteController extends Controller
         return view('backend.portfolio-websites.create', compact('websites'));
     }
 
+    public function getallwebsites()
+    {
+        $websites = PortfolioWebsite::get();
+        return view('frontend.website.websites', compact('websites'));
+    }
+
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -58,7 +64,7 @@ class PortfolioWebsiteController extends Controller
             'website_link' => 'nullable|url',
             'description' => 'nullable|string',
             'file' => 'nullable|file',
-            'iamge' => 'nullable|image|max:2048',
+            'iamge' => 'nullable|image',
         ]);
 
         if ($request->hasFile('file')) {
