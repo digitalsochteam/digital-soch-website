@@ -10,7 +10,7 @@
                 <h2 class="bread_heading">Portfolio Videos</h2>
                 <ul>
                     <li><a href="{{ url('/') }}">Home</a></li>
-                    <li>Portfolio Videos</li>
+                    <li>Videos</li>
                 </ul>
             </div>
         </div>

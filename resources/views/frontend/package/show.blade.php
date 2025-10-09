@@ -444,6 +444,11 @@
                                     <div class="item-top">
                                         <span>{{ $plan->title }}</span>
                                     </div>
+                                    @if (!empty($plan->description))
+                                        <div class="item-top">
+                                            <span>{{ $plan->description }}</span>
+                                        </div>
+                                    @endif
                                     @php
                                         $features = is_array($plan->head)
                                             ? $plan->head
@@ -462,8 +467,9 @@
                                         </div>
                                     @endif
                                     <div class="tz-price-btn">
-                                        <a href="#">Get Started</a>
+                                        <a href="{{ route('contact') }}">Get Started</a>
                                     </div>
+
                                 </div>
                             </div>
                         </div>

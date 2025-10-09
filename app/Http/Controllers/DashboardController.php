@@ -22,7 +22,7 @@ class DashboardController extends Controller
                 $selectedProducts[] = $product;
                 $usedSubcategories[] = $product->subcategory;
             }
-            if (count($selectedProducts) >= 4) {
+            if (count($selectedProducts) >= 6) {
                 break;
             }
         }

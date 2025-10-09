@@ -9,7 +9,7 @@
                 <h2 class="bread_heading">Portfolio Logos</h2>
                 <ul>
                     <li><a href="{{ url('/') }}">Home</a></li>
-                    <li>Portfolio Logos</li>
+                    <li>Logos</li>
                 </ul>
             </div>
         </div>

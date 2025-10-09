@@ -12,6 +12,7 @@ use App\Http\Controllers\ProductPackageSubscriptionController;
 use App\Http\Controllers\PortfolioWebsiteController;
 use App\Http\Controllers\PortfolioVideoController;
 use App\Http\Controllers\BackDashboardController;
+use App\Http\Controllers\PortfolioPostController;
 
 
 Route::get('/', [DashboardController::class, 'index'])->name('frontend.dashboard.index');
@@ -49,6 +50,7 @@ Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 Route::get('/websites', [PortfolioWebsiteController::class, 'getallwebsites'])->name('website.seeallwebsites');
 Route::get('/logos', [CompanyLogoController::class, 'getalllogos'])->name('logo.seealllogos');
 Route::get('/videos', [PortfolioVideoController::class, 'getallvideos'])->name('video.seeallvideos');
+Route::get('/posts', [PortfolioPostController::class, 'getallposts'])->name('post.seeallposts');
 
 // Backend Routes
 Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -130,6 +132,15 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/{detail}/edit', [PortfolioVideoController::class, 'edit'])->name('edit');
             Route::put('/{detail}', [PortfolioVideoController::class, 'update'])->name('update');
             Route::delete('/{detail}', [PortfolioVideoController::class, 'destroy'])->name('destroy');
+        });
+
+        Route::prefix('portfoliopostdetails')->name('portfolio-post-details.')->group(function () {
+            Route::get('/', [PortfolioPostController::class, 'index'])->name('index');
+            Route::get('/create', [PortfolioPostController::class, 'create'])->name('create');
+            Route::post('/', [PortfolioPostController::class, 'store'])->name('store');
+            Route::get('/{detail}/edit', [PortfolioPostController::class, 'edit'])->name('edit');
+            Route::put('/{detail}', [PortfolioPostController::class, 'update'])->name('update');
+            Route::delete('/{detail}', [PortfolioPostController::class, 'destroy'])->name('destroy');
         });
 
 

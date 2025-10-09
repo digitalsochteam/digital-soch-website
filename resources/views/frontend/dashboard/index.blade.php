@@ -1,5 +1,295 @@
 @extends('frontend.layout.app')
 @section(section: 'content')
+    <style>
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 35px;
+            padding: 20px 0;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            animation: fadeInUp 0.6s ease backwards;
+        }
+
+        .product-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .product-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .product-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .product-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .product-card:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .product-card:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .product-card .inner-img-unique {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .product-card .inner-img-unique::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .product-card:hover .inner-img-unique::before {
+            opacity: 1;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .product-card:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Quick view button overlay */
+        .quick-view-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.5);
+            background: white;
+            color: #333;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 2;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .product-card:hover .quick-view-btn {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .quick-view-btn:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .quick-view-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+
+        .item-text-unique {
+            padding: 25px;
+        }
+
+        .ser_title_unique {
+            margin-bottom: 12px;
+            min-height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ser_title_unique a {
+            color: #1a1a1a;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 20px;
+            line-height: 1.4;
+            display: block;
+        }
+
+        .ser_title_unique a:hover {
+            color: #764ba2;
+            transform: translateX(3px);
+        }
+
+        .item-text-unique p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 15px 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 63px;
+        }
+
+        /* Enhanced button */
+        .tz-btn-1-unique {
+            margin-top: 20px;
+        }
+
+        .tz-btn-1-unique a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(118, 75, 162, 0.3);
+        }
+
+        .tz-btn-1-unique a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            transition: left 0.4s ease;
+        }
+
+        .tz-btn-1-unique a:hover::before {
+            left: 0;
+        }
+
+        .tz-btn-1-unique a span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .tz-btn-1-unique a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(118, 75, 162, 0.4);
+        }
+
+        .tz-btn-1-unique a svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tz-btn-1-unique a:hover svg {
+            transform: translateX(4px);
+        }
+
+
+        /* Responsive design */
+        @media (max-width: 1024px) {
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                padding: 15px 0;
+            }
+
+            .product-card .inner-img-unique {
+                height: 240px;
+            }
+
+            .ser_title_unique a {
+                font-size: 18px;
+            }
+
+            .item-text-unique {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-card .inner-img-unique {
+                height: 220px;
+            }
+
+            .quick-view-btn {
+                padding: 10px 24px;
+                font-size: 13px;
+            }
+        }
+
+        /* Loading skeleton (optional) */
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 1000px 100%;
+            animation: shimmer 2s infinite;
+        }
+    </style>
+
     <section id="tz-hero-slider" class="tz-hero-slider-sec">
         <div class="tz-hero-slider-area swiper-container">
             <div class="swiper-wrapper">
@@ -65,16 +355,16 @@
                                         <img src="{{ asset('assets/img/hero/hs1.png') }}" alt="">
                                     </div>
                                     <!-- <div class="tz-hs-user d-flex align-items-center justify-content-center ul-li">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <ul>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst1.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst2.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst3.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst4.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst5.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst6.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li><span>+</span></li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </ul>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     <ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst1.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst2.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst3.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst4.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst5.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst6.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li><span>+</span></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </div> -->
                                 </div>
                             </div>
                         </div>
@@ -142,16 +432,16 @@
                                         <img src="{{ asset('assets/img/hero/hs1.png') }}" alt="">
                                     </div>
                                     <!-- <div class="tz-hs-user d-flex align-items-center justify-content-center ul-li">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <ul>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst1.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst2.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst3.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst4.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst5.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst6.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li><span>+</span></li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </ul>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     <ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst1.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst2.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst3.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst4.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst5.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst6.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li><span>+</span></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </div> -->
                                 </div>
                             </div>
                         </div>
@@ -219,16 +509,16 @@
                                         <img src="{{ asset('assets/img/hero/hs1.png') }}" alt="">
                                     </div>
                                     <!-- <div class="tz-hs-user d-flex align-items-center justify-content-center ul-li">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <ul>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst1.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst2.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst3.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst4.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst5.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li><img src="assets/img/testimonial/tst6.jpg" alt=""></li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li><span>+</span></li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </ul>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     <ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst1.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst2.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst3.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst4.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst5.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li><img src="assets/img/testimonial/tst6.jpg" alt=""></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li><span>+</span></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </div> -->
                                 </div>
                             </div>
                         </div>
@@ -247,9 +537,9 @@
         </div>
     </section>
     <!-- End of Hero Slider section
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ============================================= -->
     <!-- Start of Feature section
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ============================================= -->
     <section id="tz-feature" class="tz-feature-sec pt-115 pb-115">
         <div class="tz-section-title headline text-center">
             <div class="subtitle tz-sub-tilte tz-sub-anim  text-uppercase">
@@ -330,9 +620,9 @@
         </div>
     </section>
     <!-- End of Feature section
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
     <!-- Start of About section
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
     <section id="tz-about" class="tz-about-section pt-120 pb-120">
         <div class="container">
             <div class="tz-about-content d-flex justify-content-between">
@@ -367,14 +657,14 @@
                             to cater each and every aspect of your online presence</p>
                     </div>
                     <!-- <div class="tz-ab-ft-wrap  d-flex align-items-center">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         <div class="item-icon d-flex align-items-center justify-content-center">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <img src="assets/img/icon/ic5.svg" alt="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         <div class="item-text headline pera-content">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <h3>Best Technical Solution</h3>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <p>Nanotechnology immersion along the information high will close the loop on focusing solely</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             <div class="item-icon d-flex align-items-center justify-content-center">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <img src="assets/img/icon/ic5.svg" alt="">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             <div class="item-text headline pera-content">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <h3>Best Technical Solution</h3>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <p>Nanotechnology immersion along the information high will close the loop on focusing solely</p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </div> -->
                     <div class="tz-btn-1 mt-40">
                         <a href="{{ route('about') }}"><span>Learn More</span></a>
                     </div>
@@ -383,10 +673,11 @@
         </div>
     </section>
     <!-- End of About section
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ============================================= -->
     <!-- Start of Service section
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ============================================= -->
-    <section id="tz-service" class="tz-service-sec pt-115 pb-115">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ============================================= -->
+    <section id="tz-service" class="tz-service-sec pt-115 pb-115"
+        style="background-image: url('{{ asset('assets/img/bg/sig.jpg') }}'); background-size: cover; background-position: center;">
         <div class="container">
             <div class="tz-section-title headline text-center">
                 <div class="subtitle tz-sub-tilte tz-sub-anim text-uppercase" style="color:white;">
@@ -399,13 +690,9 @@
                 </p>
             </div>
 
-            <div class="tz-service-content mt-60">
+            {{-- <div class="tz-service-content mt-60">
                 @foreach ($selectedProducts as $i => $product)
                     <div class="tz-ser1-item top_view_2 d-flex align-items-center">
-                        <div class="item-serial">
-                            {{ sprintf('%02d.', $i + 1) }}
-                        </div>
-
                         <div class="item-img-text headline pera-content d-flex align-items-center">
                             <div class="item-img position-relative">
                                 <div class="inner-img">
@@ -416,7 +703,7 @@
                             <div class="item-text headline pera-content">
                                 <h3 class="ser_title">
                                     <a href="{{ route('product.show', $product->slug) }}">
-                                        {{ $product->product }}
+                                        {{ $product->product ?? $product->subcategory }}
                                     </a>
                                 </h3>
 
@@ -430,6 +717,76 @@
                         </div>
                     </div>
                 @endforeach
+            </div> --}}
+            {{-- <div class="tz-service-content mt-60">
+                <div class="product-grid">
+                    @foreach ($selectedProducts as $product)
+                        <div class="product-card">
+                            <div class="inner-img">
+                                <img src="{{ Storage::url($product->product_image) }}" alt="{{ $product->product }}" />
+                            </div>
+
+                            <div class="item-text headline pera-content text-center mt-3">
+                                <h3 class="ser_title_unique" style="font-weight: 600;">
+                                    <a href="{{ route('product.show', $product->slug) }}">
+                                        {{ $product->product ?? $product->subcategory }}
+                                    </a>
+                                </h3>
+
+                                <p class="mt-20">{{ $product->product_subheading }}</p>
+
+                                <div class="tz-btn-1 mt-20">
+                                    <a href="{{ route('product.show', $product->slug) }}">
+                                        <span>Read More</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div> --}}
+
+
+            <div class="tz-service-content mt-60">
+                <div class="product-grid">
+                    @foreach ($selectedProducts as $product)
+                        <div class="product-card">
+                            <div class="inner-img-unique">
+
+                                <img src="{{ Storage::url($product->product_image) }}" alt="{{ $product->product }}"
+                                    loading="lazy" />
+
+                                <!-- Quick View Button -->
+                                <a href="{{ route('product.show', $product->slug) }}" class="quick-view-btn">
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12 5C7 5 2.73 8.11 1 12.5 2.73 16.89 7 20 12 20s9.27-3.11 11-7.5C21.27 8.11 17 5 12 5zm0 12.5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                                    </svg>
+                                    Quick View
+                                </a>
+                            </div>
+
+                            <div class="item-text-unique headline pera-content text-center">
+                                <h3 class="ser_title_unique" style="font-weight: 600;">
+                                    <a href="{{ route('product.show', $product->slug) }}">
+                                        {{ $product->product ?? $product->subcategory }}
+                                    </a>
+                                </h3>
+
+                                <p>{{ Str::limit($product->product_subheading, 120) }}</p>
+
+                                <div class="tz-btn-1-unique">
+                                    <a href="{{ route('product.show', $product->slug) }}">
+                                        <span>Read More</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </section>
@@ -441,11 +798,11 @@
 
 
     <!-- End of Service section
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
 
     <!-- Start of Cta section
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ============================================= -->
-    <section id="tz-cta" class="tz-cta-sec">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
+    <section id="tz-cta" class="tz-cta-sec" style="padding-top: 80px;">
         <div class="tz-cta-content  position-relative pt-120 pb-120 ">
             <span class="tz-cta-shape1 position-absolute"><img src="{{ asset('assets/img/shape/c-shape1.png') }}"
                     alt=""></span>
@@ -480,10 +837,10 @@
         </div>
     </section>
     <!-- End of Cta section
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
 
     <!-- Start of Testimonial section
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
     <section id="tz-testimonial" class="tz-testimonial-sec pt-115 position-relative">
         <span class="tz-testi-shape position-absolute"><img src="assets/img/shape/bottom-shape.svg"></span>
         <span class="tz-testi-bg zoom_view position-absolute"><img src="assets/img/bg/tst-bg.jpg"></span>
@@ -560,10 +917,10 @@
         </div>
     </section>
     <!-- End of Testimonial section
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ============================================= -->
 
     <!-- Start of Sponsor section
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ============================================= -->
 
 
     <section id="tz-sponsor" class="tz-sponsor-sec pb-105">
@@ -580,7 +937,7 @@
     <!-- End of Sponsor section============================================= -->
 
     <!-- Start of Blog section
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ============================================= -->
     <section id="tz-blog3" class="tz-blog3-sec pt-115 pb-80 position-relative">
         <span class="tz-blog3-shape1 slide_view_1 position-absolute">
             <img src="{{ asset('assets/img/shape/box-1.svg') }}" alt="">
