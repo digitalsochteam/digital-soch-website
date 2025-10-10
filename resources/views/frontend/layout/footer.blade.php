@@ -1,6 +1,6 @@
     <!-- Start of Footer section
                                      ============================================= -->
-    <footer id="tz-footer" class="tz-footer-sec position-relative pt-20" style="background-color : white">
+    <footer id="tz-footer" class="tz-footer-sec position-relative pt-20" style="background-color : #dff2ff">
         <div class="tz-ftr-shape position-absolute">
             <span class="ftr-shape1">
                 <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -107,7 +107,8 @@
                                 </div>
                                 <div class="btn-cta-wrap mt-35 d-flex align-items-center">
                                     <div class="tz-btn-1 mr-20">
-                                        <a href="#"><i class="fa-solid fa-qrcode mr-15"></i><span>Qr
+                                        <a href="{{ route('qrcode') }}"><i
+                                                class="fa-solid fa-qrcode mr-15"></i><span>Qr
                                                 Code</span></a>
                                     </div>
                                     <div class="tz-btn-1">
@@ -126,12 +127,12 @@
                 <p style="color: black">Copyright @ Digital Soch Pvt. Ltd. All Rights Received.</p>
                 <div class="tz-footer-menu">
                     <ul>
-                        <li><a style="color: black" href="{{ route(name: 'cancellationrefundpolicy') }}">Cancellation &
+                        <li><a style="color: black" href="{{ route('cancellationrefundpolicy') }}">Cancellation &
                                 Refund Policy</a>
                         </li>
-                        <li><a style="color: black" href="{{ route(name: 'termsandcondition') }}">Terms And
+                        <li><a style="color: black" href="{{ route('termsandcondition') }}">Terms And
                                 Conditions</a></li>
-                        <li><a style="color: black" href="{{ route(name: 'privacypolicy') }}">Privacy Policy</a>
+                        <li><a style="color: black" href="{{ route('privacypolicy') }}">Privacy Policy</a>
                         </li>
                     </ul>
                 </div>

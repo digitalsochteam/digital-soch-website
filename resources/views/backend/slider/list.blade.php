@@ -4,11 +4,12 @@
     <div class="container py-4">
         <!-- Page header -->
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <h4 class="mb-0">Videos</h4>
-            <a href="{{ route('portfolio-video-details.create') }}" class="btn btn-primary">
-                <i class="bi bi-plus-lg"></i> Add New Video
+            <h4 class="mb-0">Slider</h4>
+            <a href="{{ route('slider-details.create') }}" class="btn btn-primary">
+                <i class="bi bi-plus-lg"></i> Add New Slider
             </a>
         </div>
+
 
         <!-- Success message -->
         @if (session('success'))
@@ -25,37 +26,36 @@
                     <table class="table table-bordered table-hover mb-0 align-middle">
                         <thead class="table-light">
                             <tr>
-                                <th>Company</th>
-                                <th>Video Link</th>
-                                <th>Thumbnail</th>
+                                <th>Title</th>
+                                <th>Slug</th>
+                                <th>Image</th>
                                 <th style="width:150px;">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse ($details as $detail)
                                 <tr>
-                                    <td>{{ $detail->company_name }}</td>
-                                    <td>{{ $detail->video_link }}</td>
+                                    <td>{{ $detail->title }}</td>
+                                    <td>{{ $detail->slug }}</td>
                                     <td>
-                                        @if ($detail->thumbnail)
-                                            <img src="{{ asset('storage/' . $detail->thumbnail) }}" alt="photo"
+                                        @if ($detail->image_symbol)
+                                            <img src="{{ asset('storage/' . $detail->image_symbol) }}" alt="photo"
                                                 class="img-thumbnail" style="width:60px;height:60px;">
                                         @else
                                             <span class="text-muted">No Image</span>
                                         @endif
                                     </td>
-
                                     <td>
-                                        <a href="{{ route('portfolio-video-details.edit', $detail->id) }}"
+                                        <a href="{{ route('slider-details.edit', $detail->id) }}"
                                             class="btn btn-sm btn-info">
                                             Edit
                                         </a>
-                                        <form action="{{ route('portfolio-video-details.destroy', $detail->id) }}"
-                                            method="POST" class="d-inline">
+                                        <form action="{{ route('slider-details.destroy', $detail->id) }}" method="POST"
+                                            class="d-inline">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-danger"
-                                                onclick="return confirm('Delete this video?')">
+                                                onclick="return confirm('Delete this slider?')">
                                                 Delete
                                             </button>
                                         </form>
@@ -64,7 +64,7 @@
                             @empty
                                 <tr>
                                     <td colspan="5" class="text-center text-muted">
-                                        No Video found.
+                                        No slider found.
                                     </td>
                                 </tr>
                             @endforelse

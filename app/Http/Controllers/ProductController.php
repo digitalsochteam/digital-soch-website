@@ -48,36 +48,6 @@ class ProductController extends Controller
 
             return view('frontend.product.show', compact('product', 'otherProducts'));
         }
-        // $product = ProductDetails::where('slug', $slug)->first();
-
-        // Log::info('Product Slug', ['slug' => $slug, 'product' => $product]);
-
-        // if ($product) {
-        //     $otherProducts = ProductDetails::where('subcategory', $product->subcategory)
-        //         ->where('product', '!=', $product->product)
-        //         ->pluck('product')
-        //         ->unique();
-        //     return view('frontend.product.show', compact('product', 'otherProducts'));
-        // }
-
-        // $package = ProductPackage::where('slug', $slug)->first();
-
-        // Log::info('Package Slug', ['slug' => $slug, 'package' => $package]);
-
-        // if ($package) {
-        //     return view('frontend.package.show', compact('package'));
-        // }
-
-        // if ($slug === 'blogs') {
-        //     $blogs = Blog::get();
-        //     return view('frontend.blog.blogs', compact('blogs'));
-        // }
-
-        // if ($slug === 'login') {
-        //     return view('backend.auth.login');
-        // }
-
-
     }
 
     public function store(Request $request)

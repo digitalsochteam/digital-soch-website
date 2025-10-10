@@ -1,46 +1,5 @@
 @extends('frontend.layout.app')
 @section('content')
-    <style>
-        .policy-container {
-            max-width: 100%;
-            margin: 50px auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        .policy-container h2 {
-            color: #000000;
-            /* app primary color */
-            margin-bottom: 15px;
-        }
-
-        .policy-container h3 {
-            color: #000000;
-            /* app secondary color */
-            margin-top: 25px;
-            margin-bottom: 10px;
-        }
-
-        .policy-container ul {
-            margin-left: 20px;
-            padding-left: 15px;
-        }
-
-        .policy-container li {
-            margin-bottom: 12px;
-            list-style-type: disc;
-        }
-
-        .policy-container .highlight {
-            font-weight: bold;
-            color: #000000;
-        }
-    </style>
-
     <section id="tz-breadcrumb" class="tz-breadcrumb-sec position-relative"
         data-background="{{ asset('assets/img/bg/bread-bg.jpg') }}">
         <div class="container">

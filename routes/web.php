@@ -13,6 +13,7 @@ use App\Http\Controllers\PortfolioWebsiteController;
 use App\Http\Controllers\PortfolioVideoController;
 use App\Http\Controllers\BackDashboardController;
 use App\Http\Controllers\PortfolioPostController;
+use App\Http\Controllers\SliderController;
 
 
 Route::get('/', [DashboardController::class, 'index'])->name('frontend.dashboard.index');
@@ -38,11 +39,15 @@ Route::get('/privacy-policy', function () {
 })->name('privacypolicy');
 
 
+Route::get('/scan-qr-code', function () {
+    return view('frontend.dashboard.qrcode');
+})->name('qrcode');
+
+
+
+
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
 Route::get('/package/{id}', [ProductPackageSubscriptionController::class, 'show'])->name('package.show');
-
-// Route::get('/{id}', [RouteController::class, 'findByRoute'])->name('find.route');
-
 
 Route::get('/blogs', [BlogController::class, 'getallblogs'])->name('blog.seeallblogs');
 Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
@@ -143,6 +148,14 @@ Route::middleware(['auth'])->group(function () {
             Route::delete('/{detail}', [PortfolioPostController::class, 'destroy'])->name('destroy');
         });
 
+        Route::prefix('sliderdetails')->name('slider-details.')->group(function () {
+            Route::get('/', [SliderController::class, 'index'])->name('index');
+            Route::get('/create', [SliderController::class, 'create'])->name('create');
+            Route::post('/', [SliderController::class, 'store'])->name('store');
+            Route::get('/{detail}/edit', [SliderController::class, 'edit'])->name('edit');
+            Route::put('/{detail}', [SliderController::class, 'update'])->name('update');
+            Route::delete('/{detail}', [SliderController::class, 'destroy'])->name('destroy');
+        });
 
     });
 });

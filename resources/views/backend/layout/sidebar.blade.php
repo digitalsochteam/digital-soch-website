@@ -19,6 +19,12 @@
                 <span>Dashboard</span>
             </a>
 
+            <a href="{{ route('slider-details.index') }}"
+                class="flex items-center px-4 py-3 text-gray-300 rounded-lg hover:bg-gray-700 hover:text-white transition-colors">
+                <i class="fas fa-image mr-3"></i>
+                <span>Add Slider</span>
+            </a>
+
 
             <!-- Country List -->
             <a href="{{ route('product-details.index') }}"
@@ -78,6 +84,9 @@
                 <i class="fas fa-image mr-3"></i>
                 <span>Add Portfolio Post</span>
             </a>
+
+
+
 
         </div>
     </nav>

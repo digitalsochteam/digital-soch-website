@@ -26,28 +26,9 @@ class ProductPackageSubscriptionController extends Controller
     public function show($slug)
     {
         $package = ProductPackage::where('slug', $slug)->first();
-        Log::info('Package Details', ['package' => $package]);
         $subscriptions = ProductPackageSubscription::where('product_package_id', $package->id)->get();
-        Log::info('Package Subscriptions', ['subscriptions' => $subscriptions]);
         return view('frontend.package.show', compact('package', 'subscriptions'));
-        // $product = ProductDetails::where('slug', $slug)->first();
-
-        // if ($product) {
-        //     $otherProducts = ProductDetails::where('subcategory', $product->subcategory)
-        //         ->where('product', '!=', $product->product)
-        //         ->pluck('product')
-        //         ->unique();
-        //     return view('frontend.product.show', compact('product', 'otherProducts'));
-        // }
-
-
-        // $package = ProductPackage::where('slug', $slug)->first();
-
-        // if ($package) {
-        //     return view('frontend.package.show', compact('package'));
-        // }
     }
-
 
     public function store(Request $request)
     {

@@ -25,6 +25,7 @@ class CompanyLogoController extends Controller
         $logos = CompanyLogo::get();
         return view('frontend.logo.logos', compact('logos'));
     }
+
     public function store(Request $request)
     {
         // ✅ Validate input, including faqs as an array of question/answer pairs
