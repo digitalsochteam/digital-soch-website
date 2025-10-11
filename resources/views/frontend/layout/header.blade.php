@@ -409,7 +409,7 @@
     </div>
 </div>
 <script>
-    // Optional: manual trigger example (you had this originally)
+    // Optional: manual trigger example
     const btn = document.getElementById("cust_btn");
     if (btn) {
         btn.addEventListener("click", function() {
@@ -421,12 +421,16 @@
     // Auto-open modal after 10 seconds on page load
     window.addEventListener("load", function() {
         setTimeout(() => {
-            const myModal = new bootstrap.Modal(document.getElementById("myModal"));
-            myModal.show();
+            const modalEl = document.getElementById("myModal");
+
+            // ✅ Check if modal is already open
+            if (!modalEl.classList.contains("show")) {
+                const myModal = new bootstrap.Modal(modalEl);
+                myModal.show();
+            }
         }, 10000); // 10 seconds = 10000 ms
     });
 </script>
-
 
 <style>
     .modal-content {
