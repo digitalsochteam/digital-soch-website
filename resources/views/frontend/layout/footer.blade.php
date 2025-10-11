@@ -1,7 +1,7 @@
     <!-- Start of Footer section
                                      ============================================= -->
     <footer id="tz-footer" class="tz-footer-sec position-relative pt-20" style="background-color : #dff2ff">
-        <div class="tz-ftr-shape position-absolute">
+        {{-- <div class="tz-ftr-shape position-absolute">
             <span class="ftr-shape1">
                 <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -25,7 +25,7 @@
                         fill="#003c66" />
                 </svg>
             </span>
-        </div>
+        </div> --}}
 
         <div class="tz-ftr-sh5 position-absolute">
             <img src="{{ asset('assets/img/shape/circle3.svg') }}" alt="">
@@ -107,32 +107,50 @@
                                 </div>
                                 <div class="btn-cta-wrap mt-35 d-flex align-items-center">
                                     <div class="tz-btn-1 mr-20">
-                                        <a href="{{ route('qrcode') }}"><i
-                                                class="fa-solid fa-qrcode mr-15"></i><span>Qr
+                                        <a href="{{ route('qrcode') }}"><i class="fa-solid fa-qrcode mr-15"></i><span>Qr
                                                 Code</span></a>
                                     </div>
                                     <div class="tz-btn-1">
-                                        <a href="https://client.digitalsochmedia.com/login"><i
-                                                class="fa-solid fa-lock mr-15"></i><span>Login</span></a>
+                                        <a href="https://crm.digitalsochmedia.com/login"><i
+                                                class="fa-solid fa-lock mr-15"></i><span>CRM Login</span></a>
                                     </div>
                                 </div>
+                                <div class="btn-cta-wrap mt-30 d-flex align-items-center">
+                                    <a href="https://play.google.com/store/apps/details?id=com.digital.soch.Customer"
+                                        target="_blank">
+                                        <img src="{{ asset(path: 'assets/img/logo/playstore.svg') }}"
+                                            alt="Google Play Store"
+                                            style="width: 160px; margin-right: 20px; border-radius: 15px;"></a>
 
+
+                                    <a href="https://apps.apple.com/us/app/digital-soch-customer/id6746125451"
+                                        target="_blank">
+                                        <img src="{{ asset('assets/img/logo/appstore.svg') }}" alt="App Store"
+                                            style="width: 160px; border-radius: 15px;"></a>
+
+
+
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
             </div>
-            <div class="tz-footer-copyright d-flex justify-content-between pera-content ul-li">
+            <div
+                class="tz-footer-copyright
+                                        d-flex justify-content-between pera-content ul-li">
                 <p style="color: black">Copyright @ Digital Soch Pvt. Ltd. All Rights Received.</p>
                 <div class="tz-footer-menu">
                     <ul>
                         <li><a style="color: black" href="{{ route('cancellationrefundpolicy') }}">Cancellation &
                                 Refund Policy</a>
                         </li>
-                        <li><a style="color: black" href="{{ route('termsandcondition') }}">Terms And
+                        <li><a style="color: black" href="{{ route('termsandcondition') }}">Terms
+                                And
                                 Conditions</a></li>
-                        <li><a style="color: black" href="{{ route('privacypolicy') }}">Privacy Policy</a>
+                        <li><a style="color: black" href="{{ route('privacypolicy') }}">Privacy
+                                Policy</a>
                         </li>
                     </ul>
                 </div>
