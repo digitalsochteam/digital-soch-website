@@ -1,35 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('frontend.layout.head')
-<script>
-    // Optional: manual trigger example
-    const btn = document.getElementById("cust_btn");
-    if (btn) {
-        btn.addEventListener("click", function() {
-            const myModal = new bootstrap.Modal(document.getElementById("myModal"));
-            myModal.toggle();
-        });
-    }
 
-    // Auto-open modal after 10 seconds on page load
-    window.addEventListener("load", function() {
-        setTimeout(() => {
-            const modalEl = document.getElementById("myModal");
-
-            // ✅ Check if modal is already open
-            if (!modalEl.classList.contains("show")) {
-                const myModal = new bootstrap.Modal(modalEl);
-                myModal.show();
-            }
-        }, 10000); // 10 seconds = 10000 ms
-    });
-</script>
 
 <body>
 
-    <a href="https://api.whatsapp.com/send?phone=917208909232" class="btn-whatsapp-pulse" target="_blank">
+    {{-- <a href="https://api.whatsapp.com/send?phone=917208909232" class="btn-whatsapp-pulse" target="_blank">
         <i class="fab fa-whatsapp"></i>
-    </a>
+    </a> --}}
 
 
     <!-- Mobile Menu -->
@@ -170,7 +148,7 @@
     </div>
 
 
-    <div id="mybutton">
+    {{-- <div id="mybutton">
         <a href="#" data-bs-toggle="modal" data-bs-target="#myModal" class="feedback show-modal">
             <i class="fa-solid fa-message"></i> Get a Quote
         </a>
@@ -178,8 +156,6 @@
 
 
     <div class="container mt-5">
-        <h2>Bootstrap 5.2.3 Modal Example</h2>
-
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -264,7 +240,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     @include('frontend.layout.header')
 
