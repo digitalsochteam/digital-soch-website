@@ -173,9 +173,6 @@
 </a>
 
 
-
-
-
 <!-- Mobile Menu -->
 <div class="mobile_menu lenis lenis-smooth position-relative">
     <div class="mobile_menu_wrap">
@@ -408,6 +405,7 @@
         </div>
     </div>
 </div>
+
 <script>
     // Optional: manual trigger example
     const btn = document.getElementById("cust_btn");
