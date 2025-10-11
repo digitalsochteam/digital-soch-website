@@ -16262,7 +16262,8 @@ a:focus {
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    /* grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); */
+    grid-template-columns: repeat(3, 1fr);
     gap: 35px;
     padding: 20px 0;
 }
@@ -16497,8 +16498,8 @@ a:focus {
 /* Responsive design */
 @media (max-width: 1024px) {
     .product-grid {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 25px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
     }
 }
 
@@ -16506,7 +16507,6 @@ a:focus {
     .product-grid {
         grid-template-columns: 1fr;
         gap: 25px;
-        padding: 15px 0;
     }
 
     .product-card .inner-img-unique {

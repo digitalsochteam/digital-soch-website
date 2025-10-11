@@ -39,7 +39,7 @@
                         </span>
                         <div class="ab-bg2 img-parallax position-absolute">
                             <img src="{{ $video->thumbnail ? asset('storage/' . $video->thumbnail) : asset('assets/img/default.jpg') }} "
-                                alt="">
+                                alt="Thumbnail Image" />
                         </div>
                         <div class="ab_video_play_btn text-center">
                             <a class="d-flex justify-content-center align-items-center video_box"
@@ -54,7 +54,8 @@
                             <div class="subtitle tz-sub-tilte tz-sub-anim text-uppercase" style="color: #ffffff;">
                                 {{ $video->company_name }}
                             </div>
-                            <h2 class="sec_title tz-itm-title tz-itm-anim">{{ $video->description }}</h2>
+                            <h2 class="sec_title tz-itm-title tz-itm-anim" style="font-size: 30px">{{ $video->description }}
+                            </h2>
                         </div>
                     </div>
                 </div>
