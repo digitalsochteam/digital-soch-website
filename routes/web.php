@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CompanyLogoController;
+use App\Http\Controllers\QuoteLeadController;
 use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
@@ -44,8 +45,6 @@ Route::get('/scan-qr-code', function () {
 })->name('qrcode');
 
 
-
-
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
 Route::get('/package/{id}', [ProductPackageSubscriptionController::class, 'show'])->name('package.show');
 
@@ -61,6 +60,15 @@ Route::get('/posts', [PortfolioPostController::class, 'getallposts'])->name('pos
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'postlogin'])->name('login.post');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::prefix('quoteleaddetails')->name('quote-lead-details.')->group(function () {
+    Route::get('/', [QuoteLeadController::class, 'index'])->name('index');
+    Route::get('/create', [QuoteLeadController::class, 'create'])->name('create');
+    Route::post('/', [QuoteLeadController::class, 'store'])->name('store');
+    Route::get('/{detail}/edit', [QuoteLeadController::class, 'edit'])->name('edit');
+    Route::put('/{detail}', [QuoteLeadController::class, 'update'])->name('update');
+    Route::delete('/{detail}', [QuoteLeadController::class, 'destroy'])->name('destroy');
+});
 
 Route::middleware(['auth'])->group(function () {
     Route::prefix('backend')->group(function () {
@@ -156,6 +164,9 @@ Route::middleware(['auth'])->group(function () {
             Route::put('/{detail}', [SliderController::class, 'update'])->name('update');
             Route::delete('/{detail}', [SliderController::class, 'destroy'])->name('destroy');
         });
+
+
+
 
     });
 });

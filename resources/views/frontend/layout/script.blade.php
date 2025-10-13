@@ -18,6 +18,8 @@
 <script src="{{ asset('assets/js/ScrollTrigger.min.js') }}"></script>
 <script src="{{ asset('assets/js/SplitText.min.js') }}"></script>
 <script src="{{ asset('assets/js/script.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 <script>
     // Optional: manual trigger example
@@ -39,6 +41,6 @@
                 const myModal = new bootstrap.Modal(modalEl);
                 myModal.show();
             }
-        }, 10000); // 10 seconds = 10000 ms
+        }, 30000); // 10 seconds = 10000 ms
     });
 </script>

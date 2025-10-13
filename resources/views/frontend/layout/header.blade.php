@@ -54,7 +54,6 @@
                                                             },
                                                         );
 
-                                                        Log::info('Valid Products:', $validProducts);
                                                         $isOnlyProduct = false;
                                                         if ($validProducts && count($validProducts) > 0) {
                                                             if ($validProducts[0]['name'] == null) {
@@ -62,10 +61,6 @@
                                                             } else {
                                                                 $isOnlyProduct = false;
                                                             }
-
-                                                            Log::info('Is Only Product:', [
-                                                                'isOnlyProduct' => $isOnlyProduct,
-                                                            ]);
                                                         }
 
                                                     @endphp

@@ -5,6 +5,7 @@
 
 <body>
 
+
     <a href="https://api.whatsapp.com/send?phone=917208909232" class="btn-whatsapp-pulse" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
@@ -52,7 +53,6 @@
                                                         },
                                                     );
 
-                                                    Log::info('Valid Products:', $validProducts);
                                                     $isOnlyProduct = false;
                                                     if ($validProducts && count($validProducts) > 0) {
                                                         if ($validProducts[0]['name'] == null) {
@@ -60,10 +60,6 @@
                                                         } else {
                                                             $isOnlyProduct = false;
                                                         }
-
-                                                        Log::info('Is Only Product:', [
-                                                            'isOnlyProduct' => $isOnlyProduct,
-                                                        ]);
                                                     }
 
                                                 @endphp
@@ -167,23 +163,15 @@
                     </div>
 
                     <div class="popup-body">
-                        <form class="popup-form" action="" method="POST" onsubmit="handleQuoteSubmit(event)">
+                        <form class="popup-form" action="{{ route('quote-lead-details.store') }}" method="POST"
+                            onsubmit="handleQuoteSubmit(event)">
                             @csrf
 
                             <div class="popup-form-group">
 
-                                <input type="text" name="full_name" id="fullName" class="popup-input" required
-                                    value="{{ old('full_name') }}" placeholder="Full Name">
-                                @error('full_name')
-                                    <span class="popup-error">{{ $message }}</span>
-                                @enderror
-                            </div>
-
-                            <div class="popup-form-group">
-
-                                <input type="text" name="address" id="address" class="popup-input" required
-                                    value="{{ old('address') }}" placeholder="Address">
-                                @error('address')
+                                <input type="text" name="fullname" id="fullName" class="popup-input" required
+                                    value="{{ old('fullname') }}" placeholder="Full Name">
+                                @error('fullname')
                                     <span class="popup-error">{{ $message }}</span>
                                 @enderror
                             </div>
