@@ -5,9 +5,9 @@
 
 <body>
 
-    {{-- <a href="https://api.whatsapp.com/send?phone=917208909232" class="btn-whatsapp-pulse" target="_blank">
+    <a href="https://api.whatsapp.com/send?phone=917208909232" class="btn-whatsapp-pulse" target="_blank">
         <i class="fab fa-whatsapp"></i>
-    </a> --}}
+    </a>
 
 
     <!-- Mobile Menu -->
@@ -148,7 +148,7 @@
     </div>
 
 
-    {{-- <div id="mybutton">
+    <div id="mybutton">
         <a href="#" data-bs-toggle="modal" data-bs-target="#myModal" class="feedback show-modal">
             <i class="fa-solid fa-message"></i> Get a Quote
         </a>
@@ -240,7 +240,7 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 
     @include('frontend.layout.header')
 
