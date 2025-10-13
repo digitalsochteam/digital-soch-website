@@ -11,25 +11,13 @@
 
           <!-- Right Side -->
           <div class="flex items-center space-x-4">
-              <!-- Search -->
-              <div class="hidden md:block relative">
-                  <input type="text" placeholder="Search..."
-                      class="w-64 pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                  <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
-              </div>
 
-              <!-- Notifications -->
-              <button class="relative p-2 text-gray-600 hover:text-gray-900">
-                  <i class="fas fa-bell text-xl"></i>
-                  <span
-                      class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">3</span>
-              </button>
 
               <!-- Profile Dropdown -->
               <div class="relative" x-data="{ profileOpen: false }">
                   <button @click="profileOpen = !profileOpen"
                       class="flex items-center space-x-2 text-gray-600 hover:text-gray-900">
-                      <img class="w-8 h-8 rounded-full" src="https://via.placeholder.com/32" alt="Profile">
+                      <img class="w-8 h-8 rounded-full" src="{{ asset('assets/img/hero/profile.png') }}" alt="Profile">
                       <i class="fas fa-chevron-down text-sm"></i>
                   </button>
 
