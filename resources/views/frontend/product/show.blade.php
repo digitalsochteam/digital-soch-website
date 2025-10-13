@@ -1,5 +1,14 @@
 @extends('frontend.layout.app')
 
+
+@section('title', $product->meta_title)
+
+@push('extra-head')
+    @if (!empty($product->meta_description))
+        {!! $product->meta_description !!}
+    @endif
+@endpush
+
 @section('content')
 
 
@@ -18,7 +27,7 @@
     </section>
 
     <!-- Start of Service Details section
-                                                                                                                                                                                                                                                                                                                                                                                                                         ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
     <section id="tz-ser-details" class="tz-ser-details-sec pt-120 pb-120">
         <div class="container">
             <div class="tz-ser-details-content">
@@ -137,5 +146,5 @@
         </div>
     </section>
     <!-- End of Service Details section
-                                                                                                                                                                                                                                                                                                                                                                                                                         ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
 @endsection

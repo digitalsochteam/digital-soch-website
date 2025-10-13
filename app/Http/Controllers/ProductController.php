@@ -67,6 +67,8 @@ class ProductController extends Controller
             'faqs.*.question' => 'nullable|string',             // optional but recommended
             'faqs.*.answer' => 'nullable|string',
             "slug" => "required|string|unique:product_details,slug",
+            "meta_title" => "nullable|string",
+            "meta_description" => "nullable|string",
         ]);
 
         // ✅ Store image
@@ -128,6 +130,8 @@ class ProductController extends Controller
             'faqs.*.question' => 'nullable|string',
             'faqs.*.answer' => 'nullable|string',
             "slug" => "required|string|unique:product_details,slug," . $detail->id,
+            "meta_title" => "nullable|string",
+            "meta_description" => "nullable|string",
         ]);
 
         // Log::info('Validated Data', ['data' => $data]);

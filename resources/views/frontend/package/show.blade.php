@@ -1,5 +1,14 @@
 @extends('frontend.layout.app')
 
+@section('title', $package->meta_title)
+
+@push('extra-head')
+    @if (!empty($package->meta_description))
+        {!! $package->meta_description !!}
+    @endif
+@endpush
+
+
 @section('content')
     <!-- Breadcrumb Section -->
     <section id="tz-breadcrumb" class="tz-breadcrumb-sec position-relative"

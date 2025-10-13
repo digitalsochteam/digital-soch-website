@@ -28,6 +28,8 @@ class ProductPackageController extends Controller
             'title' => 'required',
             'description' => 'nullable',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            "meta_title" => "nullable|string",
+            "meta_description" => "nullable|string",
         ]);
 
         $data = $request->all();
@@ -57,6 +59,8 @@ class ProductPackageController extends Controller
             'title' => 'required',
             'description' => 'nullable',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            "meta_title" => "nullable|string",
+            "meta_description" => "nullable|string",
         ]);
 
         $data = $request->all();

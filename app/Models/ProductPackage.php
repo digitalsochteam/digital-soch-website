@@ -16,5 +16,7 @@ class ProductPackage extends Model
         'title',
         'description',
         'image',
+        "meta_title",
+        "meta_description",
     ];
 }

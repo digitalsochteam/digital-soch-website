@@ -54,6 +54,17 @@
 </div>
 
 <div class="mb-3">
+    <label>SEO Title</label>
+    <input type="text" name="meta_title" id="meta_title" class="form-control"
+        value="{{ old('meta_title', $detail->meta_title ?? '') }}">
+</div>
+
+<div class="mb-3">
+    <label for="meta_description" class="form-label">Product SEO Meta Tags</label>
+    <textarea name="meta_description" id="meta_description" class="form-control" rows="8" {{-- adjust rows for default height --}}>{{ old('meta_description', $detail->meta_description ?? '') }}</textarea>
+</div>
+
+<div class="mb-3">
     <label>Product</label>
     <input type="text" name="product" id="product" class="form-control"
         value="{{ old('product', $detail->product ?? '') }}">
