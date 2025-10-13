@@ -44,7 +44,7 @@ class ProductController extends Controller
                     ];
                 });
 
-            // Log::info('Other Products', ['otherProducts' => $otherProducts]);
+            Log::info('Other Products', ['otherProducts' => $otherProducts]);
 
             return view('frontend.product.show', compact('product', 'otherProducts'));
         }

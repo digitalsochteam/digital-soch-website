@@ -27,7 +27,7 @@
     </section>
 
     <!-- Start of Service Details section
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
     <section id="tz-ser-details" class="tz-ser-details-sec pt-120 pb-120">
         <div class="container">
             <div class="tz-ser-details-content">
@@ -102,10 +102,9 @@
                         </div>
                     </div>
 
-
-                    <div class="col-lg-4">
-                        <div class="tz-ser-sidebar">
-                            @if ($otherProducts->isNotEmpty())
+                    @if ($otherProducts->isNotEmpty())
+                        <div class="col-lg-4">
+                            <div class="tz-ser-sidebar">
                                 <div class="tz-sidebar-widget headline">
                                     <div class="category-widget ul-li-block">
                                         <h3 class="widget-title">Other Products</h3>
@@ -124,8 +123,8 @@
                                         </ul>
                                     </div>
                                 </div>
-                            @endif
-                            <div class="tz-sidebar-widget headline"
+
+                                {{-- <div class="tz-sidebar-widget headline"
                                 data-background="{{ asset('assets/img/bg/ctw-bg.jpg') }}">
                                 <div class="cta-widget text-center ul-li-block">
                                     <div class="inner-text">
@@ -138,13 +137,14 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div> --}}
                             </div>
                         </div>
-                    </div>
+                    @endif
                 </div>
             </div>
         </div>
     </section>
     <!-- End of Service Details section
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
 @endsection
