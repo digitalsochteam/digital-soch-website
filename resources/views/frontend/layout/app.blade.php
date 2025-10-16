@@ -20,7 +20,7 @@
                     <i class="fas fa-times"></i>
                 </div>
                 <div class="m-brand-logo">
-                    <a href="#"><img src="{{ asset('assets/img/logo/logo.png') }}" alt=""></a>
+                    <a href="{{ url('/') }}"><img src="{{ asset('assets/img/logo/logo.png') }}" alt=""></a>
                 </div>
                 <div class="mobile-search-bar position-relative">
                     <form action="#">
@@ -35,7 +35,7 @@
 
                         @foreach (getCategoryList() as $category)
                             <li class="dropdown">
-                                <a href="#">
+                                <a>
                                     {{ $category['category'] }}
                                 </a>
 
@@ -94,7 +94,7 @@
 
                             </li>
                         @endforeach
-                        <li class="dropdown"><a href="#">Portfolio</a>
+                        <li class="dropdown"><a>Portfolio</a>
                             <ul class="dropdown-menu clearfix">
                                 <li><a href="{{ route('website.seeallwebsites') }}">Websites
                                     </a>
@@ -108,7 +108,7 @@
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#">
+                            <a>
                                 Packages
                             </a>
 
@@ -132,10 +132,13 @@
                     </ul>
                 </nav>
                 <div class="ptx-mobile-header-social text-center">
-                    <a href="#"> <i class="fab fa-instagram"></i></a>
-                    <a href="#"> <i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"> <i class="fab fa-facebook"></i></a>
-                    <a href="#"> <i class="fab fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/Digital.Soch.Pvt.Ltd/" target="_blank"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/digitalsochpvtltd/" target="_blank"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="https://x.com/digital_Soch_M" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://www.youtube.com/channel/UCLnmfBKs2zEWqEYJdvU1jKQ" target="_blank"><i
+                            class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
         </div>

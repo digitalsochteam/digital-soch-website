@@ -27,7 +27,7 @@
     </section>
 
     <!-- Start of Service Details section
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ============================================= -->
     <section id="tz-ser-details" class="tz-ser-details-sec pt-120 pb-120">
         <div class="container">
             <div class="tz-ser-details-content">
@@ -124,20 +124,7 @@
                                     </div>
                                 </div>
 
-                                {{-- <div class="tz-sidebar-widget headline"
-                                data-background="{{ asset('assets/img/bg/ctw-bg.jpg') }}">
-                                <div class="cta-widget text-center ul-li-block">
-                                    <div class="inner-text">
-                                        <div class="brand-logo">
-                                            <img src="{{ asset('assets/img/logo/logo.png') }}" alt="" />
-                                        </div>
-                                        <h4>Need Help? We Are Here To Help You</h4>
-                                        <div class="tz-btn-1">
-                                            <a href="#"><span>Get A Quote</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
+
                             </div>
                         </div>
                     @endif
@@ -146,5 +133,5 @@
         </div>
     </section>
     <!-- End of Service Details section
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ============================================= -->
 @endsection

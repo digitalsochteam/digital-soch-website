@@ -53,7 +53,8 @@
                     <div class=" headline pera-content">
                         <div class="logo-widget">
                             <div class="brand-logo">
-                                <a href="#"><img src="{{ asset('assets/img/logo/logo.png') }}" alt=""></a>
+                                <a href="{{ url('/') }}"><img src="{{ asset('assets/img/logo/logo.png') }}"
+                                        alt=""></a>
                             </div>
                             <p style="margin-top: 20px;" class="text-black">DIGITAL SOCH is equipped with a team of
                                 trained professionals

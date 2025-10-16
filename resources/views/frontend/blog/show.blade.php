@@ -16,7 +16,7 @@
     </section>
 
     <!-- Start of Service Details section
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
     <section id="tz-blog-details" class="tz-blog-details-sec pt-110 pb-100">
         <div class="container">
             <div class="row">
@@ -30,7 +30,7 @@
                                 alt="{{ $blog->title }}">
                         </div>
                         <div class="item-meta">
-                            <a href="#"><i class="fa-regular fa-calendar"></i>
+                            <a><i class="fa-regular fa-calendar"></i>
                                 {{ $blog->created_at?->format('d M, Y') }}</a>
                         </div>
                         <h3>{{ $blog->title }}</h3>
@@ -41,7 +41,7 @@
 
                         @if (!empty($blog->tags) && is_array($blog->tags))
                             @foreach ($blog->tags as $tag)
-                                <a href="#">
+                                <a>
                                     {{ $tag }}
                                 </a>
                             @endforeach
@@ -51,51 +51,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    {{-- <div class="tz-ser-sidebar">
-                        <div class="tz-sidebar-widget headline">
-                            <div class="recent-post-widget">
-                                <h3 class="widget-title">Recent Posts</h3>
-                                <div class="tz-rcw-wrap">
-                                    <div class="tz-rcw-item">
-                                        <div class="item-img">
-                                            <img src="{{ asset('assets/img/blog/rc1.jpg') }}" alt="">
-                                        </div>
-                                        <div class="item-text headline">
-                                            <div class="item-meta">
-                                                <a href="#"><i class="fa-regular fa-calendar"></i> 24 Feb, 2025</a>
-                                                <a href="#"><i class="fa-regular fa-user"></i> by admin</a>
-                                            </div>
-                                            <h3><a href="#">How Businesses Can Leverage Data for Growth</a></h3>
-                                        </div>
-                                    </div>
-                                    <div class="tz-rcw-item">
-                                        <div class="item-img">
-                                            <img src="{{ asset('assets/img/blog/rc2.jpg') }}" alt="">
-                                        </div>
-                                        <div class="item-text headline">
-                                            <div class="item-meta">
-                                                <a href="#"><i class="fa-regular fa-calendar"></i> 24 Feb, 2025</a>
-                                                <a href="#"><i class="fa-regular fa-user"></i> by admin</a>
-                                            </div>
-                                            <h3><a href="#">How Businesses Can Leverage Data for Growth</a></h3>
-                                        </div>
-                                    </div>
-                                    <div class="tz-rcw-item">
-                                        <div class="item-img">
-                                            <img src="{{ asset('assets/img/blog/rc3.jpg') }}" alt="">
-                                        </div>
-                                        <div class="item-text headline">
-                                            <div class="item-meta">
-                                                <a href="#"><i class="fa-regular fa-calendar"></i> 24 Feb, 2025</a>
-                                                <a href="#"><i class="fa-regular fa-user"></i> by admin</a>
-                                            </div>
-                                            <h3><a href="#">How Businesses Can Leverage Data for Growth</a></h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
+
 
                     <div class="tz-ser-sidebar">
                         <div class="tz-sidebar-widget headline">
@@ -111,7 +67,7 @@
 
                                             <div class="item-text headline">
                                                 <div class="item-meta">
-                                                    <a href="#"><i class="fa-regular fa-calendar"></i>
+                                                    <a><i class="fa-regular fa-calendar"></i>
                                                         {{ $post->created_at?->format('d M, Y') }}</a>
 
                                                 </div>
@@ -137,5 +93,5 @@
         </div>
     </section>
     <!-- End of Service Details section
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
 @endsection

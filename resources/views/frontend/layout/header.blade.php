@@ -3,7 +3,7 @@
         <div class="container">
             <div class="tz-top-info-wrap d-flex justify-content-between align-items-center">
                 <div class="tz-top-cta">
-                    <a href="#"><i class="fa-solid fa-location-dot"></i> Andheri East, Mumbai - 400093</a>
+                    <a><i class="fa-solid fa-location-dot"></i> Andheri East, Mumbai - 400093</a>
                     <a href="mailto:info@digitalsochmedia.com"><i class="fa-solid fa-envelope"></i>
                         info@digitalsochmedia.com</a>
                 </div>
@@ -36,7 +36,7 @@
                             @foreach (getCategoryList() as $category)
                                 <li class="dropdown">
                                     {{-- <a href="{{ url('/category/' . urlencode($category['category'])) }}"> --}}
-                                    <a href="#">
+                                    <a>
                                         {{ $category['category'] }}
                                     </a>
 
@@ -96,7 +96,7 @@
 
                                 </li>
                             @endforeach
-                            <li class="dropdown"><a href="#">Portfolio</a>
+                            <li class="dropdown"><a>Portfolio</a>
                                 <ul class="dropdown-menu clearfix">
                                     <li><a href="{{ route('website.seeallwebsites') }}">Websites
                                         </a>
@@ -110,7 +110,7 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#">
+                                <a>
                                     Packages
                                 </a>
 
