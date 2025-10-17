@@ -7474,6 +7474,7 @@ a:focus {
     margin: 0 auto;
     overflow: hidden;
     max-width: 630px;
+    height: 400px;
 }
 .tz-pro2-item .item-img {
     overflow: hidden;
