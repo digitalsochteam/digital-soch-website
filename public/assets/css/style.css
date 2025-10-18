@@ -4871,6 +4871,12 @@ a:focus {
     width: 70px;
     height: 70px;
     margin-bottom: 38px;
+    border: solid 1px #252525;
+    border-radius: 100%;
+}
+.tz-ft1-item .item-icon img {
+    border-radius: 100%;
+    padding: 10px;
 }
 .tz-ft1-item .item-text h3 {
     font-size: 22px;
@@ -16761,7 +16767,7 @@ a:focus {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: linear-gradient(135deg, #007bff, #3c92ff);
+    background: linear-gradient(135deg, #0b3c66, #0b3c66);
     color: #fff !important;
     font-family: "Poppins", sans-serif;
     font-weight: 600;
@@ -16778,7 +16784,7 @@ a:focus {
 
 /* Hover effect */
 .feedback:hover {
-    background: linear-gradient(135deg, #0056d6, #2c7ae0);
+    background: linear-gradient(135deg, #0b3c66, #0b3c66);
     transform: translateY(-2px);
     box-shadow: 0 6px 14px rgba(60, 146, 255, 0.6);
 }
