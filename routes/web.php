@@ -39,6 +39,10 @@ Route::get('/privacy-policy', function () {
     return view('frontend.dashboard.privacypolicy');
 })->name('privacypolicy');
 
+Route::get('/thank-you', function () {
+    return view('frontend.dashboard.thanku');
+})->name('thankyou');
+
 
 Route::get('/scan-qr-code', function () {
     return view('frontend.dashboard.qrcode');

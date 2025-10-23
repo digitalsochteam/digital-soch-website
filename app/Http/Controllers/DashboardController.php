@@ -69,6 +69,9 @@ class DashboardController extends Controller
 
 
 
+
+
+
     // public function index()
     // {
     //     // ✅ Step 1: Select only needed fields (reduces DB payload)

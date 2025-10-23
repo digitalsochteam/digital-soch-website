@@ -43,7 +43,7 @@
                             <div class="item-text-wrap">
                                 <div class="inner-title headline pera-content">
                                     <h3>
-                                        <a href="{{ asset('storage/' . $website->file) }} "target="_blank"
+                                        <a href="{{ asset(path: 'storage/' . $website->file) }} "target="_blank"
                                             rel="noopener noreferrer">
                                             {{ $website->name }}
                                         </a>
@@ -51,7 +51,8 @@
                                     <p>{{ Str::limit($website->description, 120, '...') }}</p>
                                 </div>
                                 <div class="item-btn">
-                                    <a href="{{ $website->website_link }}" target="_blank" rel="noopener noreferrer">
+                                    <a href="{{ asset(path: 'storage/' . $website->website_link) }}" target="_blank"
+                                        rel="noopener noreferrer">
                                         <span>Explore Website</span> <i class="fa-solid fa-eye"></i>
                                     </a>
                                 </div>

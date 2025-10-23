@@ -50,16 +50,18 @@ class QuoteLeadController extends Controller
                 'message' => $request->message ?? $existingLead->message,
             ]);
 
-            return redirect()
-                ->route("frontend.dashboard.index")
-                ->with('success', 'Your Response has been saved successfully!');
+            $status = "success";
+            $message = "Your Response is already recorded! . please wait for our response.";
+
+
+
+            return view('frontend.dashboard.thanku', compact('status', 'message'));
         }
 
         QuoteLead::create($request->all());
-
-        return redirect()
-            ->route('frontend.dashboard.index')
-            ->with('success', 'Your Response has been saved successfully!');
+        $status = "success";
+        $message = "Your Response has been saved successfully!";
+        return view('frontend.dashboard.thanku', compact('status', 'message'));
     }
 
 

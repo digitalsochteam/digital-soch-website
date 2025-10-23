@@ -9,56 +9,6 @@
         <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     @endpush
 
-    {{-- ✅ OPTIMIZATION 2: Simplified Alert System with minimal DOM --}}
-    @if (session('success') || session('info') || session('warning') || session('error'))
-        <div class="home-alert-backdrop" id="homeAlertBackdrop"></div>
-
-        @php
-            $alertType = session('success')
-                ? 'success'
-                : (session('info')
-                    ? 'info'
-                    : (session('warning')
-                        ? 'warning'
-                        : 'error'));
-            $alertMessage = session($alertType);
-            $alertConfig = [
-                'success' => [
-                    'icon' => 'M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4 12 14.01 9 11.01',
-                    'title' => 'Success!',
-                ],
-                'info' => [
-                    'icon' => 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM12 16v-4M12 8h.01',
-                    'title' => 'Information',
-                ],
-                'warning' => [
-                    'icon' =>
-                        'M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0zM12 9v4M12 17h.01',
-                    'title' => 'Warning',
-                ],
-                'error' => [
-                    'icon' => 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM15 9l-6 6M9 9l6 6',
-                    'title' => 'Error!',
-                ],
-            ];
-        @endphp
-
-        <div class="home-alert-popup home-custom-alert home-custom-alert-{{ $alertType }}" role="alert"
-            id="homeAlertPopup">
-            <button type="button" class="btn-close home-custom-btn-close" onclick="closeHomeAlert()"
-                aria-label="Close"></button>
-            <div class="home-alert-content">
-                <div class="home-alert-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="{{ $alertConfig[$alertType]['icon'] }}"></path>
-                    </svg>
-                </div>
-                <h5 class="home-alert-title">{{ $alertConfig[$alertType]['title'] }}</h5>
-                <p class="home-alert-message">{{ $alertMessage }}</p>
-            </div>
-        </div>
-    @endif
 
     {{-- ✅ OPTIMIZATION 3: Hero Slider with lazy loading --}}
     <section id="tz-hero-slider" class="tz-hero-slider-sec">
@@ -136,15 +86,15 @@
                                         @if ($slider->image_two)
                                             <div class="item-img2">
                                                 <img src="{{ Storage::url($slider->image_two) }}"
-                                                    alt="{{ $slider->title }}" width="300" height="300"
-                                                    loading="lazy" decoding="async">
+                                                    alt="{{ $slider->title }}" width="300" height="300" loading="lazy"
+                                                    decoding="async">
                                             </div>
                                         @endif
                                         @if ($slider->image_symbol)
                                             <div class="item-img3">
                                                 <img src="{{ Storage::url($slider->image_symbol) }}"
-                                                    alt="{{ $slider->title }}" width="150" height="150"
-                                                    loading="lazy" decoding="async">
+                                                    alt="{{ $slider->title }}" width="150" height="150" loading="lazy"
+                                                    decoding="async">
                                             </div>
                                         @endif
                                     </div>
