@@ -36,14 +36,15 @@
                                     alt="{{ $website->name }}">
                             </div>
                             <div class="item-arrow">
-                                <a class="d-flex justify-content-center align-items-center" href="#">
+                                <a class="d-flex justify-content-center align-items-center"
+                                    href="{{ asset('storage/' . $website->file) }}" target="_blank">
                                     <i class="fa-solid fa-file-pdf"></i>
                                 </a>
                             </div>
                             <div class="item-text-wrap">
                                 <div class="inner-title headline pera-content">
                                     <h3>
-                                        <a href="{{ asset(path: 'storage/' . $website->file) }} "target="_blank"
+                                        <a href="{{ asset('storage/' . $website->file) }} " target="_blank"
                                             rel="noopener noreferrer">
                                             {{ $website->name }}
                                         </a>
@@ -51,8 +52,7 @@
                                     <p>{{ Str::limit($website->description, 120, '...') }}</p>
                                 </div>
                                 <div class="item-btn">
-                                    <a href="{{ asset(path: 'storage/' . $website->website_link) }}" target="_blank"
-                                        rel="noopener noreferrer">
+                                    <a href="{{ $website->website_link }}" target="_blank" rel="noopener noreferrer">
                                         <span>Explore Website</span> <i class="fa-solid fa-eye"></i>
                                     </a>
                                 </div>
