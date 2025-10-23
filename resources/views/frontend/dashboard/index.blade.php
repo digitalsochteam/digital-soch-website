@@ -9,25 +9,22 @@
         <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     @endpush
 
-
-    {{-- ✅ OPTIMIZATION 3: Hero Slider with lazy loading --}}
     <section id="tz-hero-slider" class="tz-hero-slider-sec">
         <div class="tz-hero-slider-area swiper-container">
             <div class="swiper-wrapper">
-                @foreach ($sliders as $index => $slider)
+                @foreach ($sliders as $slider)
                     <div class="swiper-slide">
                         <div class="tz-hero-slide-item position-relative">
-                            {{-- ✅ Inline critical SVG, but simplified --}}
                             <div class="tz-circle-anim">
                                 <svg width="1040" height="1040" viewBox="0 0 1040 1040" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <circle id="line_path" cx="520" cy="520" r="518.5"
-                                        stroke="url(#paint0_linear)" stroke-width="3" />
+                                        stroke="url(#paint0_linear_753_63)" stroke-width="3" />
                                     <defs>
-                                        <linearGradient id="paint0_linear" x1="925" y1="227.5" x2="194.5"
-                                            y2="945.5" gradientUnits="userSpaceOnUse">
+                                        <linearGradient id="paint0_linear_753_63" x1="925" y1="227.5"
+                                            x2="194.5" y2="945.5" gradientUnits="userSpaceOnUse">
                                             <stop stop-color="#CBBAFF" />
-                                            <stop offset="0.26" stop-color="#7A7099" stop-opacity="0" />
+                                            <stop offset="0.259607" stop-color="#7A7099" stop-opacity="0" />
                                         </linearGradient>
                                     </defs>
                                     <g id="paper-plane">
@@ -37,18 +34,15 @@
                                 </svg>
                             </div>
 
-                            {{-- ✅ OPTIMIZATION 4: Lazy load background shapes with loading="lazy" --}}
+                            {{-- Background Shapes --}}
                             <div class="tz-vect-shape1 position-absolute">
-                                <img src="{{ asset('assets/img/shape/s-shape1.png') }}" alt="" width="200"
-                                    height="200" loading="{{ $index === 0 ? 'eager' : 'lazy' }}">
+                                <img src="{{ asset('assets/img/shape/s-shape1.png') }}" alt="">
                             </div>
                             <div class="tz-vect-shape2 position-absolute">
-                                <img src="{{ asset('assets/img/shape/s-shape2.png') }}" alt="" width="150"
-                                    height="150" loading="lazy">
+                                <img src="{{ asset('assets/img/shape/s-shape2.png') }}" alt="">
                             </div>
                             <div class="tz-vect-shape3 position-absolute">
-                                <img src="{{ asset('assets/img/shape/s-shape3.png') }}" alt="" width="180"
-                                    height="180" loading="lazy">
+                                <img src="{{ asset('assets/img/shape/s-shape3.png') }}" alt="">
                             </div>
 
                             <span class="tz-hs-shape position-absolute"></span>
@@ -66,35 +60,40 @@
                                         <div class="btn-cta-wrap mt-35 d-flex align-items-center">
                                             <div class="hs-btn">
                                                 <a
-                                                    href="{{ $slider->tablename == 'product' ? route('product.show', $slider->slug) : route('package.show', $slider->slug) }}">
-                                                    <span>Get Started</span>
-                                                </a>
+                                                    href="{{ $slider->tablename == 'product' ? route('product.show', $slider->slug) : route('package.show', $slider->slug) }}"><span>Get
+                                                        Started</span></a>
                                             </div>
+                                            {{-- <div class="btn-cta">
+                                                <a href="tel:2240030857">Hotline: +9122-4003 0857</a>
+                                            </div> --}}
                                         </div>
                                     </div>
 
-                                    {{-- ✅ OPTIMIZATION 5: Optimized hero images with proper attributes --}}
+                                    {{-- Hero Images --}}
                                     <div class="tz-hs-img-wrap d-flex justify-content-end position-relative">
+                                        {{-- <div class="item-img1">
+                                            <img src="{{ $slide['image1'] }}" alt="">
+                                        </div>
+                                        <div class="item-img2">
+                                            <img src="{{ $slide['image2'] }}" alt="">
+                                        </div>
+                                        <div class="item-img3">
+                                            <img src="{{ $slide['image3'] }}" alt="">
+                                        </div> --}}
                                         @if ($slider->image_one)
                                             <div class="item-img1">
-                                                <img src="{{ asset('storage/' . $slider->image_one) }}"
-                                                    alt="{{ $slider->title }}" width="500" height="500"
-                                                    loading="{{ $index === 0 ? 'eager' : 'lazy' }}"
-                                                    decoding="{{ $index === 0 ? 'sync' : 'async' }}">
+                                                <img src="{{ $slider->image_one ? asset('storage/' . $slider->image_one) : asset('assets/img/default.jpg') }}"
+                                                    alt="{{ $slider->title }}">
                                             </div>
                                         @endif
                                         @if ($slider->image_two)
                                             <div class="item-img2">
-                                                <img src="{{ Storage::url($slider->image_two) }}"
-                                                    alt="{{ $slider->title }}" width="300" height="300" loading="lazy"
-                                                    decoding="async">
+                                                <img src="{{ Storage::url($slider->image_two) }}" alt="">
                                             </div>
                                         @endif
                                         @if ($slider->image_symbol)
                                             <div class="item-img3">
-                                                <img src="{{ Storage::url($slider->image_symbol) }}"
-                                                    alt="{{ $slider->title }}" width="150" height="150" loading="lazy"
-                                                    decoding="async">
+                                                <img src="{{ Storage::url($slider->image_symbol) }}" alt="">
                                             </div>
                                         @endif
                                     </div>
@@ -105,12 +104,13 @@
                 @endforeach
             </div>
 
+            {{-- Slider Navigation --}}
             <div class="tz-hs-nav">
                 <div class="tz-hs-next arrow-nav d-flex justify-content-center align-items-center">
                     <i class="fa-solid fa-arrow-up"></i>
                 </div>
-                {{-- <div class="tz-hs-pagi"></div> --}}
-                <div class="tz-hs-prev arrow-nav d-flex justify-content-center align-items-center mt-50">
+                <div class="tz-hs-pagi"></div>
+                <div class="tz-hs-prev arrow-nav d-flex justify-content-center align-items-center">
                     <i class="fa-solid fa-arrow-down"></i>
                 </div>
             </div>
