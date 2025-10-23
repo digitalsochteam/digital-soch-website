@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\QuoteLead;
 use Illuminate\Http\Request;
-use Log;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
 
 class QuoteLeadController extends Controller
 {
@@ -26,6 +27,7 @@ class QuoteLeadController extends Controller
     {
         Log::info('Storing quote lead', ['request' => $request->all()]);
 
+        // Validation
         $request->validate([
             'fullname' => 'required|string|max:255',
             'city' => 'nullable|string|max:150',
@@ -35,6 +37,22 @@ class QuoteLeadController extends Controller
             'message' => 'nullable|string',
         ]);
 
+        // Capture IP and Header info
+        $ipAddress = $request->ip();
+        $headers = json_encode($request->header(), JSON_UNESCAPED_SLASHES);
+
+        // Limit: only 2 requests allowed per IP
+        $ipRequestCount = QuoteLead::where('ipaddress', $ipAddress)->count();
+        if ($ipRequestCount >= 2) {
+            $status = "error";
+            $message = "You have reached the maximum number of quote requests allowed from this IP address.";
+            return view('frontend.dashboard.thanku', compact('status', 'message'));
+        }
+
+        // Generate a unique lead ID
+        $leadId = 'LEAD-' . now()->format('YmdHis') . '-' . strtoupper(Str::random(4));
+
+        // Check if lead with same mobile exists
         $existingLead = QuoteLead::where('mobile', $request->mobile)->first();
 
         if ($existingLead) {
@@ -48,21 +66,42 @@ class QuoteLeadController extends Controller
                 'email' => $request->email ?? $existingLead->email,
                 'subject' => $request->subject ?? $existingLead->subject,
                 'message' => $request->message ?? $existingLead->message,
+                'leadid' => $existingLead->leadid ?? $leadId,
+                'status' => 'Pending',
+                'source' => 'Website',
+                'ipaddress' => $ipAddress,
+                'header' => $headers,
             ]);
 
             $status = "success";
-            $message = "Your Response is already recorded! . please wait for our response.";
-
-
+            $message = "Your response is already recorded! Please wait for our team to contact you.";
 
             return view('frontend.dashboard.thanku', compact('status', 'message'));
         }
 
-        QuoteLead::create($request->all());
+        // Create new lead
+        QuoteLead::create([
+            'fullname' => $request->fullname,
+            'city' => $request->city,
+            'mobile' => $request->mobile,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'message' => $request->message,
+            'leadid' => $leadId,
+            'status' => 'Pending',
+            'source' => 'Website',
+            'ipaddress' => $ipAddress,
+            'header' => $headers,
+            'request_count' => 1,
+        ]);
+
         $status = "success";
-        $message = "Your Response has been saved successfully!";
+        $message = "Your response has been saved successfully!";
+
         return view('frontend.dashboard.thanku', compact('status', 'message'));
     }
+
+
 
 
     public function destroy(QuoteLead $lead)

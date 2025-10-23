@@ -21,6 +21,9 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('productpackages');
+        Schema::table('productpackages', function (Blueprint $table) {
+            $table->dropColumn('meta_title');
+            $table->dropColumn('meta_description');
+        });
     }
 };

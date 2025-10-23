@@ -16,5 +16,12 @@ class QuoteLead extends Model
         'subject',
         'message',
         'request_count',
+        'leadid',
+        'category',
+        'status',
+        'source',
+        'assignto',
+        'ipaddress',
+        'header'
     ];
 }
