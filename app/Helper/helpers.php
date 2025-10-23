@@ -3,6 +3,8 @@
 use App\Models\ProductDetails;
 use Illuminate\Support\Facades\Log;
 use App\Models\ProductPackage;
+use Illuminate\Support\Facades\Cache;
+
 
 
 // function getCategoryList()
@@ -51,60 +53,65 @@ use App\Models\ProductPackage;
 
 //     return array_values($tree); // ✅ return as array
 // }
-
-
 function getCategoryList()
 {
-    $data = ProductDetails::get();
+    // Cache duration in minutes
+    $cacheDuration = 5;
 
-    $tree = [];
+    return Cache::remember('category_list', $cacheDuration, function () {
+        $data = ProductDetails::get();
 
-    foreach ($data as $row) {
-        $id = $row->id;
-        $category = $row->category;
-        $subcategory = $row->subcategory;
-        $product = $row->product;
-        $slug = $row->slug; // ✅ Get slug from database
+        $tree = [];
 
-        // Ensure category exists
-        if (!isset($tree[$category])) {
-            $tree[$category] = [
-                'id' => $id,
-                'category' => $category,
-                'slug' => $slug, // ✅ Use database slug
-                'subcategories' => []
+        foreach ($data as $row) {
+            $id = $row->id;
+            $category = $row->category;
+            $subcategory = $row->subcategory;
+            $product = $row->product;
+            $slug = $row->slug; // ✅ Get slug from database
+
+            // Ensure category exists
+            if (!isset($tree[$category])) {
+                $tree[$category] = [
+                    'id' => $id,
+                    'category' => $category,
+                    'slug' => $slug, // ✅ Use database slug
+                    'subcategories' => []
+                ];
+            }
+
+            // Ensure subcategory exists under category
+            if (!isset($tree[$category]['subcategories'][$subcategory])) {
+                $tree[$category]['subcategories'][$subcategory] = [
+                    'subcategory' => $subcategory,
+                    'slug' => $slug, // ✅ Use database slug
+                    'products' => []
+                ];
+            }
+
+            // Add product with slug from database
+            $tree[$category]['subcategories'][$subcategory]['products'][] = [
+                'name' => $product,
+                'slug' => $slug // ✅ Use database slug
             ];
         }
 
-        // Ensure subcategory exists under category
-        if (!isset($tree[$category]['subcategories'][$subcategory])) {
-            $tree[$category]['subcategories'][$subcategory] = [
-                'subcategory' => $subcategory,
-                'slug' => $slug, // ✅ Use database slug
-                'products' => []
-            ];
-        }
+        // Fix array keys for JSON response
+        $tree = array_map(function ($cat) {
+            $cat['subcategories'] = array_values($cat['subcategories']);
+            return $cat;
+        }, $tree);
 
-        // Add product with slug from database
-        $tree[$category]['subcategories'][$subcategory]['products'][] = [
-            'name' => $product,
-            'slug' => $slug // ✅ Use database slug
-        ];
-    }
-
-    // Fix array keys for JSON response
-    $tree = array_map(function ($cat) {
-        $cat['subcategories'] = array_values($cat['subcategories']);
-        return $cat;
-    }, $tree);
-
-    // Log::info('Category List', $tree);
-
-    return array_values($tree);
+        return array_values($tree);
+    });
 }
+
 function getPackages()
 {
-    $data = ProductPackage::get();
+    // Cache duration in minutes
+    $cacheDuration = 5;
 
-    return $data; // ✅ return as array
+    return Cache::remember('product_packages', $cacheDuration, function () {
+        return ProductPackage::get();
+    });
 }

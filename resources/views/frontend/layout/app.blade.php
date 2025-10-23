@@ -31,7 +31,7 @@
                 <nav class="mobile-main-navigation  clearfix ul-li">
                     <ul id="m-main-nav" class="nav navbar-nav clearfix">
                         <li><a href="{{ url('/') }}">Home</a></li>
-                        <li><a href="{{ url('/about') }}">About Us</a></li>
+                        <li><a href="{{ route('about') }}" aria-label="About our company">About Us</a></li>
 
                         @foreach (getCategoryList() as $category)
                             <li class="dropdown">
@@ -67,8 +67,8 @@
                                                 <li
                                                     class="{{ count($validProducts) > 0 && $isOnlyProduct === false ? 'dropdown' : '' }}">
 
-                                                    <a
-                                                        href="{{ count($validProducts) > 0 && $isOnlyProduct === false ? '#' : route('product.show', $validProducts[0]['slug']) }}">
+                                                    <a href="{{ count($validProducts) > 0 && $isOnlyProduct === false ? '#' : route('product.show', $validProducts[0]['slug']) }}"
+                                                        aria-label="Product">
                                                         {{ $subcategory['subcategory'] }}
                                                     </a>
 
@@ -79,7 +79,8 @@
                                                                     $productSlug = $product['slug'];
                                                                 @endphp
                                                                 <li>
-                                                                    <a href="{{ route('product.show', $productSlug) }}">
+                                                                    <a href="{{ route('product.show', $productSlug) }}"
+                                                                        aria-label="Product">
                                                                         {{ $product['name'] }}
                                                                     </a>
                                                                 </li>
@@ -154,11 +155,11 @@
     </div>
 
 
-    <div class="container mt-5">
+    {{-- <div class="container mt-5">
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
+                <div class="modal-content popup-box">
                     <div class="popup-header">
                         <h2 class="popup-title">Get a Quote</h2>
                         <button class="popup-close-btn" type="button" data-bs-dismiss="modal"
@@ -167,11 +168,10 @@
 
                     <div class="popup-body">
                         <form class="popup-form" action="{{ route('quote-lead-details.store') }}" method="POST"
-                            onsubmit="handleQuoteSubmit(event)">
+                            onsubmit="return validateQuoteForm(event)">
                             @csrf
 
                             <div class="popup-form-group">
-
                                 <input type="text" name="fullname" id="fullName" class="popup-input" required
                                     value="{{ old('fullname') }}" placeholder="Full Name">
                                 @error('fullname')
@@ -187,26 +187,27 @@
                                 @enderror
                             </div>
 
-                            <div class="popup-form-group">
+                            <!-- Mobile + Email row -->
+                            <div class="popup-row">
+                                <div class="popup-form-group flex-item">
+                                    <input type="tel" name="mobile" id="mobile" class="popup-input" required
+                                        pattern="[6-9]\d{9}" maxlength="10" value="{{ old('mobile') }}"
+                                        placeholder="Mobile (10 digits)">
+                                    @error('mobile')
+                                        <span class="popup-error">{{ $message }}</span>
+                                    @enderror
+                                </div>
 
-                                <input type="tel" name="mobile" id="mobile" class="popup-input" required
-                                    value="{{ old('mobile') }}" placeholder="Mobile">
-                                @error('mobile')
-                                    <span class="popup-error">{{ $message }}</span>
-                                @enderror
+                                <div class="popup-form-group flex-item">
+                                    <input type="email" name="email" id="email" class="popup-input" required
+                                        value="{{ old('email') }}" placeholder="Email">
+                                    @error('email')
+                                        <span class="popup-error">{{ $message }}</span>
+                                    @enderror
+                                </div>
                             </div>
 
                             <div class="popup-form-group">
-
-                                <input type="email" name="email" id="email" class="popup-input" required
-                                    value="{{ old('email') }}"placeholder="Email">
-                                @error('email')
-                                    <span class="popup-error">{{ $message }}</span>
-                                @enderror
-                            </div>
-
-                            <div class="popup-form-group">
-
                                 <input type="text" name="subject" id="subject" class="popup-input" required
                                     value="{{ old('subject') }}" placeholder="Subject">
                                 @error('subject')
@@ -215,7 +216,6 @@
                             </div>
 
                             <div class="popup-form-group">
-
                                 <textarea name="message" id="message" class="popup-textarea" placeholder="Message" required>{{ old('message') }}</textarea>
                                 @error('message')
                                     <span class="popup-error">{{ $message }}</span>
@@ -225,13 +225,83 @@
                             <button type="submit" class="popup-submit-btn">Submit Request</button>
                         </form>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div> --}}
 
+    <div class="container mt-5">
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content popup-container">
+                    <div class="popup-header">
+                        <h2 class="popup-title">Get a Quote</h2>
+                        <button class="popup-close-btn" type="button" data-bs-dismiss="modal"
+                            aria-label="Close">&times;</button>
+                    </div>
+                    <div class="popup-body">
+                        <form class="popup-form" action="{{ route('quote-lead-details.store') }}" method="POST"
+                            onsubmit="return handleQuoteSubmit(event)">
+                            @csrf
+                            <div class="popup-form-group">
+                                <input type="text" name="fullname" id="fullName" class="popup-input" required
+                                    value="{{ old('fullname') }}" placeholder="Full Name">
+                                @error('fullname')
+                                    <span class="popup-error">{{ $message }}</span>
+                                @enderror
+                            </div>
 
+                            <div class="popup-form-group">
+                                <input type="text" name="city" id="city" class="popup-input" required
+                                    value="{{ old('city') }}" placeholder="City">
+                                @error('city')
+                                    <span class="popup-error">{{ $message }}</span>
+                                @enderror
+                            </div>
 
+                            <!-- Mobile & Email in same row -->
+                            <div class="popup-form-row">
+                                <div class="popup-form-group half-width">
+                                    <input type="tel" name="mobile" id="mobile" class="popup-input" required
+                                        value="{{ old('mobile') }}" placeholder="Mobile" pattern="[0-9]{10}"
+                                        title="Enter 10 digit mobile number">
+                                    @error('mobile')
+                                        <span class="popup-error">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="popup-form-group half-width">
+                                    <input type="email" name="email" id="email" class="popup-input" required
+                                        value="{{ old('email') }}" placeholder="Email">
+                                    @error('email')
+                                        <span class="popup-error">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="popup-form-group">
+                                <input type="text" name="subject" id="subject" class="popup-input" required
+                                    value="{{ old('subject') }}" placeholder="Subject">
+                                @error('subject')
+                                    <span class="popup-error">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="popup-form-group">
+                                <textarea name="message" id="message" class="popup-textarea" placeholder="Message" required>{{ old('message') }}</textarea>
+                                @error('message')
+                                    <span class="popup-error">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <button type="submit" class="popup-submit-btn">Submit Request</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 
     @include('frontend.layout.header')
 

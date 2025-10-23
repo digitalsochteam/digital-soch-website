@@ -10,33 +10,61 @@ use App\Models\Slider;
 use Illuminate\Support\Facades\Log;
 use App\Models\ProductPackage;
 use App\Models\ProductPackageSubscription;
+use Illuminate\Support\Facades\Cache;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        // $blogs = Blog::get();
-        $allProducts = ProductDetails::inRandomOrder()->get();
+        // Cache duration in minutes
+        $cacheDuration = 5;
 
-        $selectedProducts = [];
-        $usedSubcategories = [];
+        // Get products with unique subcategories (limit 6)
+        $selectedProducts = Cache::remember('selected_products', $cacheDuration, function () {
+            $allProducts = ProductDetails::inRandomOrder()->get();
 
-        foreach ($allProducts as $product) {
-            if (!in_array($product->subcategory, $usedSubcategories)) {
-                $selectedProducts[] = $product;
-                $usedSubcategories[] = $product->subcategory;
+            $selectedProducts = [];
+            $usedSubcategories = [];
+
+            foreach ($allProducts as $product) {
+                if (!in_array($product->subcategory, $usedSubcategories)) {
+                    $selectedProducts[] = $product;
+                    $usedSubcategories[] = $product->subcategory;
+                }
+                if (count($selectedProducts) >= 6) {
+                    break;
+                }
             }
-            if (count($selectedProducts) >= 6) {
-                break;
-            }
-        }
-        $blogs = Blog::get();
-        $testimonials = Testimonial::inRandomOrder()->take(3)->get();
-        Log::info('Testimonials:', ['testimonials' => $testimonials]);
-        $companyLogo = CompanyLogo::get();
-        $sliders = Slider::get();
+            return $selectedProducts;
+        });
 
-        return view('frontend.dashboard.index', compact('selectedProducts', 'blogs', 'testimonials', 'companyLogo', 'sliders'));
+        // Get all blogs
+        $blogs = Cache::remember('all_blogs', $cacheDuration, function () {
+            return Blog::get();
+        });
+
+        // Get random testimonials (limit 3)
+        $testimonials = Cache::remember('testimonials_random', $cacheDuration, function () {
+            return Testimonial::inRandomOrder()->take(3)->get();
+        });
+
+        // Get company logos
+        $companyLogo = Cache::remember('company_logos', $cacheDuration, function () {
+            return CompanyLogo::get();
+        });
+
+        // Get sliders
+        $sliders = Cache::remember('sliders', $cacheDuration, function () {
+            return Slider::get();
+        });
+
+        return view('frontend.dashboard.index', compact(
+            'selectedProducts',
+            'blogs',
+            'testimonials',
+            'companyLogo',
+            'sliders'
+        ));
     }
 
 
