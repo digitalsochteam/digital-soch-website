@@ -37,30 +37,17 @@ class QuoteLeadController extends Controller
             'message' => 'nullable|string',
         ]);
 
-        // Normalize and capture IP
-        $ipAddress = $request->ip();
-        if ($ipAddress === '::1') {
-            $ipAddress = '127.0.0.1'; // normalize localhost IPv6 to IPv4
-        }
+        // Normalize IP
+        $ipAddress = $request->ip() === '::1' ? '127.0.0.1' : $request->ip();
 
-        // Capture only key headers to avoid overflow
+        // Capture only key headers
         $headers = json_encode([
             'user-agent' => $request->header('user-agent'),
             'referer' => $request->header('referer'),
             'origin' => $request->header('origin'),
         ], JSON_UNESCAPED_SLASHES);
 
-        // Check IP limit before anything else
-        $ipRequestCount = QuoteLead::where('ipaddress', $ipAddress)->count();
-        if ($ipRequestCount >= 2) {
-            Log::warning("IP blocked due to request limit", ['ip' => $ipAddress, 'count' => $ipRequestCount]);
-
-            $status = "error";
-            $message = "You have reached the maximum number of quote requests allowed from this IP address.";
-            return view('frontend.dashboard.thanku', compact('status', 'message'));
-        }
-
-        // Generate a unique lead ID
+        // Generate unique lead ID
         $leadId = 'LEAD-' . now()->format('YmdHis') . '-' . strtoupper(Str::random(4));
 
         // Check if lead with same mobile exists
@@ -86,6 +73,15 @@ class QuoteLeadController extends Controller
 
             $status = "success";
             $message = "Your response is already recorded! Please wait for our team to contact you.";
+            return view('frontend.dashboard.thanku', compact('status', 'message'));
+        }
+
+        // If mobile doesn't exist, enforce IP limit
+        $ipRequestCount = QuoteLead::where('ipaddress', $ipAddress)->count();
+        if ($ipRequestCount >= 2) {
+            Log::warning("IP blocked due to request limit", ['ip' => $ipAddress, 'count' => $ipRequestCount]);
+            $status = "error";
+            $message = "You have reached the maximum number of quote requests allowed from this IP address.";
             return view('frontend.dashboard.thanku', compact('status', 'message'));
         }
 
