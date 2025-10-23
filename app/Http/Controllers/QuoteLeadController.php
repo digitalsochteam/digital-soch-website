@@ -37,13 +37,24 @@ class QuoteLeadController extends Controller
             'message' => 'nullable|string',
         ]);
 
-        // Capture IP and Header info
+        // Normalize and capture IP
         $ipAddress = $request->ip();
-        $headers = json_encode($request->header(), JSON_UNESCAPED_SLASHES);
+        if ($ipAddress === '::1') {
+            $ipAddress = '127.0.0.1'; // normalize localhost IPv6 to IPv4
+        }
 
-        // Limit: only 2 requests allowed per IP
+        // Capture only key headers to avoid overflow
+        $headers = json_encode([
+            'user-agent' => $request->header('user-agent'),
+            'referer' => $request->header('referer'),
+            'origin' => $request->header('origin'),
+        ], JSON_UNESCAPED_SLASHES);
+
+        // Check IP limit before anything else
         $ipRequestCount = QuoteLead::where('ipaddress', $ipAddress)->count();
         if ($ipRequestCount >= 2) {
+            Log::warning("IP blocked due to request limit", ['ip' => $ipAddress, 'count' => $ipRequestCount]);
+
             $status = "error";
             $message = "You have reached the maximum number of quote requests allowed from this IP address.";
             return view('frontend.dashboard.thanku', compact('status', 'message'));
@@ -75,7 +86,6 @@ class QuoteLeadController extends Controller
 
             $status = "success";
             $message = "Your response is already recorded! Please wait for our team to contact you.";
-
             return view('frontend.dashboard.thanku', compact('status', 'message'));
         }
 
@@ -97,7 +107,6 @@ class QuoteLeadController extends Controller
 
         $status = "success";
         $message = "Your response has been saved successfully!";
-
         return view('frontend.dashboard.thanku', compact('status', 'message'));
     }
 
