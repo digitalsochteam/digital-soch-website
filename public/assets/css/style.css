@@ -16525,7 +16525,7 @@ a:focus {
     }
 
     .item-text-unique {
-        padding: 20px;                                                                                                                                                                                                                                                                                                                                
+        padding: 20px;
     }
 }
 
@@ -16689,9 +16689,9 @@ a:focus {
 
 /* Responsive */
 @media (max-width: 768px) {
-    body {
+    /* body {
         padding: 40px 15px;
-    }
+    } */
 
     .qr-page-title {
         font-size: 28px;
