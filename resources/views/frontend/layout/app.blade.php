@@ -19,9 +19,9 @@
                 <div class="mobile_menu_close open_mobile_menu">
                     <i class="fas fa-times"></i>
                 </div>
-                <div class="m-brand-logo">
+                {{-- <div class="m-brand-logo">
                     <a href="{{ url('/') }}"><img src="{{ asset('assets/img/logo/logo.png') }}" alt=""></a>
-                </div>
+                </div> --}}
 
                 <nav class="mobile-main-navigation  clearfix ul-li">
                     <ul id="m-main-nav" class="nav navbar-nav clearfix">

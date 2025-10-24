@@ -106,13 +106,17 @@
                                         Mail: info@digitalsochmedia.com / support@digitalsochmedia.com
                                     </div>
                                 </div>
-                                <div class="btn-cta-wrap mt-35 d-flex align-items-center">
-                                    <div class="tz-btn-1 mr-20">
-                                        <a href="{{ route('qrcode') }}"><span>Qr
+                                <div class="btn-cta-wrap mt-35 align-items-center">
+                                    <div class="tz-btn-1 mr-20 mb-10" style="display: inline-block;">
+                                        <a href="{{ route('qrcode') }}"><span style="font-size: 14px"><i
+                                                    class="fa-solid fa-qrcode mr-15"></i>Qr
                                                 Code</span></a>
                                     </div>
-                                    <div class="tz-btn-1">
-                                        <a href="https://crm.digitalsochmedia.com/login"><span>CRM Login</span></a>
+
+                                    <div class="tz-btn-1" style="display: inline-block;">
+                                        <a href="https://crm.digitalsochmedia.com/login"><span
+                                                style="font-size: 14px"><i class="fa-solid fa-lock mr-15"></i>CRM
+                                                Login</span></a>
                                     </div>
                                 </div>
                                 <div class="btn-cta-wrap mt-30 d-flex align-items-center">
