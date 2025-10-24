@@ -108,12 +108,11 @@
                                 </div>
                                 <div class="btn-cta-wrap mt-35 d-flex align-items-center">
                                     <div class="tz-btn-1 mr-20">
-                                        <a href="{{ route('qrcode') }}"><i class="fa-solid fa-qrcode mr-15"></i><span>Qr
+                                        <a href="{{ route('qrcode') }}"><span>Qr
                                                 Code</span></a>
                                     </div>
                                     <div class="tz-btn-1">
-                                        <a href="https://crm.digitalsochmedia.com/login"><i
-                                                class="fa-solid fa-lock mr-15"></i><span>CRM Login</span></a>
+                                        <a href="https://crm.digitalsochmedia.com/login"><span>CRM Login</span></a>
                                     </div>
                                 </div>
                                 <div class="btn-cta-wrap mt-30 d-flex align-items-center">
@@ -122,21 +121,15 @@
                                         <img src="{{ asset(path: 'assets/img/logo/playstore.svg') }}"
                                             alt="Google Play Store"
                                             style="width: 160px; margin-right: 20px; border-radius: 15px;"></a>
-
-
                                     <a href="https://apps.apple.com/us/app/digital-soch-customer/id6746125451"
                                         target="_blank">
                                         <img src="{{ asset('assets/img/logo/appstore.svg') }}" alt="App Store"
                                             style="width: 160px; border-radius: 15px;"></a>
-
-
-
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
             <div
                 class="tz-footer-copyright

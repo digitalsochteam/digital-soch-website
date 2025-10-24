@@ -27,7 +27,7 @@ class QuoteLeadController extends Controller
     {
         Log::info('Storing quote lead', ['request' => $request->all()]);
 
-        // Validation
+        // Validate input
         $request->validate([
             'fullname' => 'required|string|max:255',
             'city' => 'nullable|string|max:150',
@@ -40,50 +40,65 @@ class QuoteLeadController extends Controller
         // Normalize IP
         $ipAddress = $request->ip() === '::1' ? '127.0.0.1' : $request->ip();
 
-        // Capture only key headers
+        // Capture headers
         $headers = json_encode([
             'user-agent' => $request->header('user-agent'),
             'referer' => $request->header('referer'),
             'origin' => $request->header('origin'),
         ], JSON_UNESCAPED_SLASHES);
 
-        // Generate unique lead ID
+        // Unique lead ID
         $leadId = 'LEAD-' . now()->format('YmdHis') . '-' . strtoupper(Str::random(4));
 
-        // Check if lead with same mobile exists
-        $existingLead = QuoteLead::where('mobile', $request->mobile)->first();
+        // Get today's date
+        $today = now()->toDateString();
 
-        if ($existingLead) {
-            // Increment request count
-            $existingLead->increment('request_count');
+        // Check limits
+        $mobileCount = QuoteLead::where('mobile', $request->mobile)
+            ->whereDate('created_at', $today)
+            ->count();
 
-            // Update fields
-            $existingLead->update([
-                'fullname' => $request->fullname,
-                'city' => $request->city ?? $existingLead->city,
-                'email' => $request->email ?? $existingLead->email,
-                'subject' => $request->subject ?? $existingLead->subject,
-                'message' => $request->message ?? $existingLead->message,
-                'leadid' => $existingLead->leadid ?? $leadId,
-                'status' => 'Pending',
-                'source' => 'Website',
-                'ipaddress' => $ipAddress,
-                'header' => $headers,
-            ]);
+        $ipCount = QuoteLead::where('ipaddress', $ipAddress)
+            ->whereDate('created_at', $today)
+            ->count();
 
-            $status = "success";
-            $message = "Your response is already recorded! Please wait for our team to contact you.";
-            return view('frontend.dashboard.thanku', compact('status', 'message'));
-        }
-
-        // If mobile doesn't exist, enforce IP limit
-        $ipRequestCount = QuoteLead::where('ipaddress', $ipAddress)->count();
-        if ($ipRequestCount >= 2) {
-            Log::warning("IP blocked due to request limit", ['ip' => $ipAddress, 'count' => $ipRequestCount]);
+        // 🚫 If mobile exceeded 2 per day
+        if ($mobileCount >= 2) {
+            Log::warning("Daily limit reached for mobile", ['mobile' => $request->mobile]);
             $status = "error";
-            $message = "You have reached the maximum number of quote requests allowed from this IP address.";
+            $message = "We've received your request. To ensure fair assistance to all users, you can submit up to two quotes per day. Our team will reach out shortly.";
             return view('frontend.dashboard.thanku', compact('status', 'message'));
         }
+
+        // 🚫 If IP exceeded 2 per day
+        if ($ipCount >= 2) {
+            Log::warning("Daily limit reached for IP", ['ip' => $ipAddress]);
+            $status = "error";
+            $message = "We've received your request. To ensure fair assistance to all users, you can submit up to two quotes per day. Our team will reach out shortly.";
+            return view('frontend.dashboard.thanku', compact('status', 'message'));
+        }
+
+        // ✅ If allowed, create or update record
+        // $existingLead = QuoteLead::where('mobile', $request->mobile)->latest()->first();
+
+        // if ($existingLead) {
+        //     $existingLead->update([
+        //         'fullname' => $request->fullname,
+        //         'city' => $request->city ?? $existingLead->city,
+        //         'email' => $request->email ?? $existingLead->email,
+        //         'subject' => $request->subject ?? $existingLead->subject,
+        //         'message' => $request->message ?? $existingLead->message,
+        //         'leadid' => $existingLead->leadid ?? $leadId,
+        //         'status' => 'Pending',
+        //         'source' => 'Website',
+        //         'ipaddress' => $ipAddress,
+        //         'header' => $headers,
+        //     ]);
+
+        //     $status = "success";
+        //     $message = "Your quote request has been updated. Please wait for our team to contact you.";
+        //     return view('frontend.dashboard.thanku', compact('status', 'message'));
+        // }
 
         // Create new lead
         QuoteLead::create([
@@ -98,13 +113,14 @@ class QuoteLeadController extends Controller
             'source' => 'Website',
             'ipaddress' => $ipAddress,
             'header' => $headers,
-            'request_count' => 1,
         ]);
 
         $status = "success";
         $message = "Your response has been saved successfully!";
         return view('frontend.dashboard.thanku', compact('status', 'message'));
     }
+
+
 
 
 

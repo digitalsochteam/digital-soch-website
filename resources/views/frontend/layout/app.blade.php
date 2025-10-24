@@ -22,12 +22,7 @@
                 <div class="m-brand-logo">
                     <a href="{{ url('/') }}"><img src="{{ asset('assets/img/logo/logo.png') }}" alt=""></a>
                 </div>
-                <div class="mobile-search-bar position-relative">
-                    <form action="#">
-                        <input type="text" name="search" placeholder="Keywords">
-                        <button><i class="fas fa-search"></i></button>
-                    </form>
-                </div>
+
                 <nav class="mobile-main-navigation  clearfix ul-li">
                     <ul id="m-main-nav" class="nav navbar-nav clearfix">
                         <li><a href="{{ url('/') }}">Home</a></li>

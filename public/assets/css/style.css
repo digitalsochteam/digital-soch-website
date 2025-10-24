@@ -16996,7 +16996,7 @@ a:focus {
 
 @media (max-width: 480px) {
     .popup-header {
-        padding: 24px 20px;
+        padding: 40px 25px;
         border-radius: 16px 16px 0 0;
     }
 }
@@ -17473,6 +17473,202 @@ a:focus {
     .home-custom-btn-close {
         top: 15px;
         right: 15px;
+    }
+
+    /* Button styling with enhanced animations */
+    .footer-button {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: linear-gradient(135deg, #df1b25 0%, #b2161d 100%);
+        color: #fff;
+        border: none;
+        padding: 14px 28px;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 15px rgba(223, 27, 37, 0.3);
+        overflow: hidden;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    /* Hover effects */
+    .footer-button:hover {
+        background: linear-gradient(135deg, #b2161d 0%, #8a1116 100%);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(223, 27, 37, 0.4);
+    }
+
+    /* Active/Click effect */
+    .footer-button:active {
+        transform: translateY(-1px);
+        box-shadow: 0 3px 10px rgba(223, 27, 37, 0.3);
+    }
+
+    /* Icon styling with animation */
+    .footer-icon {
+        font-size: 18px;
+        transition: transform 0.3s ease;
+        animation: phoneRing 2s ease-in-out infinite;
+    }
+
+    .footer-button:hover .footer-icon {
+        transform: rotate(15deg) scale(1.1);
+    }
+
+    /* Phone ring animation */
+    @keyframes phoneRing {
+        0%,
+        100% {
+            transform: rotate(0deg);
+        }
+        10%,
+        30% {
+            transform: rotate(-10deg);
+        }
+        20%,
+        40% {
+            transform: rotate(10deg);
+        }
+        50% {
+            transform: rotate(0deg);
+        }
+    }
+
+    /* Button text */
+    .button-text {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Ripple effect on click */
+    .button-ripple {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50px;
+        transform: scale(0);
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .footer-button:active .button-ripple {
+        animation: ripple 0.6s ease-out;
+    }
+
+    @keyframes ripple {
+        0% {
+            transform: scale(0);
+            opacity: 1;
+        }
+        100% {
+            transform: scale(2.5);
+            opacity: 0;
+        }
+    }
+
+    /* Shimmer effect */
+    .footer-button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.3),
+            transparent
+        );
+        transition: left 0.5s ease;
+    }
+
+    .footer-button:hover::before {
+        left: 100%;
+    }
+
+    /* Focus state for accessibility */
+    .footer-button:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(223, 27, 37, 0.3);
+    }
+
+    /* Tablet responsiveness */
+    @media (max-width: 768px) {
+        .footer-button {
+            padding: 12px 24px;
+            font-size: 15px;
+            gap: 8px;
+        }
+
+        .footer-icon {
+            font-size: 17px;
+        }
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 600px) {
+        .footer-button {
+            padding: 12px 20px;
+            font-size: 14px;
+            gap: 8px;
+            border-radius: 40px;
+        }
+
+        .footer-icon {
+            font-size: 16px;
+        }
+
+        .button-text {
+            font-size: 14px;
+        }
+    }
+
+    /* Extra small devices */
+    @media (max-width: 400px) {
+        .footer-button {
+            padding: 10px 18px;
+            font-size: 13px;
+            width: 100%;
+            max-width: 200px;
+        }
+
+        .footer-icon {
+            font-size: 15px;
+        }
+    }
+
+    /* Disabled state (optional) */
+    .footer-button:disabled {
+        background: linear-gradient(135deg, #ccc 0%, #999 100%);
+        cursor: not-allowed;
+        box-shadow: none;
+        transform: none;
+    }
+
+    .footer-button:disabled:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    /* Dark mode support (optional) */
+    @media (prefers-color-scheme: dark) {
+        .footer-button {
+            box-shadow: 0 4px 15px rgba(223, 27, 37, 0.5);
+        }
+
+        .footer-button:hover {
+            box-shadow: 0 8px 25px rgba(223, 27, 37, 0.6);
+        }
     }
 }
 /*---------------------------------------------------- */
