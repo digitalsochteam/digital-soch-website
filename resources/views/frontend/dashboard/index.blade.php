@@ -106,10 +106,10 @@
 
             {{-- Slider Navigation --}}
             <div class="tz-hs-nav">
-                <div class="tz-hs-next arrow-nav d-flex justify-content-center align-items-center">
+                <div class="tz-hs-next arrow-nav d-flex justify-content-center align-items-center mb-40">
                     <i class="fa-solid fa-arrow-up"></i>
                 </div>
-                <div class="tz-hs-pagi"></div>
+                {{-- <div class="tz-hs-pagi"></div> --}}
                 <div class="tz-hs-prev arrow-nav d-flex justify-content-center align-items-center">
                     <i class="fa-solid fa-arrow-down"></i>
                 </div>
