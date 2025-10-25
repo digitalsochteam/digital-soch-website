@@ -318,7 +318,7 @@ Font load
     color: var(--tz-prime-c);
 }
 .tz-header-section:is(.header_style_one) .header-action {
-    gap: 40px;
+    gap: 20px;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px),
     only screen and (min-width: 576px) and (max-width: 767px),

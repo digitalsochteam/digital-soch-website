@@ -48,13 +48,18 @@
                                       </form>
                                    </div>
                                 </div> -->
-            <div class=" row pt-80 pb-80 d-flex">
+            <div class=" row pt-60 pb-60 d-flex">
                 <div class="col-lg-6 col-md-6">
                     <div class=" headline pera-content">
                         <div class="logo-widget">
+                            <a href="https://www.google.com/partners/agency?id=1250360958" class="mb-30"><img
+                                    src="{{ asset(path: 'assets/img/logo/partner-badge-two.png') }}"
+                                    style="width : 100px" alt="partner badge"></a>
                             <div class="brand-logo">
                                 <a href="{{ url('/') }}"><img src="{{ asset('assets/img/logo/logo.png') }}"
-                                        alt=""></a>
+                                        alt="company logo"></a>
+
+
                             </div>
                             <p style="margin-top: 20px;" class="text-black">DIGITAL SOCH is equipped with a team of
                                 trained professionals
@@ -106,8 +111,9 @@
                                         Mail: info@digitalsochmedia.com / support@digitalsochmedia.com
                                     </div>
                                 </div>
-                                <div class="btn-cta-wrap mt-35 align-items-center">
-                                    <div class="tz-btn-1 mr-20 mb-10" style="display: inline-block;">
+                                <div class="btn-cta-wrap mt-35 align-items-center d-flex"
+                                    style="width: 500px ;gap: 10px">
+                                    <div class="tz-btn-1" style="display:flex; inline-block;">
                                         <a href="{{ route('qrcode') }}"><span style="font-size: 14px"><i
                                                     class="fa-solid fa-qrcode mr-15"></i>Qr
                                                 Code</span></a>
@@ -119,12 +125,11 @@
                                                 Login</span></a>
                                     </div>
                                 </div>
-                                <div class="btn-cta-wrap mt-30 d-flex align-items-center">
+                                <div class="btn-cta-wrap mt-30 d-flex align-items-center" style="gap: 10px">
                                     <a href="https://play.google.com/store/apps/details?id=com.digital.soch.Customer"
                                         target="_blank">
                                         <img src="{{ asset(path: 'assets/img/logo/playstore.svg') }}"
-                                            alt="Google Play Store"
-                                            style="width: 160px; margin-right: 20px; border-radius: 15px;"></a>
+                                            alt="Google Play Store" style="width: 160px;  border-radius: 15px;"></a>
                                     <a href="https://apps.apple.com/us/app/digital-soch-customer/id6746125451"
                                         target="_blank">
                                         <img src="{{ asset('assets/img/logo/appstore.svg') }}" alt="App Store"
@@ -140,7 +145,7 @@
                                         d-flex justify-content-between pera-content ul-li">
                 <p style="color: black">Copyright @ Digital Soch Pvt. Ltd. All Rights Received.</p>
                 <div class="tz-footer-menu">
-                    <ul>
+                    <ul style="text-align: center">
                         <li><a style="color: black" href="{{ route('cancellationrefundpolicy') }}">Cancellation &
                                 Refund Policy</a>
                         </li>

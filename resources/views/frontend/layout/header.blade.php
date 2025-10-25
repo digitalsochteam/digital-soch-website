@@ -150,6 +150,9 @@
                         <a href="https://client.digitalsochmedia.com/login"><span>Login</span> <i
                                 class="fa-solid fa-lock"></i></a>
                     </div>
+                    <a href="https://www.google.com/partners/agency?id=1250360958"><img
+                            src="{{ asset(path: 'assets/img/logo/partner-badge-two.png') }}" alt="partner badge"
+                            style="width : 80px"></a>
                     <button class="tz-mobile-btn-trigger mobile-menu-btn mobile_menu_button open_mobile_menu">
                         <span></span>
                         <span></span>

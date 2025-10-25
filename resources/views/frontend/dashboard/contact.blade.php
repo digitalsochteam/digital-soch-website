@@ -1,10 +1,10 @@
 @extends('frontend.layout.app')
 @section(section: 'content')
     <!-- Start of Header section
-                                                        ============================================= -->
+                                                                ============================================= -->
 
     <!-- Start of Breadcrumb section
-                                                        ============================================= -->
+                                                                ============================================= -->
     <section id="tz-breadcrumb" class="tz-breadcrumb-sec position-relative"
         data-background="{{ asset('assets/img/bg/bread-bg.jpg') }}">
         <div class="container">
@@ -18,10 +18,10 @@
         </div>
     </section>
     <!-- End of Breadcrumb section
-                                                        ============================================= -->
+                                                                ============================================= -->
 
     <!-- Start of Contact page section
-                                                        ============================================= -->
+                                                                ============================================= -->
     <section id="tz-cnt-map" class="tz-cnt-map-sec pt-110 pb-120">
         <div class="container">
             <div class="tz-cnt-map-content">
@@ -57,22 +57,20 @@
                     </div>
                 </div>
                 <div class="tz-cnt-map-frame">
-                    {{-- <iframe class="map mb-25"
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d6209.242755903148!2d-77.04363602434464!3d38.90977276948481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1394992895496"
-                        height="422" width="100%"></iframe> --}}
+
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.754275298654!2d72.86789617618025!3d19.118432882094897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9b60f18b0cd%3A0xd709987cd37f659!2sDigital%20Soch%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1759219228130!5m2!1sen!2sin"
-                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
     </section>
     <!-- End of Contact page section
-                                                        ============================================= -->
+                                                                ============================================= -->
 
     <!-- Start of Contact page section
-                                                        ============================================= -->
+                                                                ============================================= -->
     <section id="tz-cnt-form" class="tz-cnt-form-sec pt-110 pb-120 position-relative"
         data-background="{{ asset('assets/img/bg/cn-bg.jpg') }}">
         <span class="tz-cnt-img top_view position-absolute"><img src="{{ asset('assets/img/about/cn2.png') }}"
@@ -116,5 +114,5 @@
         </div>
     </section>
     <!-- End of Contact page section
-                                                        ============================================= -->
+                                                                ============================================= -->
 @endsection
