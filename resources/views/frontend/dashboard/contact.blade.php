@@ -1,10 +1,10 @@
 @extends('frontend.layout.app')
 @section(section: 'content')
     <!-- Start of Header section
-                                                    ============================================= -->
+                                                        ============================================= -->
 
     <!-- Start of Breadcrumb section
-                                                    ============================================= -->
+                                                        ============================================= -->
     <section id="tz-breadcrumb" class="tz-breadcrumb-sec position-relative"
         data-background="{{ asset('assets/img/bg/bread-bg.jpg') }}">
         <div class="container">
@@ -18,10 +18,10 @@
         </div>
     </section>
     <!-- End of Breadcrumb section
-                                                    ============================================= -->
+                                                        ============================================= -->
 
     <!-- Start of Contact page section
-                                                    ============================================= -->
+                                                        ============================================= -->
     <section id="tz-cnt-map" class="tz-cnt-map-sec pt-110 pb-120">
         <div class="container">
             <div class="tz-cnt-map-content">
@@ -69,10 +69,10 @@
         </div>
     </section>
     <!-- End of Contact page section
-                                                    ============================================= -->
+                                                        ============================================= -->
 
     <!-- Start of Contact page section
-                                                    ============================================= -->
+                                                        ============================================= -->
     <section id="tz-cnt-form" class="tz-cnt-form-sec pt-110 pb-120 position-relative"
         data-background="{{ asset('assets/img/bg/cn-bg.jpg') }}">
         <span class="tz-cnt-img top_view position-absolute"><img src="{{ asset('assets/img/about/cn2.png') }}"
@@ -116,5 +116,5 @@
         </div>
     </section>
     <!-- End of Contact page section
-                                                    ============================================= -->
+                                                        ============================================= -->
 @endsection
