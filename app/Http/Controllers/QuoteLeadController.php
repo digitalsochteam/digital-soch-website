@@ -66,7 +66,7 @@ class QuoteLeadController extends Controller
         if ($mobileCount >= 2) {
             Log::warning("Daily limit reached for mobile", ['mobile' => $request->mobile]);
             $status = "error";
-            $message = "We've received your request. To ensure fair assistance to all users, you can submit up to two quotes per day. Our team will reach out shortly.";
+            $message = "We've received your request. Our team will reach out shortly.";
             return view('frontend.dashboard.thanku', compact('status', 'message'));
         }
 
@@ -74,7 +74,7 @@ class QuoteLeadController extends Controller
         if ($ipCount >= 2) {
             Log::warning("Daily limit reached for IP", ['ip' => $ipAddress]);
             $status = "error";
-            $message = "We've received your request. To ensure fair assistance to all users, you can submit up to two quotes per day. Our team will reach out shortly.";
+            $message = "We've received your request. Our team will reach out shortly.";
             return view('frontend.dashboard.thanku', compact('status', 'message'));
         }
 
@@ -119,11 +119,6 @@ class QuoteLeadController extends Controller
         $message = "Your response has been saved successfully!";
         return view('frontend.dashboard.thanku', compact('status', 'message'));
     }
-
-
-
-
-
 
     public function destroy(QuoteLead $lead)
     {

@@ -81,9 +81,8 @@
                                         </div>
                                     @endif
                                     <div class="tz-price-btn">
-                                        <a href="{{ route('contact') }}">Get Started</a>
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#myModal">Get Started</a>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
