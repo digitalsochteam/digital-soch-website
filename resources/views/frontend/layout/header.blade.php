@@ -147,7 +147,7 @@
                         </div>
                         </div> -->
                     <div class="header-cta-btn btn-spin">
-                        <a href="https://client.digitalsochmedia.com/login"><span>Login</span> <i
+                        <a href="https://client.digitalsochmedia.com/login" target="_blank"><span>Login</span> <i
                                 class="fa-solid fa-lock"></i></a>
                     </div>
                     <a href="https://www.google.com/partners/agency?id=1250360958"><img

@@ -15,6 +15,7 @@ use App\Http\Controllers\PortfolioVideoController;
 use App\Http\Controllers\BackDashboardController;
 use App\Http\Controllers\PortfolioPostController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\ContactController;
 
 
 Route::get('/', [DashboardController::class, 'index'])->name('frontend.dashboard.index');
@@ -47,6 +48,9 @@ Route::get('/thank-you', function () {
 Route::get('/scan-qr-code', function () {
     return view('frontend.dashboard.qrcode');
 })->name('qrcode');
+
+Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
+
 
 
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');

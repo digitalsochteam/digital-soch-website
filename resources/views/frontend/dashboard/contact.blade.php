@@ -1,10 +1,10 @@
 @extends('frontend.layout.app')
 @section(section: 'content')
     <!-- Start of Header section
-                                                                ============================================= -->
+                                                                    ============================================= -->
 
     <!-- Start of Breadcrumb section
-                                                                ============================================= -->
+                                                                    ============================================= -->
     <section id="tz-breadcrumb" class="tz-breadcrumb-sec position-relative"
         data-background="{{ asset('assets/img/bg/bread-bg.jpg') }}">
         <div class="container">
@@ -18,10 +18,10 @@
         </div>
     </section>
     <!-- End of Breadcrumb section
-                                                                ============================================= -->
+                                                                    ============================================= -->
 
     <!-- Start of Contact page section
-                                                                ============================================= -->
+                                                                    ============================================= -->
     <section id="tz-cnt-map" class="tz-cnt-map-sec pt-110 pb-120">
         <div class="container">
             <div class="tz-cnt-map-content">
@@ -67,10 +67,10 @@
         </div>
     </section>
     <!-- End of Contact page section
-                                                                ============================================= -->
+                                                                    ============================================= -->
 
     <!-- Start of Contact page section
-                                                                ============================================= -->
+                                                                    ============================================= -->
     <section id="tz-cnt-form" class="tz-cnt-form-sec pt-110 pb-120 position-relative"
         data-background="{{ asset('assets/img/bg/cn-bg.jpg') }}">
         <span class="tz-cnt-img top_view position-absolute"><img src="{{ asset('assets/img/about/cn2.png') }}"
@@ -83,28 +83,29 @@
                     </div>
                     <h2 class="sec_title  tz-itm-title tz-itm-anim">Let's Start Creating Together!</h2>
                     <div class="tz-cnt-content mt-30">
-                        <form action="#" method="post">
+                        <form action="{{ route('contact.send') }}" method="POST">
+                            @csrf
                             <div class="row">
                                 <div class="col-lg-6 col-md-12">
-                                    <input type="text" name="name" placeholder="First Name*">
+                                    <input type="text" name="first_name" placeholder="First Name*" required>
                                 </div>
                                 <div class="col-lg-6 col-md-12">
-                                    <input type="text" name="name" placeholder="Last Name*">
+                                    <input type="text" name="last_name" placeholder="Last Name*" required>
                                 </div>
                                 <div class="col-lg-6 col-md-12">
-                                    <input type="email" name="email" placeholder="Your Mail*">
+                                    <input type="email" name="email" placeholder="Your Email*" required>
                                 </div>
                                 <div class="col-lg-6 col-md-12">
-                                    <input type="text" name="name" placeholder="Phone Number*">
+                                    <input type="text" name="phone" placeholder="Phone Number*" required>
                                 </div>
                                 <div class="col-lg-12 col-md-12">
-                                    <input type="text" name="subject" placeholder="Your Subject*">
+                                    <input type="text" name="subject" placeholder="Your Subject*" required>
                                 </div>
                                 <div class="col-lg-12 col-md-12">
-                                    <textarea name="message" id="#" placeholder="Write your message*"></textarea>
+                                    <textarea name="message" placeholder="Write your message*" required></textarea>
                                 </div>
                                 <div class="col-lg-12 col-md-12">
-                                    <button>Send Message</button>
+                                    <button type="submit">Send Message</button>
                                 </div>
                             </div>
                         </form>
@@ -114,5 +115,5 @@
         </div>
     </section>
     <!-- End of Contact page section
-                                                                ============================================= -->
+                                                                    ============================================= -->
 @endsection

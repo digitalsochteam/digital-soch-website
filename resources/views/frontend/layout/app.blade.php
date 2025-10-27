@@ -10,7 +10,6 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-
     <!-- Mobile Menu -->
     <div class="mobile_menu lenis lenis-smooth position-relative">
         <div class="mobile_menu_wrap">
@@ -19,55 +18,44 @@
                 <div class="mobile_menu_close open_mobile_menu">
                     <i class="fas fa-times"></i>
                 </div>
-                {{-- <div class="m-brand-logo">
-                    <a href="{{ url('/') }}"><img src="{{ asset('assets/img/logo/logo.png') }}" alt=""></a>
-                </div> --}}
 
-                <nav class="mobile-main-navigation  clearfix ul-li">
+                {{-- <div class="m-brand-logo">
+                <a href="{{ url('/') }}"><img src="{{ asset('assets/img/logo/logo.png') }}" alt=""></a>
+            </div> --}}
+
+                <nav class="mobile-main-navigation clearfix ul-li">
                     <ul id="m-main-nav" class="nav navbar-nav clearfix">
                         <li><a href="{{ url('/') }}">Home</a></li>
                         <li><a href="{{ route('about') }}" aria-label="About our company">About Us</a></li>
 
                         @foreach (getCategoryList() as $category)
                             <li class="dropdown">
-                                <a>
-                                    {{ $category['category'] }}
-                                </a>
+                                <a>{{ $category['category'] }}</a>
 
-                                {{-- Only show subcategories menu if exists and not empty --}}
                                 @if (!empty($category['subcategories']))
                                     <ul class="dropdown-menu clearfix">
                                         @foreach ($category['subcategories'] as $subcategory)
-                                            {{-- Show subcategory only if it has products --}}
                                             @if (count($subcategory['products']) > 0)
                                                 @php
                                                     $validProducts = array_filter(
                                                         $subcategory['products'] ?? [],
-                                                        function ($p) {
-                                                            return !empty($p); // removes null, "", 0, false
-                                                        },
+                                                        fn($p) => !empty($p),
                                                     );
-
                                                     $isOnlyProduct = false;
                                                     if ($validProducts && count($validProducts) > 0) {
-                                                        if ($validProducts[0]['name'] == null) {
-                                                            $isOnlyProduct = true;
-                                                        } else {
-                                                            $isOnlyProduct = false;
-                                                        }
+                                                        $isOnlyProduct =
+                                                            $validProducts[0]['name'] == null ? true : false;
                                                     }
-
                                                 @endphp
 
                                                 <li
-                                                    class="{{ count($validProducts) > 0 && $isOnlyProduct === false ? 'dropdown' : '' }}">
-
-                                                    <a href="{{ count($validProducts) > 0 && $isOnlyProduct === false ? '#' : route('product.show', $validProducts[0]['slug']) }}"
+                                                    class="{{ count($validProducts) > 0 && !$isOnlyProduct ? 'dropdown' : '' }}">
+                                                    <a href="{{ count($validProducts) > 0 && !$isOnlyProduct ? '#' : route('product.show', $validProducts[0]['slug']) }}"
                                                         aria-label="Product">
                                                         {{ $subcategory['subcategory'] }}
                                                     </a>
 
-                                                    @if (count($validProducts) > 0 && $isOnlyProduct === false)
+                                                    @if (count($validProducts) > 0 && !$isOnlyProduct)
                                                         <ul class="dropdown-menu clearfix">
                                                             @foreach ($subcategory['products'] as $product)
                                                                 @php
@@ -87,27 +75,20 @@
                                         @endforeach
                                     </ul>
                                 @endif
-
                             </li>
                         @endforeach
+
                         <li class="dropdown"><a>Portfolio</a>
                             <ul class="dropdown-menu clearfix">
-                                <li><a href="{{ route('website.seeallwebsites') }}">Websites
-                                    </a>
-                                </li>
-                                <li><a href="{{ route('logo.seealllogos') }}">Logos
-                                    </a></li>
-                                <li><a href="{{ route('video.seeallvideos') }}">Videos
-                                    </a></li>
-                                <li><a href="{{ route('post.seeallposts') }}">Posts
-                                    </a></li>
+                                <li><a href="{{ route('website.seeallwebsites') }}">Websites</a></li>
+                                <li><a href="{{ route('logo.seealllogos') }}">Logos</a></li>
+                                <li><a href="{{ route('video.seeallvideos') }}">Videos</a></li>
+                                <li><a href="{{ route('post.seeallposts') }}">Posts</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown">
-                            <a>
-                                Packages
-                            </a>
 
+                        <li class="dropdown">
+                            <a>Packages</a>
                             @if (getPackages()->count() > 0)
                                 <ul class="dropdown-menu clearfix">
                                     @foreach (getPackages() as $package)
@@ -127,6 +108,17 @@
                         <li><a href="{{ route('contact') }}">Contacts</a></li>
                     </ul>
                 </nav>
+
+                <!-- ✅ CRM Login Button -->
+                <div class="text-center mt-3 mb-3">
+                    <a href="https://client.digitalsochmedia.com/login" target="_blank" class="tz-btn-1"
+                        style="display: inline-block; background-color: #df1b25; color: #fff; padding: 8px 20px; border-radius: 5px; text-decoration: none;">
+                        <i class="fa-solid fa-lock mr-2"></i>
+                        <span style="font-size: 14px;">Login</span>
+                    </a>
+                </div>
+
+                <!-- Social Icons -->
                 <div class="ptx-mobile-header-social text-center">
                     <a href="https://www.facebook.com/Digital.Soch.Pvt.Ltd/" target="_blank"><i
                             class="fa-brands fa-facebook-f"></i></a>
@@ -138,9 +130,8 @@
                 </div>
             </div>
         </div>
-        <!-- /Mobile-Menu -->
-        <!-- mobile menu code here -->
     </div>
+
 
 
     <div id="mybutton">

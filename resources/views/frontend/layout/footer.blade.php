@@ -52,14 +52,17 @@
                 <div class="col-lg-6 col-md-6">
                     <div class=" headline pera-content">
                         <div class="logo-widget">
-                            <a href="https://www.google.com/partners/agency?id=1250360958" class="mb-30"><img
-                                    src="{{ asset(path: 'assets/img/logo/partner-badge-two.png') }}"
-                                    style="width : 100px" alt="partner badge"></a>
-                            <div class="brand-logo">
-                                <a href="{{ url('/') }}"><img src="{{ asset('assets/img/logo/logo.png') }}"
-                                        alt="company logo"></a>
+                            <div class="brand-logo"
+                                style="display: flex; justify-content: space-between; align-items: center; padding: 15px;">
+                                <a href="{{ url('/') }}">
+                                    <img src="{{ asset('assets/img/logo/logo.png') }}" alt="company logo"
+                                        style="height: 60px;">
+                                </a>
 
-
+                                <a href="https://www.google.com/partners/agency?id=1250360958">
+                                    <img src="{{ asset('assets/img/logo/partner-badge-two.png') }}"
+                                        style="width: 100px;" alt="partner badge">
+                                </a>
                             </div>
                             <p style="margin-top: 20px;" class="text-black">DIGITAL SOCH is equipped with a team of
                                 trained professionals
@@ -119,8 +122,8 @@
                                                 Code</span></a>
                                     </div>
 
-                                    <div class="tz-btn-1" style="display: inline-block;">
-                                        <a href="https://crm.digitalsochmedia.com/login"><span
+                                    <div class="tz-btn-1" style="display: inline-block;" target="_blank">
+                                        <a href="https://crm.digitalsochmedia.com/login" target="_blank"><span
                                                 style="font-size: 14px"><i class="fa-solid fa-lock mr-15"></i>CRM
                                                 Login</span></a>
                                     </div>
