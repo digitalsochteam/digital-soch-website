@@ -9,7 +9,7 @@
         <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     @endpush
 
-    {{-- <section id="tz-hero-slider" class="tz-hero-slider-sec">
+    <section id="tz-hero-slider" class="tz-hero-slider-sec">
         <div class="tz-hero-slider-area swiper-container">
             <div class="swiper-wrapper">
                 @foreach ($sliders as $slider)
@@ -102,7 +102,7 @@
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section>
 
     {{-- ✅ OPTIMIZATION 6: Feature section with lazy loaded images --}}
     <section id="tz-feature" class="tz-feature-sec pt-115 pb-115">
