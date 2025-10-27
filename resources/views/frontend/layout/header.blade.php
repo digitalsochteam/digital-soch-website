@@ -9,13 +9,22 @@
                 </div>
                 <div class="tz-top-social">
                     <span>Follow Us:</span>
-                    <a href="https://www.facebook.com/Digital.Soch.Pvt.Ltd/" target="_blank"><i
-                            class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/digitalsochpvtltd/" target="_blank"><i
-                            class="fa-brands fa-instagram"></i></a>
-                    <a href="https://x.com/digital_Soch_M" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="https://www.youtube.com/channel/UCLnmfBKs2zEWqEYJdvU1jKQ" target="_blank"><i
-                            class="fa-brands fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/Digital.Soch.Pvt.Ltd/" target="_blank" rel="noopener noreferrer"
+                        aria-label="Visit our Facebook page">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/digitalsochpvtltd/" target="_blank" rel="noopener noreferrer"
+                        aria-label="Visit our Instagram profile">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://x.com/digital_Soch_M" target="_blank" rel="noopener noreferrer"
+                        aria-label="Visit our Twitter profile">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCLnmfBKs2zEWqEYJdvU1jKQ" target="_blank"
+                        rel="noopener noreferrer" aria-label="Visit our YouTube channel">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -153,10 +162,13 @@
                     <a href="https://www.google.com/partners/agency?id=1250360958" target="_blank"><img
                             src="{{ asset(path: 'assets/img/logo/partner-badge-two.png') }}" alt="partner badge"
                             style="width : 80px"></a>
-                    <button class="tz-mobile-btn-trigger mobile-menu-btn mobile_menu_button open_mobile_menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                    <button class="tz-mobile-btn-trigger mobile-menu-btn mobile_menu_button open_mobile_menu"
+                        aria-label="Open mobile menu">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </button>
+                    <span></span>
+                    <span></span>
+                    <span></span>
                     </button>
                 </div>
             </div>

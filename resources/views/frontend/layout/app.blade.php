@@ -6,9 +6,10 @@
 <body>
 
 
-    <a href="https://api.whatsapp.com/send?phone=917208909232" class="btn-whatsapp-pulse" target="_blank">
-        <i class="fab fa-whatsapp"></i>
+    <a href="https://api.whatsapp.com/send?phone=917208909232" class="btn-whatsapp-pulse" target="_blank" rel="noopener"
+        aria-label="Chat with us on WhatsApp">
     </a>
+
 
     <!-- Mobile Menu -->
     <div class="mobile_menu lenis lenis-smooth position-relative">
@@ -120,14 +121,24 @@
 
                 <!-- Social Icons -->
                 <div class="ptx-mobile-header-social text-center">
-                    <a href="https://www.facebook.com/Digital.Soch.Pvt.Ltd/" target="_blank"><i
-                            class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/digitalsochpvtltd/" target="_blank"><i
-                            class="fa-brands fa-instagram"></i></a>
-                    <a href="https://x.com/digital_Soch_M" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="https://www.youtube.com/channel/UCLnmfBKs2zEWqEYJdvU1jKQ" target="_blank"><i
-                            class="fa-brands fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/Digital.Soch.Pvt.Ltd/" target="_blank" rel="noopener noreferrer"
+                        aria-label="Visit our Facebook page">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/digitalsochpvtltd/" target="_blank" rel="noopener noreferrer"
+                        aria-label="Visit our Instagram profile">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://x.com/digital_Soch_M" target="_blank" rel="noopener noreferrer"
+                        aria-label="Visit our Twitter profile">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCLnmfBKs2zEWqEYJdvU1jKQ" target="_blank"
+                        rel="noopener noreferrer" aria-label="Visit our YouTube channel">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
                 </div>
+
             </div>
         </div>
     </div>
