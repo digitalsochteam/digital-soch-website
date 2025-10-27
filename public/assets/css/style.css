@@ -4092,7 +4092,7 @@ a:focus {
 .tz-hero-slide-item .tz-vect-shape1 {
     right: -1%;
     z-index: -1;
-    /* bottom: -100%; */
+    bottom: -100%;
     -webkit-transition: 1.5s cubic-bezier(0.61, -0.63, 0.46, 1.48);
     transition: 1.5s cubic-bezier(0.61, -0.63, 0.46, 1.48);
 }
@@ -16176,14 +16176,14 @@ a:focus {
     padding: 35px;
     text-decoration: none;
     border-radius: 50%;
-    animation-name: pulse;
+    /* animation-name: pulse; */
     animation-duration: 1.5s;
     animation-timing-function: ease-out;
     animation-iteration-count: infinite;
     z-index: 999;
 }
 
-@keyframes pulse {
+/* @keyframes pulse {
     0% {
         box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
     }
@@ -16191,7 +16191,7 @@ a:focus {
     80% {
         box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
     }
-}
+} */
 
 .btn-whatsapp-pulse-border {
     bottom: 120px;

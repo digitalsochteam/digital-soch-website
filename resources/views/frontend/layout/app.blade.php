@@ -8,8 +8,8 @@
 
     <a href="https://api.whatsapp.com/send?phone=917208909232" class="btn-whatsapp-pulse" target="_blank" rel="noopener"
         aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
     </a>
-
 
     <!-- Mobile Menu -->
     <div class="mobile_menu lenis lenis-smooth position-relative">

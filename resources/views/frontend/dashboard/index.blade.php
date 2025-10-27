@@ -44,7 +44,6 @@
                                 <img src="{{ asset('assets/img/shape/s-shape3.png') }}" alt="">
                             </div>
 
-                            <span class="tz-hs-shape position-absolute"></span>
 
                             <div class="container">
                                 <div class="tz-hs-content d-flex align-items-center justify-content-between">
