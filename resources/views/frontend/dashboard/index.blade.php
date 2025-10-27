@@ -9,7 +9,7 @@
         <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     @endpush
 
-    <section id="tz-hero-slider" class="tz-hero-slider-sec">
+    {{-- <section id="tz-hero-slider" class="tz-hero-slider-sec">
         <div class="tz-hero-slider-area swiper-container">
             <div class="swiper-wrapper">
                 @foreach ($sliders as $slider)
@@ -34,7 +34,6 @@
                                 </svg>
                             </div>
 
-                            {{-- Background Shapes --}}
                             <div class="tz-vect-shape1 position-absolute">
                                 <img src="{{ asset('assets/img/shape/s-shape1.png') }}" alt="">
                             </div>
@@ -63,23 +62,12 @@
                                                     href="{{ $slider->tablename == 'product' ? route('product.show', $slider->slug) : route('package.show', $slider->slug) }}"><span>Get
                                                         Started</span></a>
                                             </div>
-                                            {{-- <div class="btn-cta">
-                                                <a href="tel:2240030857">Hotline: +9122-4003 0857</a>
-                                            </div> --}}
                                         </div>
                                     </div>
 
-                                    {{-- Hero Images --}}
+
                                     <div class="tz-hs-img-wrap d-flex justify-content-end position-relative">
-                                        {{-- <div class="item-img1">
-                                            <img src="{{ $slide['image1'] }}" alt="">
-                                        </div>
-                                        <div class="item-img2">
-                                            <img src="{{ $slide['image2'] }}" alt="">
-                                        </div>
-                                        <div class="item-img3">
-                                            <img src="{{ $slide['image3'] }}" alt="">
-                                        </div> --}}
+
                                         @if ($slider->image_one)
                                             <div class="item-img1">
                                                 <img src="{{ $slider->image_one ? asset('storage/' . $slider->image_one) : asset('assets/img/default.jpg') }}"
@@ -104,18 +92,17 @@
                 @endforeach
             </div>
 
-            {{-- Slider Navigation --}}
             <div class="tz-hs-nav">
                 <div class="tz-hs-next arrow-nav d-flex justify-content-center align-items-center mb-40">
                     <i class="fa-solid fa-arrow-up"></i>
                 </div>
-                {{-- <div class="tz-hs-pagi"></div> --}}
+
                 <div class="tz-hs-prev arrow-nav d-flex justify-content-center align-items-center">
                     <i class="fa-solid fa-arrow-down"></i>
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     {{-- ✅ OPTIMIZATION 6: Feature section with lazy loaded images --}}
     <section id="tz-feature" class="tz-feature-sec pt-115 pb-115">
