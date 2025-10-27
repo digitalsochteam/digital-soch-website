@@ -59,7 +59,7 @@
                                         style="height: 60px;">
                                 </a>
 
-                                <a href="https://www.google.com/partners/agency?id=1250360958">
+                                <a href="https://www.google.com/partners/agency?id=1250360958" target="_blank">
                                     <img src="{{ asset('assets/img/logo/partner-badge-two.png') }}"
                                         style="width: 100px;" alt="partner badge">
                                 </a>
