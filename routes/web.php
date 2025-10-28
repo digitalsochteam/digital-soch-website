@@ -49,7 +49,7 @@ Route::get('/scan-qr-code', function () {
     return view('frontend.dashboard.qrcode');
 })->name('qrcode');
 
-Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
+Route::post('/contact/send', [ContactController::class, 'secnd'])->name('contact.send');
 
 
 

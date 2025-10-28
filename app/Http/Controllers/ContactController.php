@@ -53,7 +53,7 @@ class ContactController extends Controller
 
         // 📨 1️⃣ Send email to Admin
         Mail::send('emails.contact', $mailData, function ($message) use ($mailData) {
-            $message->to('jayesh@digitalsochmedia.com')
+            $message->to('support@digitalsochmedia.com')
                 ->subject('New Enquiry: ' . $mailData['subject']);
         });
 
