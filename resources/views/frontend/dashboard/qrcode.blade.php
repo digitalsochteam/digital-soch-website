@@ -19,7 +19,7 @@
 
         <!-- Left: Image -->
         <div class="qr-image" style="flex: 0 0 350px;">
-            <img src="{{ asset('assets/img/service/qr-code.jpg') }}" alt="Bank Image"
+            <img src="{{ asset('assets/img/service/qr-code-two.jpeg') }}" alt="Bank Image"
                 style="width: 100%; border-radius: 10px;">
         </div>
 
