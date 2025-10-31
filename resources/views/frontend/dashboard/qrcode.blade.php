@@ -13,7 +13,7 @@
         </div>
     </section>
 
-    <!-- Container with Image on Left -->
+
     <div class="qr-container"
         style="display: flex; gap: 30px; align-items: flex-start; flex-wrap: wrap; padding-top: 50px; padding-bottom: 50px;">
 
