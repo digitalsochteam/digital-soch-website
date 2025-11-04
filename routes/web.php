@@ -173,8 +173,5 @@ Route::middleware(['auth'])->group(function () {
             Route::delete('/{detail}', [SliderController::class, 'destroy'])->name('destroy');
         });
 
-
-
-
     });
 });

@@ -103,7 +103,7 @@
                                         <i class="fa-solid fa-phone"></i>
                                     </div>
                                     <div class="info-text" style="color: black">
-                                        Call Us : +022-40030857
+                                        Call Us : 022-40030857 / 1800-1204-444-45
                                     </div>
                                 </div>
                                 <div class="cta-info d-flex">
