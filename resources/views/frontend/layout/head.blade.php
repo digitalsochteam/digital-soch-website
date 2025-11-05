@@ -2,8 +2,7 @@
     <meta charset="UTF-8">
     <title>@yield(
         'title',
-        'Digital Marketing Company in Mumbai(Call:72089 09232)-Digital Marketing Company in Andheri - Digital Soch
-                                                                            Private Limited'
+        'Best Digital Marketing Company in Mumbai (Call:07208909232) | Digital Marketing Company in Andheri | SEO Services In Mumbai, Andheri | SEO Agency In Mumbai, Andheri | Best SEO Company In Mumbai, Andheri | Affordable SEO Services In Mumbai, Andheri | SEO Experts In Mumbai, Andheri | Professional SEO Company In Mumbai, Andheri | Top SEO Companies In Mumbai, Andheri | Technical SEO Company In Mumbai, Andheri | Ecommerce SEO Services In Mumbai, Andheri | SEO Consultants In Mumbai, Andheri | Best SEO Agency Near Andheri | Affordable SEO Packages In Mumbai, Andheri | SEO Marketing Company In Andheri | Social Media Marketing In Mumbai, Andheri | Website Development Agency In Mumbai, Andheri | Web Design Company In Mumbai, Andheri  | Website Design Services In Mumbai, Andheri | Website Designers In Mumbai, Andheri | Website Designing Company In Mumbai, Andheri | Best Website Design Company In Mumbai, Andheri | Google Ads Agency In Mumbai, Andheri | Best Google Ads Agency In Mumbai, Andheri | Google Adwords Management Services Company In Mumbai, Andheri | Top Google Adwords Agency In Mumbai, Andheri | Best Google Ads Agency In Mumbai, Andheri | Digital Soch Private Limited'
     )</title>
     @stack('extra-head')
     <link rel="shortcut icon" href="{{ asset('assets/img/logo/ds.jpg') }}" type="image/x-icon">
