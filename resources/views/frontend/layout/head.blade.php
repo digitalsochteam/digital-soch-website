@@ -3,7 +3,7 @@
     <title>@yield(
         'title',
         'Digital Marketing Company in Mumbai(Call:72089 09232)-Digital Marketing Company in Andheri - Digital Soch
-                                                        Private Limited'
+                                                                    Private Limited'
     )</title>
     @stack('extra-head')
     <link rel="shortcut icon" href="{{ asset('assets/img/logo/ds.jpg') }}" type="image/x-icon">
