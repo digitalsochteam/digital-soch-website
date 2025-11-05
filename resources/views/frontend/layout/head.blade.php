@@ -3,7 +3,7 @@
     <title>@yield(
         'title',
         'Digital Marketing Company in Mumbai(Call:72089 09232)-Digital Marketing Company in Andheri - Digital Soch
-                                                                    Private Limited'
+                                                                            Private Limited'
     )</title>
     @stack('extra-head')
     <link rel="shortcut icon" href="{{ asset('assets/img/logo/ds.jpg') }}" type="image/x-icon">
@@ -45,6 +45,17 @@
         <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}">
     </noscript>
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-633VC3KBHZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-633VC3KBHZ');
+    </script>
 
 </head>
