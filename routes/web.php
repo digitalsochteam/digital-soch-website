@@ -18,6 +18,10 @@ use App\Http\Controllers\SliderController;
 use App\Http\Controllers\ContactController;
 
 
+Route::fallback(function () {
+    return response()->view('frontend.errors.error', [], 404);
+});
+
 Route::get('/', [DashboardController::class, 'index'])->name('frontend.dashboard.index');
 
 Route::get('/about-our-agency', function () {
