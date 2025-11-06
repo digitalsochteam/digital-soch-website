@@ -1,5 +1,30 @@
 @extends('frontend.layout.app')
 
+@section('title',
+    'Digital Marketing Blogs & Insights (Call:07208909232)| Digital Soch Private
+    Limited')
+
+    @push('extra-head')
+        <meta name="description"
+            content="Explore the latest blogs from Digital Soch Private Limited — expert insights on digital marketing, SEO, social media, branding, and online growth strategies that help your business succeed. (Call:07208909232)" />
+        <link rel="canonical" href="https://digitalsochmedia.com/blogs" />
+        <meta http-equiv="content-language" content="en-us" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:locale" content="en_IN" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title"
+            content="Digital Marketing Blogs & Insights (Call:07208909232)| Digital Soch Private
+    Limited" />
+        <meta property="og:description"
+            content="Explore the latest blogs from Digital Soch Private Limited — expert insights on digital marketing, SEO, social media, branding, and online growth strategies that help your business succeed. (Call:07208909232)" />
+        <meta property="og:url" content="https://digitalsochmedia.com/blogs" />
+        <meta property="og:site_name" content="Digital Soch Private Limited">
+        <meta name="geo.position" content="Mumbai">
+        <meta name="geo.placename" content="Andheri">
+        <meta name="geo.region" content="400053">
+        <meta name="revisit-after" content="7 days">
+    @endpush
+
 @section('content')
     <!-- Breadcrumb Section -->
     <section id="tz-breadcrumb" class="tz-breadcrumb-sec position-relative"

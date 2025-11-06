@@ -37,7 +37,8 @@ class BlogController extends Controller
         $blog = Blog::where('slug', $slug)->first();
 
         if (!$blog) {
-            abort(404, 'Blog not found');
+            return view('frontend.errors.error', []);
+
         }
 
         // Exclude the current blog using its numeric ID

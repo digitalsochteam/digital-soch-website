@@ -26,6 +26,11 @@ class ProductPackageSubscriptionController extends Controller
     public function show($slug)
     {
         $package = ProductPackage::where('slug', $slug)->first();
+
+        if (!$package) {
+            return view('frontend.errors.error', []);
+        }
+
         $subscriptions = ProductPackageSubscription::where('product_package_id', $package->id)->get();
         return view('frontend.package.show', compact('package', 'subscriptions'));
     }

@@ -9,8 +9,6 @@ use Illuminate\Http\Request;
 use App\Models\ProductDetails;
 use App\Models\MainProduct;
 use Illuminate\Support\Facades\Storage;
-use App\Models\ProductPackage;
-use App\Models\Blog;
 
 class ProductController extends Controller
 {
@@ -47,6 +45,8 @@ class ProductController extends Controller
             Log::info('Other Products', ['otherProducts' => $otherProducts]);
 
             return view('frontend.product.show', compact('product', 'otherProducts'));
+        } else {
+            return view('frontend.errors.error', []);
         }
     }
 

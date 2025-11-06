@@ -1,22 +1,22 @@
 @extends('frontend.layout.app')
 
 @section('title',
-    'Digital Marketing Insights & Tips (Call:07208909232)|Blog by Digital Soch Private
+    'Social Media Post Design Services in Mumbai (Call:07208909232)| Digital Soch Private
     Limited')
 
     @push('extra-head')
         <meta name="description"
-            content="Explore the latest digital marketing tips, social media strategies, and SEO insights from the experts at Digital Soch Private Limited, Mumbai. (Call:07208909232)" />
+            content="Boost your brand presence with customized social media post designs by Digital Soch Private Limited. We create creative festival, promotional, and business posts tailored for all social media platforms. (Call:07208909232)" />
         <link rel="canonical" href="https://www.digitalsochmedia.com/posts" />
         <meta http-equiv="content-language" content="en-us" />
         <meta name="robots" content="index, follow" />
         <meta property="og:locale" content="en_IN" />
         <meta property="og:type" content="website" />
         <meta property="og:title"
-            content="Digital Marketing Insights & Tips (Call:07208909232)|Blog by Digital Soch Private
+            content="Social Media Post Design Services in Mumbai (Call:07208909232)| Digital Soch Private
     Limited" />
         <meta property="og:description"
-            content="Explore the latest digital marketing tips, social media strategies, and SEO insights from the experts at Digital Soch Private Limited, Mumbai. (Call:07208909232)" />
+            content="Boost your brand presence with customized social media post designs by Digital Soch Private Limited. We create creative festival, promotional, and business posts tailored for all social media platforms. (Call:07208909232)" />
         <meta property="og:url" content="https://www.digitalsochmedia.com/posts" />
         <meta property="og:site_name" content="Digital Soch Private Limited">
         <meta name="geo.position" content="Mumbai">
@@ -24,6 +24,7 @@
         <meta name="geo.region" content="400053">
         <meta name="revisit-after" content="7 days">
     @endpush
+
 
 @section('content')
     <!-- Breadcrumb Section -->
