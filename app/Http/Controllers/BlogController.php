@@ -58,7 +58,7 @@ class BlogController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'tags' => 'nullable|string',   // comma separated string
-            'image' => 'nullable|image|max:2048',
+            'image' => 'nullable|image',
             "slug" => "nullable|string|unique:blogs,slug",
         ]);
 
@@ -95,7 +95,7 @@ class BlogController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'tags' => 'nullable|string', // comma separated string
-            'image' => 'nullable|image|max:2048',
+            'image' => 'nullable|image',
             'slug' => 'nullable|string|unique:blogs,slug,' . $detail->id,
         ]);
 
