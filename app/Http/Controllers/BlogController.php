@@ -116,6 +116,8 @@ class BlogController extends Controller
                 $request->file('image')->store('blog_images', 'public');
         }
 
+
+
         // Log data for debugging
         Log::info('Updating blog with data: ', $data);
 

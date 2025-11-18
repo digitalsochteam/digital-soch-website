@@ -16,7 +16,7 @@
     </section>
 
     <!-- Start of Service Details section
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ============================================= -->
     <section id="tz-blog-details" class="tz-blog-details-sec pt-110 pb-100">
         <div class="container">
             <div class="row">
@@ -34,7 +34,9 @@
                                 {{ $blog->created_at?->format('d M, Y') }}</a>
                         </div>
                         <h3>{{ $blog->title }}</h3>
-                        <p>{{ $blog->description }}</p>
+                        <p>
+                            {!! $blog->description !!}
+                        </p>
                     </div>
                     <div class="tz-blog-tag">
                         <span>Tag:</span>
@@ -82,16 +84,14 @@
                                     @empty
                                         <p class="text-muted">No recent posts available.</p>
                                     @endforelse
-
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </section>
     <!-- End of Service Details section
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ============================================= -->
 @endsection
