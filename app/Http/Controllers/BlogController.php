@@ -58,7 +58,7 @@ class BlogController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'tags' => 'nullable|string',   // comma separated string
-            'image' => 'nullable|image',
+            'image' => 'nullable|image|max:2048',
             "slug" => "nullable|string|unique:blogs,slug",
         ]);
 
@@ -95,7 +95,7 @@ class BlogController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'tags' => 'nullable|string', // comma separated string
-            'image' => 'nullable|image',
+            'image' => 'nullable|image|max:2048',
             'slug' => 'nullable|string|unique:blogs,slug,' . $detail->id,
         ]);
 
@@ -115,8 +115,6 @@ class BlogController extends Controller
             $data['image'] =
                 $request->file('image')->store('blog_images', 'public');
         }
-
-
 
         // Log data for debugging
         Log::info('Updating blog with data: ', $data);
