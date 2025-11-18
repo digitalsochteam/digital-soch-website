@@ -39,8 +39,10 @@ class DashboardController extends Controller
         });
 
         // Get all blogs
+
+
         $blogs = Cache::remember('all_blogs', $cacheDuration, function () {
-            return Blog::get();
+            return Blog::orderBy('created_at', 'desc')->take(3)->get();
         });
 
         // Get random testimonials (limit 3)
