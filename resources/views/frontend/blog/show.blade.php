@@ -1,5 +1,13 @@
 @extends('frontend.layout.app')
 
+@section('title', $blog->meta_title)
+
+@push('extra-head')
+    @if (!empty($blog->meta_description))
+        {!! $blog->meta_description !!}
+    @endif
+@endpush
+
 @section('content')
     <!-- Breadcrumb Section -->
     <section id="tz-breadcrumb" class="tz-breadcrumb-sec position-relative"
@@ -16,7 +24,7 @@
     </section>
 
     <!-- Start of Service Details section
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
     <section id="tz-blog-details" class="tz-blog-details-sec pt-110 pb-100">
         <div class="container">
             <div class="row">
@@ -38,14 +46,12 @@
                             {!! $blog->description !!}
                         </p>
                     </div>
-                    <div class="tz-blog-tag">
+                    <div class="tz-blog-tag" style="display:flex; gap:8px; align-items:center;">
                         <span>Tag:</span>
 
                         @if (!empty($blog->tags) && is_array($blog->tags))
                             @foreach ($blog->tags as $tag)
-                                <a>
-                                    {{ $tag }}
-                                </a>
+                                <a>{{ $tag }}</a>
                             @endforeach
                         @else
                             <span>No tags</span>
@@ -93,5 +99,5 @@
         </div>
     </section>
     <!-- End of Service Details section
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ============================================= -->
 @endsection

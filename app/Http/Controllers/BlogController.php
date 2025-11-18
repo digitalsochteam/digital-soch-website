@@ -58,8 +58,10 @@ class BlogController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'tags' => 'nullable|string',   // comma separated string
-            'image' => 'nullable|image',
+            'image' => 'nullable|image|max:2048',
             "slug" => "nullable|string|unique:blogs,slug",
+            "meta_title" => "nullable|string",
+            "meta_description" => "nullable|string",
         ]);
 
         Log::info('slug: ' . $data['slug']);
@@ -95,11 +97,11 @@ class BlogController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'tags' => 'nullable|string', // comma separated string
-            'image' => 'nullable|image',
+            'image' => 'nullable|image|max:2048',
             'slug' => 'nullable|string|unique:blogs,slug,' . $detail->id,
+            "meta_title" => "nullable|string",
+            "meta_description" => "nullable|string",
         ]);
-
-
 
         // ✅ Convert tags to array (same as store)
         $data['tags'] = $data['tags']
