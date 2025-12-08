@@ -40,7 +40,7 @@
                     <nav class="main-navigation clearfix ul-li">
                         <ul id="main-nav" class="nav navbar-nav clearfix">
                             <li><a href="{{ url('/') }}">Home</a></li>
-                            <li><a href="{{ route('about') }}">About Us</a></li>
+                            {{-- <li><a href="{{ route('about') }}">About Us</a></li> --}}
 
                             @foreach (getCategoryList() as $category)
                                 <li class="dropdown">
@@ -140,7 +140,7 @@
                             </li>
 
 
-
+                            <li><a href="{{ route('blog.seeallblogs') }}">Blog</a></li>
                             <li><a href="{{ route('contact') }}">Contacts</a></li>
                         </ul>
                     </nav>

@@ -105,6 +105,7 @@
                             @endif
                         </li>
 
+                        <li><a href="{{ route('blog.seeallblogs') }}">Blog</a></li>
                         <li><a href="{{ route('contact') }}">Contacts</a></li>
                     </ul>
                 </nav>

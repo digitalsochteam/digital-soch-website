@@ -1,7 +1,23 @@
-.note-editable ul,
+/* .note-editable ul,
 .note-editable ol {
     list-style-type: initial !important;
     padding-left: 1.5rem !important;
+} */
+
+.note-editable ul,
+.note-editable ol {
+    padding-left: 20px !important;
+    margin-left: 10px !important;
+}
+
+.note-editable li {
+    line-height: 1.6 !important;
+    margin-bottom: 6px !important;
+}
+
+.note-editable ul > li::marker,
+.note-editable ol > li::marker {
+    font-size: 16px !important;
 }
 
 /* Custom bullet types */

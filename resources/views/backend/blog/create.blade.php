@@ -24,16 +24,21 @@
                     ['fontname', ['fontname']],
                     ['fontsize', ['fontsize']],
                     ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['para', ['ul', 'ol',
+                        'paragraph'
+                    ]], // ✅ Important: "ul" and "ol" are for list buttons
                     ['height', ['height']],
                     ['insert', ['link', 'picture', 'video', 'table', 'hr']],
                     ['misc', ['fullscreen', 'codeview', 'undo', 'redo', 'help']]
                 ],
                 fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
-                fontSizes: ['8', '9', '10', '11', '12', '14', '18', '24', '36', '48', '64', '82', '150'],
+                fontSizes: ['8', '9', '10', '11', '12', '14', '16', '18', '24', '36', '48', '64', '82',
+                    '150'
+                ],
                 codeviewFilter: true, // Clean HTML on code view
                 codeviewIframeFilter: true, // Extra HTML sanitization
                 disableDragAndDrop: false, // Enable image drag & drop
+                styleWithCSS: true,
             });
         });
     </script>
