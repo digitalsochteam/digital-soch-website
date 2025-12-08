@@ -24,7 +24,7 @@
     </section>
 
     <!-- Start of Service Details section
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ============================================= -->
     <section id="tz-blog-details" class="tz-blog-details-sec pt-110 pb-100">
         <div class="container">
             <div class="row">
@@ -42,9 +42,9 @@
                                 {{ $blog->created_at?->format('d M, Y') }}</a>
                         </div>
                         <h3>{{ $blog->title }}</h3>
-                        <p>
-                            {!! $blog->description !!}
-                        </p>
+
+                        {!! $blog->description !!}
+
                     </div>
                     <div class="tz-blog-tag" style="display:flex; gap:8px; align-items:center;">
                         <span>Tag:</span>
@@ -99,5 +99,5 @@
         </div>
     </section>
     <!-- End of Service Details section
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ============================================= -->
 @endsection
