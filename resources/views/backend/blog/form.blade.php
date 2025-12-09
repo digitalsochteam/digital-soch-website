@@ -24,9 +24,16 @@
     <textarea name="meta_description" id="meta_description" class="form-control" rows="8" {{-- adjust rows for default height --}}>{{ old('meta_description', $detail->meta_description ?? '') }}</textarea>
 </div>
 
-<div class="mb-3">
+{{-- <div class="mb-3">
     <label for="description">Description <span class="text-danger">*</span></label>
     <textarea id="description" name="description" class="form-control summernote" rows="4">{{ old('description', $detail->description ?? '') }}</textarea>
+</div> --}}
+
+<div class="mb-3">
+    <label for="description">Description <span class="text-danger">*</span></label>
+    <textarea id="description" name="description" class="form-control" rows="4">
+        {{ old('description', $detail->description ?? '') }}
+    </textarea>
 </div>
 
 {{-- <div class="mb-3">

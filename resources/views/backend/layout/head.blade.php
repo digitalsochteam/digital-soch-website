@@ -24,6 +24,8 @@
     <!-- Summernote Lite CSS & JS (No Bootstrap dependencies) -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/font/ckeditor.js"></script>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/backend.css') }}">

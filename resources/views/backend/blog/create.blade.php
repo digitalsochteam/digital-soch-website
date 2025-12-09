@@ -10,7 +10,7 @@
 @endsection
 
 @section('scripts')
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             $('.summernote').summernote({
                 height: 300, // Set editor height
@@ -41,5 +41,41 @@
                 styleWithCSS: true,
             });
         });
+    </script> --}}
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#description'), {
+                toolbar: {
+                    items: [
+                        'undo', 'redo', '|',
+                        'heading', '|',
+                        'bold', 'italic', 'underline', 'strikethrough', '|',
+                        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', '|',
+                        'alignment:left', 'alignment:center', 'alignment:right', 'alignment:justify', '|',
+                        'bulletedList', 'numberedList', 'todoList', '|',
+                        'blockQuote', 'insertTable', 'link', 'horizontalLine', '|',
+                        'imageUpload', 'mediaEmbed', '|',
+                        'code', 'codeBlock', 'removeFormat'
+                    ]
+                },
+                image: {
+                    toolbar: [
+                        'imageStyle:full',
+                        'imageStyle:side',
+                        'imageTextAlternative'
+                    ]
+                },
+                table: {
+                    contentToolbar: [
+                        'tableColumn',
+                        'tableRow',
+                        'mergeTableCells'
+                    ]
+                },
+                mediaEmbed: {
+                    previewsInData: true
+                }
+            })
+            .catch(error => console.error(error));
     </script>
 @endsection
