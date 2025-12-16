@@ -100,6 +100,15 @@
                                 </div>
                                 <div class="cta-info d-flex">
                                     <div class="info-icon">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                    </div>
+                                    <div class="info-text" style="color: black">
+                                        Balaji Complex, Office Number 301A, Opp Salave Garden Iskon Temple - Gangadham
+                                        Rd, Pune, Maharashtra 411048
+                                    </div>
+                                </div>
+                                <div class="cta-info d-flex">
+                                    <div class="info-icon">
                                         <i class="fa-solid fa-phone"></i>
                                     </div>
                                     <div class="info-text" style="color: black">

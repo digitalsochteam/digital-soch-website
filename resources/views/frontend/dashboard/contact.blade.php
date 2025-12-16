@@ -25,10 +25,10 @@
 
 @section(section: 'content')
     <!-- Start of Header section
-                                                                                                                            ============================================= -->
+                                                                                                                                                        ============================================= -->
 
     <!-- Start of Breadcrumb section
-                                                                                                                            ============================================= -->
+                                                                                                                                                        ============================================= -->
     <section id="tz-breadcrumb" class="tz-breadcrumb-sec position-relative"
         data-background="{{ asset('assets/img/bg/bread-bg.jpg') }}">
         <div class="container">
@@ -42,10 +42,10 @@
         </div>
     </section>
     <!-- End of Breadcrumb section
-                                                                                                                            ============================================= -->
+                                                                                                                                                        ============================================= -->
 
     <!-- Start of Contact page section
-                                                                                                                            ============================================= -->
+                                                                                                                                                        ============================================= -->
     <section id="tz-cnt-map" class="tz-cnt-map-sec pt-110 pb-120">
         <div class="container">
             <div class="tz-cnt-map-content">
@@ -55,8 +55,18 @@
                             <i class="fa-solid fa-location-dot"></i>
                         </div>
                         <div class="item-text headline pera-content">
-                            <h3>Our Office Address:</h3>
+                            <h3>Mumbai (Head Office)</h3>
                             <p> 105,Ackruti Star, Midc central road, Andheri east, Mumbai- 400093</p>
+                        </div>
+                    </div>
+                    <div class="tz-cnt-cta-item d-flex align-items-center">
+                        <div class="item-icon d-flex justify-content-center align-items-center">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="item-text headline pera-content">
+                            <h3>Pune</h3>
+                            <p> Balaji Complex, Office Number 301A, Opp Salave Garden Iskon Temple - Gangadham
+                                Rd, Pune, Maharashtra 411048</p>
                         </div>
                     </div>
                     <div class="tz-cnt-cta-item d-flex align-items-center">
@@ -91,10 +101,10 @@
         </div>
     </section>
     <!-- End of Contact page section
-                                                                                                                            ============================================= -->
+                                                                                                                                                        ============================================= -->
 
     <!-- Start of Contact page section
-                                                                                                                            ============================================= -->
+                                                                                                                                                        ============================================= -->
     <section id="tz-cnt-form" class="tz-cnt-form-sec pt-110 pb-120 position-relative"
         data-background="{{ asset('assets/img/bg/cn-bg.jpg') }}">
         <span class="tz-cnt-img top_view position-absolute"><img src="{{ asset('assets/img/about/cn2.png') }}"
@@ -139,5 +149,5 @@
         </div>
     </section>
     <!-- End of Contact page section
-                                                                                                                            ============================================= -->
+                                                                                                                                                        ============================================= -->
 @endsection
