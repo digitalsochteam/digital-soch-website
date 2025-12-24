@@ -89,12 +89,13 @@
 </div>
 
 <div class="mb-3">
-    <label>Main Image {{ isset($edit) ? '(optional)' : '' }}</label>
+    <label>Thumbnail {{ isset($edit) ? '(optional)' : '' }}</label>
     <input type="file" name="product_image" class="form-control">
     @isset($detail->product_image)
         <img src="{{ asset('storage/' . $detail->product_image) }}" width="120" class="mt-2">
     @endisset
 </div>
+
 
 <div class="mb-3">
     <label>Description</label>
@@ -170,8 +171,8 @@
         /* ---------- 1. Fill Category Dropdown ---------- */
         categoryTree.forEach(cat => {
             const opt = document.createElement('option');
-            opt.value = cat.category;
-            opt.textContent = cat.category;
+            opt.value = cat.name;
+            opt.textContent = cat.name;
             categorySelect.appendChild(opt);
         });
 

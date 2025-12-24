@@ -540,10 +540,24 @@
             </div>
         </section>
 
-        <!-- Section 6: Changes to Terms -->
         <section class="policy-section">
             <div class="section-header">
                 <span class="section-number">6</span>
+                <h2 class="section-title">Google Ads MCC Account Policy</h2>
+            </div>
+            <div class="policy-content">
+                <p class="policy-text">Our company uses a centralized Google MCC (My Client Center) account to manage and
+                    operate all client advertising campaigns.
+                    This MCC account is internal, proprietary, and confidential to the company.
+                    For security, compliance, and operational reasons, MCC-level access shall not be provided or shared with
+                    any client under any circumstances.</p>
+            </div>
+        </section>
+
+        <!-- Section 6: Changes to Terms -->
+        <section class="policy-section">
+            <div class="section-header">
+                <span class="section-number">7</span>
                 <h2 class="section-title">Changes To These Terms & Conditions</h2>
             </div>
             <div class="policy-content">
@@ -553,6 +567,8 @@
                     services immediately.</p>
             </div>
         </section>
+
+
 
         <!-- Contact Section -->
         <section class="contact-section">

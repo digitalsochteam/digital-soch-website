@@ -10,5 +10,4 @@ class BackDashboardController extends Controller
     {
         return view('backend.dashboard.view', );
     }
-
 }
